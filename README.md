@@ -4,5 +4,5 @@
 
 
 - Shubham Goyal (NEUID 002747584)
-- Megha Patel (1247876)
-- Sahil Gothoskar (002775631)
+- Megha Patel (NEUID 001247876)
+- Sahil Gothoskar (NEUID 002775631)
