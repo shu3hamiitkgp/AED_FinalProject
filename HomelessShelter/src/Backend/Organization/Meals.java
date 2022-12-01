@@ -22,6 +22,8 @@ public class Meals extends Organization{
     boolean vegetarian;
     boolean peanut;
     String type;
+    
+    //this is a comment 
 
     public Meals(String name) {
         super(name);
