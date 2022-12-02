@@ -15,9 +15,9 @@ import java.util.List;
 public class Jobs extends Organization{
     List<String> services;
     static String[] types = {"Remote", "On-Site", "Hybrid"};
+    static String[] category = {"Agriculture","Information Technology", "Teaching" , "Construction" };
     int salary;
-    boolean vegetarian;
-    boolean peanut;
+    boolean disabled;
     String type;
     
 
@@ -46,32 +46,26 @@ public class Jobs extends Organization{
     }
 
     public static void setTypes(String[] types) {
-        Meals.types = types;
+        Jobs.types = types;
     }
 
-    public boolean isLgbtfriendly() {
-        return lgbtfriendly;
+    public boolean isdisabled() {
+        return disabled;
     }
 
-    public void setLgbtfriendly(boolean lgbtfriendly) {
-        this.lgbtfriendly = lgbtfriendly;
+    public void setdisabled(boolean disabled) {
+        this.disabled = disabled;
     }
 
-    public boolean isVegetarian() {
-        return vegetarian;
+    public int issalary() {
+        return salary;
     }
 
-    public void setVegetarian(boolean vegetarian) {
-        this.vegetarian = vegetarian;
+    public void setsalary(int salary) {
+        this.salary = salary;
     }
 
-    public boolean isPeanut() {
-        return peanut;
-    }
 
-    public void setPeanut(boolean peanut) {
-        this.peanut = peanut;
-    }
 
     public String getFType() {
         return type;
