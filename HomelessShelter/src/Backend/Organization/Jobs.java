@@ -49,6 +49,15 @@ public class Jobs extends Organization{
         Jobs.types = types;
     }
 
+    public static String[] getcategory() {
+        return category;
+    }
+
+    public static void setcategory(String[] category) {
+        Jobs.category = category;
+    }
+    
+    
     public boolean isdisabled() {
         return disabled;
     }

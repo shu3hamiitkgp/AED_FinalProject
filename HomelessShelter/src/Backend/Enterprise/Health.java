@@ -13,12 +13,6 @@ public class Health {
      
     private String health;
     
-    public Health(String name) {
-        super(name);
-        health = name;
-    }
-
-    @Override
     public ArrayList<Role> getSupportedRole() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }   
