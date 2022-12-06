@@ -14,10 +14,11 @@ import java.util.List;
  */
 public class Medical extends Organization{
     List<String> status;
-    static String[] category = {"Agriculture","Information Technology", "Teaching" , "Construction" };
+    static String[] category = {"Orthopedian","General Practicioner", "Obstetricians", "Neurologists" };
     int fees;
     boolean availability;
     String doctors;
+    String location;
     
 
 
@@ -32,20 +33,12 @@ public class Medical extends Organization{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public List<String> getServices() {
-        return services;
+    public List<String> getstatus() {
+        return status;
     }
 
-    public void setServices(List<String> services) {
-        this.services = services;
-    }
-
-    public static String[] getTypes() {
-        return types;
-    }
-
-    public static void setTypes(String[] types) {
-        Jobs.types = types;
+    public void setstatus(List<String> status) {
+        this.status = status;
     }
 
     public static String[] getcategory() {
@@ -57,12 +50,12 @@ public class Medical extends Organization{
     }
     
     
-    public boolean isdisabled() {
-        return disabled;
+    public boolean isavailability() {
+        return availability;
     }
 
-    public void setdisabled(boolean disabled) {
-        this.disabled = disabled;
+    public void setavailability(boolean availability) {
+        this.availability = availability;
     }
 
     public int isfees() {
@@ -75,12 +68,20 @@ public class Medical extends Organization{
 
 
 
-    public String getFType() {
-        return type;
+    public String getdoctors() {
+        return doctors;
     }
 
-    public void setFType(String type) {
-        this.type = type;
+    public void setdoctors(String doctors) {
+        this.doctors = doctors;
+    }
+    
+    public String getlocation() {
+    return location;
+    }
+
+    public void setlocation(String location) {
+    this.location = location;
     }
    
 }
