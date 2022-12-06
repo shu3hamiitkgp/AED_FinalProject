@@ -4,6 +4,7 @@
  */
 package Backend.Organization;
 
+import Backend.Role.Role;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  *
  * @author Sahil
  */
-public abstract class Counselling extends Organization{
+public class Counselling extends Organization{
     List<String> specialties;
     double fees;
     boolean acceptsMedicare;
@@ -61,6 +62,11 @@ public abstract class Counselling extends Organization{
 
     public void setMentalHealth(boolean mentalHealth) {
         this.mentalHealth = mentalHealth;
+    }
+
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     
