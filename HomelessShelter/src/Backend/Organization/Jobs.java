@@ -14,11 +14,11 @@ import java.util.List;
  */
 public class Jobs extends Organization{
     List<String> services;
-    static String[] types = {"Remote", "On-Site", "Hybrid"};
     static String[] category = {"Agriculture","Information Technology", "Teaching" , "Construction" };
     int salary;
     boolean disabled;
     String type;
+    String skills;
     
 
 
@@ -41,14 +41,16 @@ public class Jobs extends Organization{
         this.services = services;
     }
 
-    public static String[] getTypes() {
-        return types;
+    
+    public static String[] getcategory() {
+        return category;
     }
 
-    public static void setTypes(String[] types) {
-        Jobs.types = types;
+    public static void setcategory(String[] category) {
+        Jobs.category = category;
     }
-
+    
+    
     public boolean isdisabled() {
         return disabled;
     }
@@ -67,12 +69,21 @@ public class Jobs extends Organization{
 
 
 
-    public String getFType() {
+    public String gettype() {
         return type;
     }
 
-    public void setFType(String type) {
+    public void settype(String type) {
         this.type = type;
     }
    
+    public String getskills() {
+        return skills;
+    }
+
+    public void setskills(String skills) {
+        this.skills = skills;
+    }
+    
+    
 }
