@@ -14,11 +14,10 @@ import java.util.List;
  */
 public class Medical extends Organization{
     List<String> status;
-    static String[] types = {"Remote", "On-Site", "Hybrid"};
     static String[] category = {"Agriculture","Information Technology", "Teaching" , "Construction" };
-    int salary;
-    boolean disabled;
-    String type;
+    int fees;
+    boolean availability;
+    String doctors;
     
 
 
@@ -66,12 +65,12 @@ public class Medical extends Organization{
         this.disabled = disabled;
     }
 
-    public int issalary() {
-        return salary;
+    public int isfees() {
+        return fees;
     }
 
-    public void setsalary(int salary) {
-        this.salary = salary;
+    public void setfees(int fees) {
+        this.fees = fees;
     }
 
 

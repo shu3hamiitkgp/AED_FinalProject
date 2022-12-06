@@ -18,6 +18,7 @@ public class Jobs extends Organization{
     int salary;
     boolean disabled;
     String type;
+    String skills;
     
 
 
@@ -68,12 +69,21 @@ public class Jobs extends Organization{
 
 
 
-    public String getFType() {
+    public String gettype() {
         return type;
     }
 
-    public void setFType(String type) {
+    public void settype(String type) {
         this.type = type;
     }
    
+    public String getskills() {
+        return skills;
+    }
+
+    public void setskills(String skills) {
+        this.skills = skills;
+    }
+    
+    
 }
