@@ -23,7 +23,7 @@ public abstract class Enterprise extends Organization{
 
 
     public enum EnterpriseType{
-        VoluntaryOperatingUnit("Voluntary Operating Unit"), EmergencyOperatingUnit("Emergency Response Unit"), IncidentOperatingUnit("Incident Operating Unit")/*, FundsOperatingUnit("Funds Operating Unit")*/; 
+        Shelter("Shelter Unit"), Health("Health Unit"), Resources("Resources Unit"), PartTimeEmployement("Part Time Employement Unit"); 
         
         private String value;
         
