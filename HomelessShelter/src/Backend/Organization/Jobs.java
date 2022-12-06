@@ -14,7 +14,6 @@ import java.util.List;
  */
 public class Jobs extends Organization{
     List<String> services;
-    static String[] types = {"Remote", "On-Site", "Hybrid"};
     static String[] category = {"Agriculture","Information Technology", "Teaching" , "Construction" };
     int salary;
     boolean disabled;
@@ -41,14 +40,7 @@ public class Jobs extends Organization{
         this.services = services;
     }
 
-    public static String[] getTypes() {
-        return types;
-    }
-
-    public static void setTypes(String[] types) {
-        Jobs.types = types;
-    }
-
+    
     public static String[] getcategory() {
         return category;
     }

@@ -4,10 +4,84 @@
  */
 package Backend.Organization;
 
+import Backend.Role.Role;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Sahil
  */
-public class Medical {
+public class Medical extends Organization{
+    List<String> status;
+    static String[] types = {"Remote", "On-Site", "Hybrid"};
+    static String[] category = {"Agriculture","Information Technology", "Teaching" , "Construction" };
+    int salary;
+    boolean disabled;
+    String type;
     
+
+
+    public Medical(String name) {
+        super(name);
+        status = new ArrayList<String>();
+    }
+    
+
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public List<String> getServices() {
+        return services;
+    }
+
+    public void setServices(List<String> services) {
+        this.services = services;
+    }
+
+    public static String[] getTypes() {
+        return types;
+    }
+
+    public static void setTypes(String[] types) {
+        Jobs.types = types;
+    }
+
+    public static String[] getcategory() {
+        return category;
+    }
+
+    public static void setcategory(String[] category) {
+        Jobs.category = category;
+    }
+    
+    
+    public boolean isdisabled() {
+        return disabled;
+    }
+
+    public void setdisabled(boolean disabled) {
+        this.disabled = disabled;
+    }
+
+    public int issalary() {
+        return salary;
+    }
+
+    public void setsalary(int salary) {
+        this.salary = salary;
+    }
+
+
+
+    public String getFType() {
+        return type;
+    }
+
+    public void setFType(String type) {
+        this.type = type;
+    }
+   
 }
