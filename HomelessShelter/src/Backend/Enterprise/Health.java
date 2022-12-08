@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Backend.Enterprise;
-import Backend.Organization.Counselling;
+import Backend.Organization.Counceling;
 import Backend.Organization.Medical;
 import Backend.Role.Role;
 import java.util.ArrayList;
@@ -42,12 +42,12 @@ import java.util.List;
 //        this.hospitals = hospitals;
 //    }
 //    
-//    public List<Counselling> addRehab(Counselling c){
+//    public List<Counselling> addRehab(Counceling c){
 //        rehabs.add(c);
 //        return rehabs;
 //    }
 //    
-//    public List<Counselling> deleteRehab(Counselling c){
+//    public List<Counselling> deleteRehab(Counceling c){
 //        rehabs.remove(c);
 //        return rehabs;
 //    }
