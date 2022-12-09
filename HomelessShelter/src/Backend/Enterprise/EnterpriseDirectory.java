@@ -37,17 +37,17 @@ public class EnterpriseDirectory {
     
     public Enterprise createAndAddEnterprise(String name, Enterprise.EnterpriseType type){
         Enterprise enterprise=null;
-        if (type == Enterprise.EnterpriseType.EmergencyOperatingUnit) {
-            enterprise = new EmergencyOperatingUnit(name);
+        if (type == Enterprise.EnterpriseType.Shelter) {
+            enterprise = new Shelter(name);
             enterpriseList.add(enterprise);
-        }/*else if (type == Enterprise.EnterpriseType.FundsOperatingUnit) {
-            enterprise = new FundsOperatingUnit(name);
+        }else if (type == Enterprise.EnterpriseType.Health) {
+            enterprise = new Health(name);
             enterpriseList.add(enterprise);
-        }*/else if (type == Enterprise.EnterpriseType.IncidentOperatingUnit) {
-            enterprise = new IncidentOperatingUnit(name);
+        }else if (type == Enterprise.EnterpriseType.Resources) {
+            enterprise = new Resources(name);
             enterpriseList.add(enterprise);
-        }else if (type == Enterprise.EnterpriseType.VoluntaryOperatingUnit) {
-            enterprise = new VoluntaryOperatingUnit(name);
+        }else if (type == Enterprise.EnterpriseType.PartTimeEmployement) {
+            enterprise = new PartTimeEmployement(name);
             enterpriseList.add(enterprise);
         }
         return enterprise;

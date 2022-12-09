@@ -4,6 +4,8 @@
  */
 package Backend.Organization;
 
+import Backend.Location.Location;
+import Backend.Organization.Organization.Type;
 import java.util.ArrayList;
 
 /**
@@ -22,28 +24,22 @@ public class OrganizationDirectory {
         return organizationList;
     }
 
-    public Organization createOrganization(Type type, String name, LocationPoint locationPoint) {
+    public Organization createOrganization(Type type, String name, Location locationPoint) {
         Organization organization = null;
-        if (type.getValue().equals(Type.IncidentReportingAgency.getValue())) {
-            organization = new IncidentManagementOrganization(name);
+        if (type.getValue().equals(Type.Counselling.getValue())) {
+            organization = new Counselling(name);
             organization.setLocationPoint(locationPoint);
             organizationList.add(organization);
-        } else if (type.getValue().equals(Type.PoliceHead.getValue())) {
-            organization = new PoliceOrganization(name);
-            PoliceOrganization police = (PoliceOrganization) organization;
-            police.setPolice(name);
+        } else if (type.getValue().equals(Type.Jobs.getValue())) {
+            organization = new Jobs(name);
+            Jobs hospital = (Jobs) organization;
+            //hospital.setHospital(name);
             organization.setLocationPoint(locationPoint);
             organizationList.add(organization);
-        } else if (type.getValue().equals(Type.Hospital.getValue())) {
-            organization = new VolunteerHospitalOrganization(name);
-            VolunteerHospitalOrganization hospital = (VolunteerHospitalOrganization) organization;
-            hospital.setHospital(name);
-            organization.setLocationPoint(locationPoint);
-            organizationList.add(organization);
-        } else if (type.getValue().equals(Type.Personal.getValue())) {
-            organization = new VolunteerPersonalOrganization(name);
-            VolunteerPersonalOrganization personal = (VolunteerPersonalOrganization) organization;
-            personal.setVolunteerPersonal(name);
+        } else if (type.getValue().equals(Type.Meals.getValue())) {
+            organization = new Meals(name);
+            Meals personal = (Meals) organization;
+            //personal.setVolunteerPersonal(name);
             organization.setLocationPoint(locationPoint);
             organizationList.add(organization);
         } else if (type.getValue().equals(Type.NGO.getValue())) {
@@ -58,22 +54,10 @@ public class OrganizationDirectory {
             company.setVolunteerCompany(name);
             organization.setLocationPoint(locationPoint);
             organizationList.add(organization);
-        } else if (type.getValue().equals(Type.FireSafety.getValue())) {
-            organization = new FireSafetyOrganization(name);
-            FireSafetyOrganization fireSafety = (FireSafetyOrganization) organization;
-            fireSafety.setFireSafety(name);
-            organization.setLocationPoint(locationPoint);
-            organizationList.add(organization);
-        } else if (type.getValue().equals(Type.DisasterManagementTeam.getValue())) {
-            organization = new DisasterOrganization(name);
-            DisasterOrganization disaster = (DisasterOrganization) organization;
-            disaster.setDisasterName(name);
-            organization.setLocationPoint(locationPoint);
-            organizationList.add(organization);
-        } else if (type.getValue().equals(Type.Medicines.getValue())) {
-            organization = new MedicalOrganization(name);
-            MedicalOrganization medical = (MedicalOrganization) organization;
-            medical.setMedicenes(name);
+        } else if (type.getValue().equals(Type.Medical.getValue())) {
+            organization = new Medical(name);
+            Medical fireSafety = (Medical) organization;
+            //fireSafety.setFireSafety(name);
             organization.setLocationPoint(locationPoint);
             organizationList.add(organization);
         } 

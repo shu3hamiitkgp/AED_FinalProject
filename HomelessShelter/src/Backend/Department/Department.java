@@ -5,6 +5,8 @@
 package Backend.Department;
 
 import Backend.Employee.EmployeeDirectory;
+import Backend.Role.Role;
+import Backend.UserAccount.UserAccountDirectory;
 import java.util.HashSet;
 
 /**

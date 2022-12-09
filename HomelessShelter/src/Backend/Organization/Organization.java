@@ -33,19 +33,15 @@ public abstract class Organization {
 
     
     public enum Type{
-        Admin("admin Organization"), 
-        Collection("Collection Organization"), 
-        Company("Company Organization"), 
-        NGO("NGO Organization"), 
-        Private("Private Organization"), 
-        Medical("Hospital Organization"), 
+        Admin("Admin Organization"), 
+        GovernmentShelter("Governement Organization"), 
+        NGOShelter("NGO Organization"), 
+        PrivateShelter("Private Organization"), 
+        Medical("Medical Organization"), 
         Counselling("Counselling Organization"), 
-        Donations("Fire Safety Organization"), 
-        Meals("Medicines Organization"), 
+        Donations("Donations Organization"), 
+        Meals("Meals Organization"), 
         Jobs("Jobs Organization"); 
-//        IncidentReportingAgency("Report Organization"), 
-//        DisasterManagementTeam("Disaster Management Organization"),
-//        FundsOrganization("FundsOrganization");
         private String value;
         private Type(String value) {
             this.value = value;
