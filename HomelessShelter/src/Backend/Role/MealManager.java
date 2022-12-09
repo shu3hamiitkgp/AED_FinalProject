@@ -9,7 +9,6 @@ import Backend.Enterprise.Enterprise;
 import Backend.Network.Network;
 import Backend.Organization.Organization;
 import Backend.UserAccount.UserAccount;
-import FrontEnd.Resources.MealsViewjPanel;
 import javax.swing.JPanel;
 
 /**
@@ -21,6 +20,6 @@ public class MealManager extends Role{
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         System.out.println(userProcessContainer.getComponents());
-        return new MealsViewjPanel(userProcessContainer, account, organization, enterprise, network, business);    }
+        return new SMealsViewjPanel(userProcessContainer, system);    }
     
 }

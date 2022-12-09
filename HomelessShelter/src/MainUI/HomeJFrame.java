@@ -4,21 +4,6 @@
  */
 package MainUI;
 
-import Backend.Ecosystem.EcoSystem;
-import Backend.Enterprise.Enterprise;
-import Backend.Network.Network;
-import Backend.Organization.Organization;
-import Backend.Role.Role;
-import Backend.Role.Role.RoleType;
-import Backend.Role.SystemAdminRole;
-import Backend.Role.DonationManager;
-import Backend.Role.EmploymentManager;
-import Backend.Role.HealthManager;
-import Backend.Role.HomelessPerson;
-import Backend.Role.MealManager;
-import static Backend.Role.Role.RoleType.SystemAdmin;
-import Backend.UserAccount.UserAccount;
-
 /**
  *
  * @author Megha Patel
@@ -28,17 +13,8 @@ public class HomeJFrame extends javax.swing.JFrame {
     /**
      * Creates new form HomeJFrame
      */
-    private EcoSystem system;
-    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
-    UserAccount userAccount;
-    Enterprise inEnterprise;
-    Organization inOrganization;
-    Network networkEmergency;
-    
     public HomeJFrame() {
         initComponents();
-        system = dB4OUtil.retrieveSystem();
-        EcoSystem.setInstance(system);
     }
 
     /**
@@ -147,45 +123,6 @@ public class HomeJFrame extends javax.swing.JFrame {
                 new HomeJFrame().setVisible(true);
             }
         });
-    }
-    
-     private void changePanel1() {
-         
-        if (userAccount != null && userAccount.getRole() != null) {
-            String greetings = "Hi";
-            if (userAccount.getRole() instanceof SystemAdmin) {
-                greetings = greetings + " " + userAccount.getUsername();
-                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
-            } else if (userAccount.getRole() instanceof MealManager) {
-                greetings = greetings + " " + userAccount.getUsername();
-                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
-            } else if (userAccount.getRole() instanceof ShelterManager) {
-                greetings = greetings + " " + userAccount.getUsername();
-                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
-            } else if (userAccount.getRole() instanceof Volunteers) {
-                greetings = greetings + " " + userAccount.getUsername();
-                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
-            } else if (userAccount.getRole() instanceof HealthManager) {
-                greetings = greetings + " " + userAccount.getUsername();
-                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
-            }else if (userAccount.getRole() instanceof EmploymentManager) {
-                greetings = greetings + " " + userAccount.getUsername();
-                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
-            }else if (userAccount.getRole() instanceof HomelessPerson) {
-                greetings = greetings + " " + userAccount.getUsername();
-                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
-            }else if (userAccount.getRole() instanceof DonatorManager) {
-                greetings = greetings + " " + userAccount.getUsername();
-                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
-            }else {
-                greetings = greetings + " " + userAccount.getUsername();
-                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
-            }
-            greetingUserLabel.setText(greetings + " !!!");
-            CardLayout layout = (CardLayout) container.getLayout();
-            layout.next(container);
-        }
-
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
