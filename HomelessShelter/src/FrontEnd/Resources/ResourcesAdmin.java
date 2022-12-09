@@ -4,6 +4,22 @@
  */
 package FrontEnd.Resources;
 
+import Backend.Ecosystem.EcoSystem;
+import Backend.Enterprise.Enterprise;
+import Backend.Enterprise.Resources;
+import Backend.Location.Location;
+import Backend.Network.Network;
+import Backend.Organization.Donations;
+import Backend.Organization.Meals;
+import Backend.Organization.Organization;
+import Backend.UserAccount.UserAccount;
+import MainUI.HeaderColors;
+import Maps.OrganizationLocationJPanel;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Megha Patel
@@ -13,8 +29,49 @@ public class ResourcesAdmin extends javax.swing.JPanel {
     /**
      * Creates new form ResourcesAdmin
      */
-    public ResourcesAdmin() {
+    Resources resourcelist;
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Organization organization;
+    Network network;
+    UserAccount account;
+    Location locationPoint;
+    public ResourcesAdmin(Resources resources) {
         initComponents();
+        resourcelist = resources;
+        
+    }
+    
+    private void populateDonations(){
+        jTable8.getTableHeader().setDefaultRenderer(new HeaderColors());
+        DefaultTableModel model = (DefaultTableModel) jTable8.getModel();
+        
+        model.setRowCount(0);
+        
+        for (Donations d : resourcelist.getDonations()){
+            Object[] row = new Object[2];
+            row[0] = d;
+            row[1] = d.getName();
+            row[2] = d.getDonationType();
+            row[3] = d.getLocationPoint().toString();
+            model.addRow(row);
+        }
+    }
+    
+    private void populateMeals(){
+        jTable9.getTableHeader().setDefaultRenderer(new HeaderColors());
+        DefaultTableModel model = (DefaultTableModel) jTable9.getModel();
+        
+        model.setRowCount(0);
+        
+        for (Meals meal : resourcelist.getMeals()){
+            Object[] row = new Object[2];
+            row[0] = meal;
+            row[1] = meal.getName();
+            row[2] = meal.getLocationPoint().toString();
+            model.addRow(row);
+        }
     }
 
     /**
@@ -26,19 +83,841 @@ public class ResourcesAdmin extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSplitPane1 = new javax.swing.JSplitPane();
+        jPanel2 = new javax.swing.JPanel();
+        jDonationButton = new javax.swing.JButton();
+        jMealButton = new javax.swing.JButton();
+        jLabel106 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jDonationAdmin = new javax.swing.JPanel();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        jTable8 = new javax.swing.JTable();
+        jPanel25 = new javax.swing.JPanel();
+        jLabel229 = new javax.swing.JLabel();
+        jUpdateDonation = new javax.swing.JButton();
+        jDeleteDonation = new javax.swing.JButton();
+        jLabel232 = new javax.swing.JLabel();
+        jDonationName = new javax.swing.JTextField();
+        jLabel233 = new javax.swing.JLabel();
+        jDonationTypeCombo = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        jDonationAudienceCombo = new javax.swing.JComboBox<>();
+        jAddDonation = new javax.swing.JButton();
+        jLabel234 = new javax.swing.JLabel();
+        sceneLocation = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jDonationWebsite = new javax.swing.JFormattedTextField();
+        jDonationPhone = new javax.swing.JFormattedTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jMealsAdmin = new javax.swing.JPanel();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        jTable9 = new javax.swing.JTable();
+        jPanel26 = new javax.swing.JPanel();
+        jLabel230 = new javax.swing.JLabel();
+        jUpdateMealsButtons = new javax.swing.JButton();
+        jDeleteMealsButton = new javax.swing.JButton();
+        jLabel235 = new javax.swing.JLabel();
+        jMealName = new javax.swing.JTextField();
+        jLabel236 = new javax.swing.JLabel();
+        jMealType = new javax.swing.JComboBox<>();
+        jAddMealsButton = new javax.swing.JButton();
+        jLabel237 = new javax.swing.JLabel();
+        sceneLocation1 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jMealWebsite = new javax.swing.JFormattedTextField();
+        jMealPhone = new javax.swing.JFormattedTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jlgbtq = new javax.swing.JCheckBox();
+        jvegetarian = new javax.swing.JCheckBox();
+        jpeanut = new javax.swing.JCheckBox();
+        jLabel8 = new javax.swing.JLabel();
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jDonationButton.setText("Donation Centers");
+        jDonationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDonationButtonActionPerformed(evt);
+            }
+        });
+
+        jMealButton.setText("Restaurant Managers");
+        jMealButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMealButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel106.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel106.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel106.setText("Resource Admin");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel106, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jDonationButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jMealButton)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel106)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+                .addComponent(jDonationButton)
+                .addGap(65, 65, 65)
+                .addComponent(jMealButton)
+                .addGap(309, 309, 309))
+        );
+
+        jSplitPane1.setLeftComponent(jPanel2);
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel3.setLayout(new java.awt.CardLayout());
+
+        jDonationAdmin.setBackground(new java.awt.Color(153, 204, 255));
+
+        jTable8.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "DonationID", "Donation Center", "Type", "City"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTable8.setColumnSelectionAllowed(true);
+        jTable8.getTableHeader().setReorderingAllowed(false);
+        jTable8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable8MouseClicked(evt);
+            }
+        });
+        jScrollPane14.setViewportView(jTable8);
+        jTable8.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        if (jTable8.getColumnModel().getColumnCount() > 0) {
+            jTable8.getColumnModel().getColumn(0).setMinWidth(0);
+            jTable8.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
+
+        jPanel25.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), new java.awt.Color(102, 0, 0)));
+
+        jLabel229.setText("Update Donation Center");
+
+        jUpdateDonation.setText("Update");
+        jUpdateDonation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jUpdateDonationActionPerformed(evt);
+            }
+        });
+
+        jDeleteDonation.setText("Delete");
+        jDeleteDonation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDeleteDonationActionPerformed(evt);
+            }
+        });
+
+        jLabel232.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel232.setText("Center Name");
+
+        jLabel233.setText("Type");
+
+        jDonationTypeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Clothes", "Hygiene", "Money" }));
+
+        jLabel3.setText("Audience");
+
+        jDonationAudienceCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Anyone", "Women Only", "Children", "Men Only", "Seniors", "Veterans" }));
+
+        jAddDonation.setText("Add");
+        jAddDonation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAddDonationActionPerformed(evt);
+            }
+        });
+
+        jLabel234.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel234.setText("Location");
+
+        sceneLocation.setEditable(false);
+        sceneLocation.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        sceneLocation.setForeground(new java.awt.Color(25, 56, 82));
+
+        jButton2.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(25, 56, 82));
+        jButton2.setText("Set Location");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        try {
+            jDonationPhone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(###) ###-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jDonationPhone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDonationPhoneActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setText("Website");
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel4.setText("Phone");
+
+        javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
+        jPanel25.setLayout(jPanel25Layout);
+        jPanel25Layout.setHorizontalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel25Layout.createSequentialGroup()
+                .addGap(337, 337, 337)
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel234)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel25Layout.createSequentialGroup()
+                        .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jDonationWebsite, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                            .addComponent(sceneLocation, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2))
+                    .addComponent(jDonationPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(39, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel25Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jAddDonation)
+                .addGap(72, 72, 72)
+                .addComponent(jUpdateDonation)
+                .addGap(72, 72, 72)
+                .addComponent(jDeleteDonation)
+                .addGap(177, 177, 177))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel25Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel229)
+                .addGap(291, 291, 291))
+            .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel25Layout.createSequentialGroup()
+                    .addGap(126, 126, 126)
+                    .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel233)
+                        .addComponent(jLabel232)
+                        .addComponent(jLabel3))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jDonationName)
+                        .addComponent(jDonationTypeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jDonationAudienceCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(413, Short.MAX_VALUE)))
+        );
+        jPanel25Layout.setVerticalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel25Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel229)
+                .addGap(29, 29, 29)
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel234)
+                    .addComponent(sceneLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jDonationWebsite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jDonationPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jDeleteDonation)
+                    .addComponent(jUpdateDonation)
+                    .addComponent(jAddDonation))
+                .addGap(29, 29, 29))
+            .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel25Layout.createSequentialGroup()
+                    .addGap(68, 68, 68)
+                    .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jDonationName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel232))
+                    .addGap(18, 18, 18)
+                    .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel233)
+                        .addComponent(jDonationTypeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jDonationAudienceCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3))
+                    .addContainerGap(107, Short.MAX_VALUE)))
+        );
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Donation Centers");
+
+        javax.swing.GroupLayout jDonationAdminLayout = new javax.swing.GroupLayout(jDonationAdmin);
+        jDonationAdmin.setLayout(jDonationAdminLayout);
+        jDonationAdminLayout.setHorizontalGroup(
+            jDonationAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDonationAdminLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jDonationAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 732, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33))
+            .addGroup(jDonationAdminLayout.createSequentialGroup()
+                .addGap(243, 243, 243)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jDonationAdminLayout.setVerticalGroup(
+            jDonationAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDonationAdminLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
+        );
+
+        jPanel3.add(jDonationAdmin, "donationadmin");
+
+        jMealsAdmin.setBackground(new java.awt.Color(153, 204, 255));
+
+        jTable9.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "MealsID", "Restaurant", "Type", "City"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable9.getTableHeader().setReorderingAllowed(false);
+        jTable9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable9MouseClicked(evt);
+            }
+        });
+        jScrollPane15.setViewportView(jTable9);
+        jTable9.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        if (jTable9.getColumnModel().getColumnCount() > 0) {
+            jTable9.getColumnModel().getColumn(0).setMinWidth(0);
+            jTable9.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
+
+        jPanel26.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), new java.awt.Color(102, 0, 0)));
+
+        jLabel230.setText("Update Restaurant Info Center");
+
+        jUpdateMealsButtons.setText("Update");
+        jUpdateMealsButtons.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jUpdateMealsButtonsActionPerformed(evt);
+            }
+        });
+
+        jDeleteMealsButton.setText("Delete");
+        jDeleteMealsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDeleteMealsButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel235.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel235.setText("Center Name");
+
+        jLabel236.setText("Type");
+
+        jMealType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Breakfast", "Lunch", "Dinner" }));
+
+        jAddMealsButton.setText("Add");
+        jAddMealsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAddMealsButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel237.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel237.setText("Location");
+
+        sceneLocation1.setEditable(false);
+        sceneLocation1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        sceneLocation1.setForeground(new java.awt.Color(25, 56, 82));
+
+        jButton3.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(25, 56, 82));
+        jButton3.setText("Set Location");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        try {
+            jMealPhone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(###) ###-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel6.setText("Website");
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel7.setText("Phone");
+
+        jlgbtq.setText("LGBTQ+ Friendly?");
+        jlgbtq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jlgbtqActionPerformed(evt);
+            }
+        });
+
+        jvegetarian.setText("Vegetarian Friendly?");
+        jvegetarian.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jvegetarianActionPerformed(evt);
+            }
+        });
+
+        jpeanut.setText("Peanut Allergy Friendly?");
+
+        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
+        jPanel26.setLayout(jPanel26Layout);
+        jPanel26Layout.setHorizontalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel26Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jAddMealsButton)
+                .addGap(72, 72, 72)
+                .addComponent(jUpdateMealsButtons)
+                .addGap(72, 72, 72)
+                .addComponent(jDeleteMealsButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel26Layout.createSequentialGroup()
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel26Layout.createSequentialGroup()
+                        .addGap(272, 272, 272)
+                        .addComponent(jLabel230)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel26Layout.createSequentialGroup()
+                        .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel26Layout.createSequentialGroup()
+                                .addGap(126, 126, 126)
+                                .addComponent(jLabel235)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jMealName, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                                .addComponent(jLabel237))
+                            .addGroup(jPanel26Layout.createSequentialGroup()
+                                .addGap(127, 127, 127)
+                                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel26Layout.createSequentialGroup()
+                                        .addComponent(jpeanut)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel7))
+                                    .addGroup(jPanel26Layout.createSequentialGroup()
+                                        .addComponent(jvegetarian)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel26Layout.createSequentialGroup()
+                                        .addComponent(jlgbtq)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel236)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel26Layout.createSequentialGroup()
+                                .addComponent(sceneLocation1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton3))
+                            .addComponent(jMealPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jMealType, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jMealWebsite, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(68, 68, 68))
+        );
+        jPanel26Layout.setVerticalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel230)
+                .addGap(29, 29, 29)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel237)
+                    .addComponent(sceneLocation1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jMealName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel235))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jMealType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel236)
+                    .addComponent(jlgbtq))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(jvegetarian))
+                    .addComponent(jMealWebsite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jMealPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7))
+                    .addComponent(jpeanut))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jDeleteMealsButton)
+                    .addComponent(jUpdateMealsButtons)
+                    .addComponent(jAddMealsButton))
+                .addGap(29, 29, 29))
+        );
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Restaurants Management");
+
+        javax.swing.GroupLayout jMealsAdminLayout = new javax.swing.GroupLayout(jMealsAdmin);
+        jMealsAdmin.setLayout(jMealsAdminLayout);
+        jMealsAdminLayout.setHorizontalGroup(
+            jMealsAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jMealsAdminLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jMealsAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jMealsAdminLayout.createSequentialGroup()
+                        .addGap(152, 152, 152)
+                        .addComponent(jLabel8))
+                    .addComponent(jPanel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane15))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        jMealsAdminLayout.setVerticalGroup(
+            jMealsAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jMealsAdminLayout.createSequentialGroup()
+                .addContainerGap(13, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
+        );
+
+        jPanel3.add(jMealsAdmin, "mealsadmin");
+
+        jSplitPane1.setRightComponent(jPanel3);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 767, Short.MAX_VALUE)
+            .addComponent(jSplitPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 598, Short.MAX_VALUE)
+            .addComponent(jSplitPane1)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jDonationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDonationButtonActionPerformed
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout)jPanel3.getLayout();
+        card.show(jPanel3, "donationadmin");
+        populateDonations();
+    }//GEN-LAST:event_jDonationButtonActionPerformed
+
+    private void jMealButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMealButtonActionPerformed
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout)jPanel3.getLayout();
+        card.show(jPanel3, "mealsadmin");
+        populateMeals();
+    }//GEN-LAST:event_jMealButtonActionPerformed
+
+    private void jTable8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable8MouseClicked
+        // TODO add your handling code here:
+        int selectedRowIndex = jTable8.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) jTable8.getModel();
+        Donations d = (Donations) model.getValueAt(selectedRowIndex, 0);
+        jDonationName.setText(d.getName());
+        jDonationTypeCombo.setSelectedItem(d.getDonationType());
+        jDonationAudienceCombo.setSelectedItem(d.getAudience());
+        sceneLocation.setText(d.getLocationPoint().toString());
+        jDonationWebsite.setText(d.getWebsite());
+        jDonationPhone.setText(Integer.toString(d.getPhone()));
+    }//GEN-LAST:event_jTable8MouseClicked
+
+    private void jAddDonationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAddDonationActionPerformed
+        // TODO add your handling code here:
+        if(jDonationName.getText().equals("") || sceneLocation.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "All fields must be filled out");
+        }else{
+            Donations newDonation = new Donations(jDonationName.getText());
+            newDonation.setDonationType(jDonationTypeCombo.getSelectedItem().toString());
+            newDonation.setAudience(jDonationAudienceCombo.getSelectedItem().toString());
+            newDonation.setLocationPoint(locationPoint);
+            newDonation.setWebsite(jDonationWebsite.getText());
+            newDonation.setPhone(Integer.parseInt(jDonationPhone.getText()));
+            jDonationTypeCombo.setSelectedItem("");
+            jDonationAudienceCombo.setSelectedItem("");
+            sceneLocation.setText("");
+            jDonationWebsite.setText("");
+            jDonationPhone.setText("");
+            resourcelist.addDonations(newDonation);
+            populateDonations();
+        }
+
+    }//GEN-LAST:event_jAddDonationActionPerformed
+
+    private void jUpdateDonationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUpdateDonationActionPerformed
+        // TODO add your handling code here:
+        if(!jTable8.getSelectionModel().isSelectionEmpty()){
+            int selectedRowIndex = jTable8.getSelectedRow();
+            DefaultTableModel model = (DefaultTableModel) jTable8.getModel();
+            Donations donation = (Donations) model.getValueAt(selectedRowIndex, 0);
+            if(jDonationName.getText().equals("") || sceneLocation.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "All fields are required");
+            }else{
+                donation.setName(sceneLocation.getText());
+                donation.setDonationType(jDonationTypeCombo.getSelectedItem().toString());
+                donation.setAudience(jDonationAudienceCombo.getSelectedItem().toString());
+                donation.setLocationPoint(locationPoint);
+                donation.setWebsite(jDonationWebsite.getText());
+                donation.setPhone(Integer.parseInt(jDonationPhone.getText()));
+                jDonationTypeCombo.setSelectedItem("");
+                jDonationAudienceCombo.setSelectedItem("");
+                sceneLocation.setText("");
+                jDonationWebsite.setText("");
+                jDonationPhone.setText("");
+                populateDonations();
+
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Please select a Donation Center");
+        }
+    }//GEN-LAST:event_jUpdateDonationActionPerformed
+
+    private void jDeleteDonationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDeleteDonationActionPerformed
+        // TODO add your handling code here:
+        if(!jTable8.getSelectionModel().isSelectionEmpty()){
+            int selectedRowIndex = jTable8.getSelectedRow();
+            DefaultTableModel model = (DefaultTableModel) jTable8.getModel();
+            Donations donation = (Donations) model.getValueAt(selectedRowIndex, 0);
+            resourcelist.deleteDonation(donation);
+            jDonationTypeCombo.setSelectedItem("");
+            jDonationAudienceCombo.setSelectedItem("");
+            sceneLocation.setText("");
+            jDonationWebsite.setText("");
+            jDonationPhone.setText("");
+            populateDonations();            
+            JOptionPane.showMessageDialog(null, "Donation center removed");
+        }else{
+            JOptionPane.showMessageDialog(null, "Please select a center");
+        }
+    }//GEN-LAST:event_jDeleteDonationActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        OrganizationLocationJPanel muajp = new OrganizationLocationJPanel(userProcessContainer);
+        userProcessContainer.add("OrganizationLocationJPanel", muajp);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTable9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable9MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTable9MouseClicked
+
+    private void jUpdateMealsButtonsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUpdateMealsButtonsActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = jTable9.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) jTable9.getModel();
+        Meals meal = (Meals) model.getValueAt(selectedRowIndex, 0);
+        if(jMealName.getText().equals("") || sceneLocation1.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "All fields must be filled out");
+        }else{
+            meal.setMealType(jMealType.getSelectedItem().toString());
+            meal.setLgbtfriendly(jlgbtq.isSelected());
+            meal.setVegetarian(jvegetarian.isSelected());
+            meal.setPeanut(jpeanut.isSelected());
+            meal.setLocationPoint(locationPoint);
+            meal.setWebsite(jMealWebsite.getText());
+            meal.setPhone(Integer.parseInt(jMealPhone.getText()));
+            jMealName.setText("");
+            jMealType.setSelectedItem("");
+            sceneLocation1.setText("");
+            jlgbtq.setSelected(false);
+            jvegetarian.setSelected(false);
+            jpeanut.setSelected(false);
+            jMealWebsite.setText("");
+            jMealPhone.setText("");
+            resourcelist.addMeal(meal);
+            populateMeals();
+        }
+    }//GEN-LAST:event_jUpdateMealsButtonsActionPerformed
+
+    private void jDeleteMealsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDeleteMealsButtonActionPerformed
+        // TODO add your handling code here:
+        if(!jTable9.getSelectionModel().isSelectionEmpty()){
+            int selectedRowIndex = jTable9.getSelectedRow();
+            DefaultTableModel model = (DefaultTableModel) jTable9.getModel();
+            Meals meal = (Meals) model.getValueAt(selectedRowIndex, 0);
+            resourcelist.deleteMeal(meal);
+            jMealName.setText("");
+            jMealType.setSelectedItem("");
+            sceneLocation1.setText("");
+            jlgbtq.setSelected(false);
+            jvegetarian.setSelected(false);
+            jpeanut.setSelected(false);
+            jMealWebsite.setText("");
+            jMealPhone.setText("");
+            populateMeals();            
+            JOptionPane.showMessageDialog(null, "Restaurant removed");
+        }else{
+            JOptionPane.showMessageDialog(null, "Please select a restaurant");
+        }
+    }//GEN-LAST:event_jDeleteMealsButtonActionPerformed
+
+    private void jAddMealsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAddMealsButtonActionPerformed
+        // TODO add your handling code here:
+        if(jMealName.getText().equals("") || sceneLocation1.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "All fields must be filled out");
+        }else{
+            Meals newMeals = new Meals(jMealName.getText());
+            newMeals.setMealType(jMealType.getSelectedItem().toString());
+            newMeals.setLgbtfriendly(jlgbtq.isSelected());
+            newMeals.setVegetarian(jvegetarian.isSelected());
+            newMeals.setPeanut(jpeanut.isSelected());
+            newMeals.setLocationPoint(locationPoint);
+            newMeals.setWebsite(jMealWebsite.getText());
+            newMeals.setPhone(Integer.parseInt(jMealPhone.getText()));
+            jMealName.setText("");
+            jMealType.setSelectedItem("");
+            sceneLocation1.setText("");
+            jlgbtq.setSelected(false);
+            jvegetarian.setSelected(false);
+            jpeanut.setSelected(false);
+            jMealWebsite.setText("");
+            jMealPhone.setText("");
+            resourcelist.addMeal(newMeals);
+            populateMeals();
+        }
+
+    }//GEN-LAST:event_jAddMealsButtonActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jDonationPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDonationPhoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jDonationPhoneActionPerformed
+
+    private void jlgbtqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jlgbtqActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jlgbtqActionPerformed
+
+    private void jvegetarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jvegetarianActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jvegetarianActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jAddDonation;
+    private javax.swing.JButton jAddMealsButton;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jDeleteDonation;
+    private javax.swing.JButton jDeleteMealsButton;
+    private javax.swing.JPanel jDonationAdmin;
+    private javax.swing.JComboBox<String> jDonationAudienceCombo;
+    private javax.swing.JButton jDonationButton;
+    private javax.swing.JTextField jDonationName;
+    private javax.swing.JFormattedTextField jDonationPhone;
+    private javax.swing.JComboBox<String> jDonationTypeCombo;
+    private javax.swing.JFormattedTextField jDonationWebsite;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel106;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel229;
+    private javax.swing.JLabel jLabel230;
+    private javax.swing.JLabel jLabel232;
+    private javax.swing.JLabel jLabel233;
+    private javax.swing.JLabel jLabel234;
+    private javax.swing.JLabel jLabel235;
+    private javax.swing.JLabel jLabel236;
+    private javax.swing.JLabel jLabel237;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JButton jMealButton;
+    private javax.swing.JTextField jMealName;
+    private javax.swing.JFormattedTextField jMealPhone;
+    private javax.swing.JComboBox<String> jMealType;
+    private javax.swing.JFormattedTextField jMealWebsite;
+    private javax.swing.JPanel jMealsAdmin;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
+    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JTable jTable8;
+    private javax.swing.JTable jTable9;
+    private javax.swing.JButton jUpdateDonation;
+    private javax.swing.JButton jUpdateMealsButtons;
+    private javax.swing.JCheckBox jlgbtq;
+    private javax.swing.JCheckBox jpeanut;
+    private javax.swing.JCheckBox jvegetarian;
+    private javax.swing.JTextField sceneLocation;
+    private javax.swing.JTextField sceneLocation1;
     // End of variables declaration//GEN-END:variables
 }
