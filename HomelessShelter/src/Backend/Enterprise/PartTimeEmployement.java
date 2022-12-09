@@ -13,12 +13,12 @@ import java.util.List;
  *
  * @author Sahil
  */
-public class PartTimeEmployment extends Enterprise {
+public class PartTimeEmployement extends Enterprise {
     List<Jobs> jobs;
     
-public PartTimeEmployment(String name, EnterpriseType type) {
-super(name, type);
-jobs = new ArrayList<Jobs>();
+public PartTimeEmployement(String name) {
+    super(name, Enterprise.EnterpriseType.PartTimeEmployement);
+    jobs = new ArrayList<Jobs>();
 
     }
 

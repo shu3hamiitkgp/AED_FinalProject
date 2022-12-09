@@ -12,14 +12,14 @@ import java.util.List;
  *
  * @author Sahil
  */
-public class Counceling extends Organization{
+public class Counselling extends Organization{
     List<String> specialties;
     double fees;
     boolean acceptsMedicare;
     boolean addiction;
     boolean mentalHealth;
     
-    public Counceling(String name) {
+    public Counselling(String name) {
         super(name);
         specialties = new ArrayList<>();
     }

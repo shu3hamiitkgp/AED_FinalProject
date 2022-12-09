@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Maps;
+package userinterface.GoogleMAP;
 
 import static com.teamdev.jxbrowser.engine.RenderingMode.*;
 
