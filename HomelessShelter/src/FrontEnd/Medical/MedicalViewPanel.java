@@ -5,23 +5,18 @@
  */
 package FrontEnd.Medical;
 
-import userinterface.FireSafetyWorkArea.*;
-import Business.EcoSystem;
-import Business.Enterprise.Enterprise;
-import Business.Network.Network;
-import Business.Organization.Organization;
-import Business.UserAccount.UserAccount;
-import Business.Utils.HeaderColors;
-import Business.WorkQueue.EmergencyUnitRequest;
-import Business.WorkQueue.ReportingAdminSceneRequest;
-import Business.WorkQueue.WorkRequest;
+import Backend.Ecosystem.EcoSystem;
+import Backend.Enterprise.Enterprise;
+import Backend.Network.Network;
+import Backend.Organization.Organization;
+import Backend.UserAccount.UserAccount;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author dhankuwarsisodiya
+ * @author Sahil
  */
 public class MedicalViewPanel extends javax.swing.JPanel {
 
