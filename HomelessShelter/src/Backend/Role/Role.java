@@ -25,7 +25,10 @@ public abstract class Role {
         HealthManagers("HealthManagers"),
         EmploymentManager("EmploymentManager"),
         HomelessUser("HomelessUser"),
-        DonatorManager("DonatorManager");
+        DonatorManager("DonatorManager"),
+        GovernmentSupervisor("GovernmentSupervisor"),
+        PrivateCompanySupervisor("PrivateCompanySupervisor"),
+        NGOAdmin("NGOAdmin");
         
         
         

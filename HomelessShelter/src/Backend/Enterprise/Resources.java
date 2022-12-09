@@ -18,8 +18,8 @@ public class Resources extends Enterprise {
     List<Meals> meals;
     List<Donations> donations;
 
-    public Resources(String name, EnterpriseType type) {
-        super(name, type);
+    public Resources(String name) {
+        super(name,Enterprise.EnterpriseType.Resources);
         meals = new ArrayList<Meals>();
         donations = new ArrayList<Donations>();
     }

@@ -26,14 +26,8 @@ public class OrganizationDirectory {
 
     public Organization createOrganization(Type type, String name, Location locationPoint) {
         Organization organization = null;
-        if (type.getValue().equals(Type.Counceling.getValue())) {
-            organization = new Counceling(name);
-            organization.setLocationPoint(locationPoint);
-            organizationList.add(organization);
-        } else if (type.getValue().equals(Type.Donations.getValue())) {
-            organization = new Donations(name);
-            Donations donation = (Donations) organization;
-            //donation.setName(name);
+        if (type.getValue().equals(Type.Counselling.getValue())) {
+            organization = new Counselling(name);
             organization.setLocationPoint(locationPoint);
             organizationList.add(organization);
         } else if (type.getValue().equals(Type.Jobs.getValue())) {

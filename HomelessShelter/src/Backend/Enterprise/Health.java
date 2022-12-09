@@ -68,8 +68,8 @@ import java.util.List;
 public class Health extends Enterprise {
     List<Health> health;
     
-public Health(String name, EnterpriseType type) {
-super(name, type);
+public Health(String name) {
+super(name, Enterprise.EnterpriseType.Health);
 health = new ArrayList<Health>();
 
     }

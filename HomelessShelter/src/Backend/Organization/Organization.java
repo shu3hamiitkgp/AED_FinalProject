@@ -33,13 +33,12 @@ public abstract class Organization {
 
     
     public enum Type{
-        Admin("admin Organization"), 
-        Collection("Collection Organization"), 
-        Company("Company Organization"), 
-        NGO("NGO Organization"), 
-        Private("Private Organization"), 
+        Admin("Admin Organization"), 
+        GovernmentShelter("Governement Organization"), 
+        NGOShelter("NGO Organization"), 
+        PrivateShelter("Private Organization"), 
         Medical("Medical Organization"), 
-        Counceling("Counceling Organization"), 
+        Counselling("Counselling Organization"), 
         Donations("Donations Organization"), 
         Meals("Meals Organization"), 
         Jobs("Jobs Organization"); 
