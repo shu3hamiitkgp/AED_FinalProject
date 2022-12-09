@@ -4,24 +4,6 @@
  */
 package FrontEnd.Resources;
 
-import Backend.Ecosystem.EcoSystem;
-import Backend.Enterprise.Enterprise;
-import Backend.Enterprise.Resources;
-import Backend.Location.Location;
-import Backend.Network.Network;
-import Backend.Organization.Donations;
-import Backend.Organization.Medical;
-import Backend.Organization.Organization;
-import Backend.UserAccount.UserAccount;
-import Backend.WorkQueue.ReportingAdminSceneRequest;
-import Backend.WorkQueue.WorkRequest;
-import MainUI.HeaderColors;
-import java.util.ArrayList;
-import java.util.Collections;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author Megha Patel
@@ -31,83 +13,10 @@ public class DonationsViewPanel extends javax.swing.JPanel {
     /**
      * Creates new form DonationsViewPanel
      */
-    JPanel userProcessContainer;
-    UserAccount account;
-    Organization organization;
-    Organization recieverOrganization;
-    WorkRequest workRequest;
-    Enterprise enterprise;
-    Network network;
-    Network senderNetwork;
-    EcoSystem business;
-    private String orgType;
-    public DonationsViewPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
+    public DonationsViewPanel() {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
-        this.account = account;
-        //this.workRequest = workRequest;
-        this.enterprise = enterprise;
-        this.organization = organization;
-        this.network = network;
-        this.senderNetwork = network;
-        this.business = business;
-        populateDonations();
     }
-    
-//    private void populateDonations(){
-//        jTable8.getTableHeader().setDefaultRenderer(new HeaderColors());
-//        DefaultTableModel model = (DefaultTableModel) jTable8.getModel();
-//        
-//        model.setRowCount(0);
-//        
-//        for (Donations d : resourcelist.getDonations()){
-//            Object[] row = new Object[2];
-//            row[0] = d;
-//            row[1] = d.getName();
-//            row[2] = d.getDonationType();
-//            row[3] = d.getLocationPoint().toString();
-//            model.addRow(row);
-//        }
-//    }
 
-    private void populateDonations() {                                          
-        // TODO add your handling code here:
-        orgType = "Donation";
-        ArrayList<Organization> orgList = new ArrayList<Organization>();
-        DefaultTableModel model = (DefaultTableModel) jTable8.getModel();
-        model.setRowCount(0);
-        Object[] row = new Object[5];
-        for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
-            for (Organization org : ent.getOrganizationDirectory().getOrganizationList()) {
-                if (org instanceof Donations) {
-                    recieverOrganization = org;
-                    Location point = new Location();
-                    point.setLatitude(((ReportingAdminSceneRequest) workRequest).getSceneLocationPoint().getLatitude());
-                    point.setLongitude(((ReportingAdminSceneRequest) workRequest).getSceneLocationPoint().getLongitude());
-                    point.setName("p");
-                    //if (org.getOrganizationDistanceFromScene(point) < 1) {
-                    orgList.add(org);
-                    org.setNearestLocationPoint(org.getOrganizationDistanceFromScene(point));
-                    /*row[0] = org.getOrganizationID();
-                    row[1] = org.getName();
-                    row[2] = org.getOrganizationDistanceFromScene(point);
-                    model.addRow(row);*/
-                    //}
-                }
-            }
-
-        }
-        Collections.sort(orgList, (o1, o2) -> Double.compare(o1.getNearestLocationPoint(), o2.getNearestLocationPoint()));
-        if(orgList.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No Donation Centers found for this network. Please choose the same from other network to place cross network request.");
-        }
-        for (Organization oo : orgList) {
-            row[0] = oo.getOrganizationID();
-            row[1] = oo.getName();
-            row[2] = oo.getNearestLocationPoint();
-            model.addRow(row);
-        }
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -117,53 +26,26 @@ public class DonationsViewPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane14 = new javax.swing.JScrollPane();
-        jTable8 = new javax.swing.JTable();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Donation Centers Near Me");
-
-        jTable8.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "DonationID", "Donation Center", "Type", "Location", "Distance"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable8.setColumnSelectionAllowed(true);
-        jTable8.getTableHeader().setReorderingAllowed(false);
-        jTable8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable8MouseClicked(evt);
-            }
-        });
-        jScrollPane14.setViewportView(jTable8);
-        jTable8.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-        if (jTable8.getColumnModel().getColumnCount() > 0) {
-            jTable8.getColumnModel().getColumn(0).setMinWidth(0);
-            jTable8.getColumnModel().getColumn(0).setMaxWidth(0);
-        }
+        jLabel1.setText("Donation Centers");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -172,32 +54,28 @@ public class DonationsViewPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 732, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(76, 76, 76)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                        .addGap(219, 219, 219)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(70, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTable8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable8MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTable8MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane14;
-    private javax.swing.JTable jTable8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

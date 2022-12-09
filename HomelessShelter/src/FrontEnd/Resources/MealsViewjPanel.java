@@ -4,20 +4,9 @@
  */
 package FrontEnd.Resources;
 
-import Backend.Ecosystem.EcoSystem;
 import Backend.Enterprise.Enterprise;
 import Backend.Enterprise.Resources;
-import Backend.Location.Location;
-import Backend.Network.Network;
 import Backend.Organization.Meals;
-import Backend.Organization.Organization;
-import Backend.UserAccount.UserAccount;
-import Backend.WorkQueue.ReportingAdminSceneRequest;
-import Backend.WorkQueue.WorkRequest;
-import MainUI.HeaderColors;
-import java.util.ArrayList;
-import java.util.Collections;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -27,96 +16,33 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MealsViewjPanel extends javax.swing.JPanel {
     
-    JPanel userProcessContainer;
-    UserAccount account;
-    Organization organization;
-    Organization recieverOrganization;
-    WorkRequest workRequest;
     Enterprise enterprise;
-    Network network;
-    Network senderNetwork;
-    EcoSystem business;
-    private String orgType;
-    
+    JPanel userProcessContainer;
     /**
      * Creates new form ResourceViewPanel
-     * @param userProcessContainer
-     * @param account
-     * @param resources
-     * @param workRequest
-     * @param enterprise
-     * @param network
-     * @param business
      */
-    public MealsViewjPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
+    public MealsViewjPanel(JPanel userProcessContainer, Enterprise enterprise) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.account = account;
-        //this.workRequest = workRequest;
         this.enterprise = enterprise;
-        this.organization = organization;
-        this.network = network;
-        this.senderNetwork = network;
-        this.business = business;
-        jMealsViewTable.getTableHeader().setDefaultRenderer(new HeaderColors());
-        populateMeals();
+        organizationJTable.getTableHeader().setDefaultRenderer(new HeaderColors());
+        populateOrganizationComboBox();
     }
     
-//    private void populateMeals(){
-//        jMealsViewTable.getTableHeader().setDefaultRenderer(new HeaderColors());
-//        DefaultTableModel model = (DefaultTableModel) jMealsViewTable.getModel();
-//        
-//        model.setRowCount(0);
-//        
-//        for (Meals meal : resourcelist.getMeals()){
-//            Object[] row = new Object[2];
-//            row[0] = meal;
-//            row[1] = meal.getName();
-//            row[2] = meal.getLocationPoint().toString();
-//            model.addRow(row);
-//        }
-//    }
-    
-    private void populateMeals() {                                      
-        // TODO add your handling code here:
-        orgType = "Meals";
-        ArrayList<Organization> orgList = new ArrayList<Organization>();
-        DefaultTableModel model = (DefaultTableModel) jMealsViewTable.getModel();
-        model.setRowCount(0);
-        Object[] row = new Object[5];
-        for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
-            for (Organization org : ent.getOrganizationDirectory().getOrganizationList()) {
-                if (org instanceof Meals) {
-                    recieverOrganization = org;
-                    Location point = new Location();
-                    point.setLatitude(((ReportingAdminSceneRequest) workRequest).getSceneLocationPoint().getLatitude());
-                    point.setLongitude(((ReportingAdminSceneRequest) workRequest).getSceneLocationPoint().getLongitude());
-                    point.setName("p");
-                    //if (org.getOrganizationDistanceFromScene(point) < 1) {
-                    orgList.add(org);
-                    org.setNearestLocationPoint(org.getOrganizationDistanceFromScene(point));
-                    /*row[0] = org.getOrganizationID();
-                    row[1] = org.getName();
-                    row[2] = org.getOrganizationDistanceFromScene(point);
-                    model.addRow(row);*/
-                    //}
-                }
-            }
-
-        }
+    private void populateTable(Resources resourcelists){
+        jTable1.getTableHeader().setDefaultRenderer(new HeaderColors());
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         
-        Collections.sort(orgList, (o1, o2) -> Double.compare(o1.getNearestLocationPoint(), o2.getNearestLocationPoint()));
-        if(orgList.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No Restaurants found near you.");
-        }
-        for (Organization oo : orgList) {
-            row[0] = oo.getOrganizationID();
-            row[1] = oo.getName();
-            row[2] = oo.getNearestLocationPoint();
+        model.setRowCount(0);
+        
+        for (Meals meal : resourcelists.getMeals()){
+            Object[] row = new Object[2];
+            row[0] = employee.getId();
+            row[1] = employee.getName();
             model.addRow(row);
         }
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -126,53 +52,26 @@ public class MealsViewjPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane15 = new javax.swing.JScrollPane();
-        jMealsViewTable = new javax.swing.JTable();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Meals Near Me");
-
-        jMealsViewTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "MealsID", "Restaurant", "Type", "Location", "Distance"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jMealsViewTable.setColumnSelectionAllowed(true);
-        jMealsViewTable.getTableHeader().setReorderingAllowed(false);
-        jMealsViewTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMealsViewTableMouseClicked(evt);
-            }
-        });
-        jScrollPane15.setViewportView(jMealsViewTable);
-        jMealsViewTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        if (jMealsViewTable.getColumnModel().getColumnCount() > 0) {
-            jMealsViewTable.getColumnModel().getColumn(0).setMinWidth(0);
-            jMealsViewTable.getColumnModel().getColumn(0).setMaxWidth(0);
-        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -181,32 +80,28 @@ public class MealsViewjPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(219, 219, 219)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(76, 76, 76)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 732, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                        .addGap(219, 219, 219)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(70, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMealsViewTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMealsViewTableMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMealsViewTableMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTable jMealsViewTable;
-    private javax.swing.JScrollPane jScrollPane15;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
