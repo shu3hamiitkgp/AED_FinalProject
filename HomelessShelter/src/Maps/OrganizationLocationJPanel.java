@@ -5,7 +5,7 @@
  */
 package Maps;
 
-import Business.Location.LocationPoint;
+
 import com.teamdev.jxbrowser.browser.Browser;
 import com.teamdev.jxbrowser.engine.Engine;
 import com.teamdev.jxbrowser.engine.EngineOptions;
@@ -16,15 +16,7 @@ import javax.swing.JPanel;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
-import userinterface.EmergencyUnitWorkArea.EmergencyManageOrganizationJPanel;
-import userinterface.IncidentUnitWorkArea.IncidentManagerManageOrganizationJPanel;
-import userinterface.ReportingAdminWorkArea.ReportingAdminManageSceneJPanel;
-import userinterface.UserRegistration.UserRegistrationJPanel;
-import userinterface.VoluntaryUnitCompanySupervisor.CompanyAdminManageSceneJPanel;
-import userinterface.VoluntaryUnitHospital.HospitalAdminManageSceneJPanel;
-import userinterface.VoluntaryUnitNGO.NGOAdminManageSceneJPanel;
-import userinterface.VoluntaryUnitWorkArea.VoluntaryOperatingUnitManageOrganizationsJPanel;
-import userinterface.voluntaryUnitPersonal.IndividualAdminManageSceneJPanel;
+
 
 /**
  *

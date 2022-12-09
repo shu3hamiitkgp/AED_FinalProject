@@ -19,25 +19,14 @@ public abstract class Role {
     
     public enum RoleType{
         SystemAdmin("SystemAdmin"),
-        IncidentUnitManager("IncidentManager"),
-        EmergencyUnitAdmin("ERUAdmin"),
-        VoluntaryUnitAdmin("VoluntaryTeamAdmin"),
-        SceneManager("SceneManager"),
-        PoliceHead("Police Head"),
-        PoliceLieutenant("Police Lieutenant"),
-        PoliceOfficer("Police Officer"),
-        PoliceSeargent("Police Seargent"),
-        FireSafetyHead("FireSafetyHead"),
-        MedicalAgencyHead("MedicalAgencySupervisor"),
-        NGOAdmin("NGOAdmin"),
-        PersonalAdmin("PersonalAdmin"),
-        ReportingAdmin("ReportingAdmin"),
-        HospitalAdmin("HospitalAdmin"),
-        CompanySupervisor("CompanySupervisor"),
-        FireFighter("Fire Fighter"),
-        DisasterHead("DisasterHead"),
-        PharmaHead("Pharma Head"),
-        VaccineUnitAdmin("VaccineUnitAdmin");
+        MealManager("MealManager"),
+        ShelterManager("ShelterManager"),
+        Volunteers("Volunteers"),
+        HealthManagers("HealthManagers"),
+        EmploymentManager("EmploymentManager"),
+        HomelessUser("HomelessUser"),
+        DonatorManager("DonatorManager");
+        
         
         
         private String value;
