@@ -6,6 +6,7 @@
 package Maps;
 
 
+import Backend.Location.Location;
 import com.teamdev.jxbrowser.browser.Browser;
 import com.teamdev.jxbrowser.engine.Engine;
 import com.teamdev.jxbrowser.engine.EngineOptions;
@@ -29,13 +30,13 @@ public class OrganizationLocationJPanel extends javax.swing.JPanel {
      */
     
     JPanel userProcessContainer;
-    LocationPoint locationPoint;
+    Location locationPoint;
     Browser browser;
     
     public OrganizationLocationJPanel(JPanel userProcessContainer) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        locationPoint = new LocationPoint();
+        locationPoint = new Location();
         
         EngineOptions options =
                 EngineOptions.newBuilder(HARDWARE_ACCELERATED).licenseKey("1BNDHFSC1FV3AVC573VVDZLJMH4GM0F2LEEC89Z3D9HIMNGKQZEH4PIJYFW22I0A9NMRRK").build();

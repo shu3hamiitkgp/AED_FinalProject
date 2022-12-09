@@ -19,6 +19,7 @@ import static Backend.Organization.Organization.Type.Counceling;
 import Backend.UserAccount.UserAccount;
 import Backend.WorkQueue.ReportingAdminSceneRequest;
 import Backend.WorkQueue.WorkRequest;
+import MainUI.HeaderColors;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -300,7 +301,7 @@ public class NearestOrganizationJPanel extends javax.swing.JPanel {
 
     private void mealsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mealsActionPerformed
         // TODO add your handling code here:
-        orgType = "Police";
+        orgType = "Meals";
         ArrayList<Organization> orgList = new ArrayList<Organization>();
         DefaultTableModel model = (DefaultTableModel) nearestOrgTable.getModel();
         model.setRowCount(0);

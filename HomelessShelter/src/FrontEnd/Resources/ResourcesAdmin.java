@@ -4,6 +4,22 @@
  */
 package FrontEnd.Resources;
 
+import Backend.Ecosystem.EcoSystem;
+import Backend.Enterprise.Enterprise;
+import Backend.Enterprise.Resources;
+import Backend.Location.Location;
+import Backend.Network.Network;
+import Backend.Organization.Donations;
+import Backend.Organization.Meals;
+import Backend.Organization.Organization;
+import Backend.UserAccount.UserAccount;
+import MainUI.HeaderColors;
+import Maps.OrganizationLocationJPanel;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Megha Patel
@@ -13,8 +29,49 @@ public class ResourcesAdmin extends javax.swing.JPanel {
     /**
      * Creates new form ResourcesAdmin
      */
-    public ResourcesAdmin() {
+    Resources resourcelist;
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Organization organization;
+    Network network;
+    UserAccount account;
+    Location locationPoint;
+    public ResourcesAdmin(Resources resources) {
         initComponents();
+        resourcelist = resources;
+        
+    }
+    
+    private void populateDonations(){
+        jTable8.getTableHeader().setDefaultRenderer(new HeaderColors());
+        DefaultTableModel model = (DefaultTableModel) jTable8.getModel();
+        
+        model.setRowCount(0);
+        
+        for (Donations d : resourcelist.getDonations()){
+            Object[] row = new Object[2];
+            row[0] = d;
+            row[1] = d.getName();
+            row[2] = d.getDonationType();
+            row[3] = d.getLocationPoint().toString();
+            model.addRow(row);
+        }
+    }
+    
+    private void populateMeals(){
+        jTable9.getTableHeader().setDefaultRenderer(new HeaderColors());
+        DefaultTableModel model = (DefaultTableModel) jTable9.getModel();
+        
+        model.setRowCount(0);
+        
+        for (Meals meal : resourcelist.getMeals()){
+            Object[] row = new Object[2];
+            row[0] = meal;
+            row[1] = meal.getName();
+            row[2] = meal.getLocationPoint().toString();
+            model.addRow(row);
+        }
     }
 
     /**
@@ -30,100 +87,100 @@ public class ResourcesAdmin extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jDonationButton = new javax.swing.JButton();
         jMealButton = new javax.swing.JButton();
+        jLabel106 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jDonationAdmin = new javax.swing.JPanel();
-        jLabel106 = new javax.swing.JLabel();
         jScrollPane14 = new javax.swing.JScrollPane();
         jTable8 = new javax.swing.JTable();
-        jPanel24 = new javax.swing.JPanel();
-        jLabel216 = new javax.swing.JLabel();
-        jAddHospital2 = new javax.swing.JButton();
-        jHospitalName4 = new javax.swing.JTextField();
-        jWalkin4 = new javax.swing.JCheckBox();
-        jEmergency4 = new javax.swing.JCheckBox();
-        jLabel227 = new javax.swing.JLabel();
-        jLabel228 = new javax.swing.JLabel();
-        jHosSpeciality4 = new javax.swing.JTextField();
         jPanel25 = new javax.swing.JPanel();
         jLabel229 = new javax.swing.JLabel();
-        jUpdateHospital2 = new javax.swing.JButton();
-        jHosSpeciality5 = new javax.swing.JTextField();
-        jLabel230 = new javax.swing.JLabel();
-        jEmergency5 = new javax.swing.JCheckBox();
-        jWalkin5 = new javax.swing.JCheckBox();
-        jHospitalName5 = new javax.swing.JTextField();
-        jLabel231 = new javax.swing.JLabel();
-        jUpdateHospital3 = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
-        jCity = new javax.swing.JComboBox<>();
+        jUpdateDonation = new javax.swing.JButton();
+        jDeleteDonation = new javax.swing.JButton();
+        jLabel232 = new javax.swing.JLabel();
+        jDonationName = new javax.swing.JTextField();
+        jLabel233 = new javax.swing.JLabel();
+        jDonationTypeCombo = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        jDonationAudienceCombo = new javax.swing.JComboBox<>();
+        jAddDonation = new javax.swing.JButton();
+        jLabel234 = new javax.swing.JLabel();
+        sceneLocation = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jDonationWebsite = new javax.swing.JFormattedTextField();
+        jDonationPhone = new javax.swing.JFormattedTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jMealsAdmin = new javax.swing.JPanel();
-        jLabel114 = new javax.swing.JLabel();
-        jPanel20 = new javax.swing.JPanel();
-        jLabel141 = new javax.swing.JLabel();
-        jUpdateDoctor = new javax.swing.JButton();
-        jDeleteDoctor = new javax.swing.JButton();
-        jLastName4 = new javax.swing.JTextField();
-        jLabel132 = new javax.swing.JLabel();
-        jLabel133 = new javax.swing.JLabel();
-        jLabel134 = new javax.swing.JLabel();
-        jLabel135 = new javax.swing.JLabel();
-        jLabel136 = new javax.swing.JLabel();
-        jFirstName4 = new javax.swing.JTextField();
-        jPassword4 = new javax.swing.JPasswordField();
-        jLabel137 = new javax.swing.JLabel();
-        jUsername4 = new javax.swing.JTextField();
-        jLabel138 = new javax.swing.JLabel();
-        jAddress10 = new javax.swing.JComboBox<>();
-        jLabel153 = new javax.swing.JLabel();
-        jBirthday4 = new javax.swing.JFormattedTextField();
-        jTitle1 = new javax.swing.JTextField();
-        jLabel154 = new javax.swing.JLabel();
-        jSpeciality1 = new javax.swing.JTextField();
-        jGender4 = new javax.swing.JComboBox<>();
-        jSchool1 = new javax.swing.JTextField();
-        jLabel155 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        jTable9 = new javax.swing.JTable();
+        jPanel26 = new javax.swing.JPanel();
+        jLabel230 = new javax.swing.JLabel();
+        jUpdateMealsButtons = new javax.swing.JButton();
+        jDeleteMealsButton = new javax.swing.JButton();
+        jLabel235 = new javax.swing.JLabel();
+        jMealName = new javax.swing.JTextField();
+        jLabel236 = new javax.swing.JLabel();
+        jMealType = new javax.swing.JComboBox<>();
+        jAddMealsButton = new javax.swing.JButton();
+        jLabel237 = new javax.swing.JLabel();
+        sceneLocation1 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jMealWebsite = new javax.swing.JFormattedTextField();
+        jMealPhone = new javax.swing.JFormattedTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jlgbtq = new javax.swing.JCheckBox();
+        jvegetarian = new javax.swing.JCheckBox();
+        jpeanut = new javax.swing.JCheckBox();
+        jLabel8 = new javax.swing.JLabel();
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jDonationButton.setText("Doctor Portal");
+        jDonationButton.setText("Donation Centers");
         jDonationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jDonationButtonActionPerformed(evt);
             }
         });
 
-        jMealButton.setText("Community Portal");
+        jMealButton.setText("Restaurant Managers");
         jMealButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMealButtonActionPerformed(evt);
             }
         });
 
+        jLabel106.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel106.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel106.setText("Resource Admin");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jMealButton))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jDonationButton)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel106, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jDonationButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jMealButton)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(248, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel106)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
                 .addComponent(jDonationButton)
-                .addGap(69, 69, 69)
+                .addGap(65, 65, 65)
                 .addComponent(jMealButton)
-                .addGap(305, 305, 305))
+                .addGap(309, 309, 309))
         );
 
         jSplitPane1.setLeftComponent(jPanel2);
@@ -133,10 +190,6 @@ public class ResourcesAdmin extends javax.swing.JPanel {
 
         jDonationAdmin.setBackground(new java.awt.Color(153, 204, 255));
 
-        jLabel106.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel106.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel106.setText("Manage Hospitals");
-
         jTable8.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -145,11 +198,11 @@ public class ResourcesAdmin extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "HospitalID", "Hospital", "Speciality", "Walk Ins"
+                "DonationID", "Donation Center", "Type", "City"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -157,442 +210,226 @@ public class ResourcesAdmin extends javax.swing.JPanel {
             }
         });
         jTable8.setColumnSelectionAllowed(true);
+        jTable8.getTableHeader().setReorderingAllowed(false);
         jTable8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable8MouseClicked(evt);
             }
         });
         jScrollPane14.setViewportView(jTable8);
-
-        jPanel24.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), new java.awt.Color(102, 0, 0)));
-
-        jLabel216.setText("Add New Hospital");
-
-        jAddHospital2.setText("Add");
-        jAddHospital2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jAddHospital2ActionPerformed(evt);
-            }
-        });
-
-        jWalkin4.setText("Walk In");
-
-        jEmergency4.setText("Emergency");
-
-        jLabel227.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel227.setText("Name");
-
-        jLabel228.setText("Speciality");
-
-        jHosSpeciality4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jHosSpeciality4ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
-        jPanel24.setLayout(jPanel24Layout);
-        jPanel24Layout.setHorizontalGroup(
-            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel24Layout.createSequentialGroup()
-                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel24Layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel227, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel228, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jHospitalName4)
-                            .addComponent(jHosSpeciality4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(47, 47, 47)
-                        .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jWalkin4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jEmergency4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel24Layout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel216)
-                            .addGroup(jPanel24Layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(jAddHospital2)))))
-                .addContainerGap(47, Short.MAX_VALUE))
-        );
-        jPanel24Layout.setVerticalGroup(
-            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel24Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel216)
-                .addGap(41, 41, 41)
-                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel24Layout.createSequentialGroup()
-                        .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jHospitalName4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel227))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel228)
-                            .addComponent(jHosSpeciality4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jEmergency4)))
-                    .addComponent(jWalkin4))
-                .addGap(29, 29, 29)
-                .addComponent(jAddHospital2)
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
+        jTable8.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        if (jTable8.getColumnModel().getColumnCount() > 0) {
+            jTable8.getColumnModel().getColumn(0).setMinWidth(0);
+            jTable8.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         jPanel25.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), new java.awt.Color(102, 0, 0)));
 
-        jLabel229.setText("View Hospital");
+        jLabel229.setText("Update Donation Center");
 
-        jUpdateHospital2.setText("Update");
-        jUpdateHospital2.addActionListener(new java.awt.event.ActionListener() {
+        jUpdateDonation.setText("Update");
+        jUpdateDonation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jUpdateHospital2ActionPerformed(evt);
+                jUpdateDonationActionPerformed(evt);
             }
         });
 
-        jHosSpeciality5.addActionListener(new java.awt.event.ActionListener() {
+        jDeleteDonation.setText("Delete");
+        jDeleteDonation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jHosSpeciality5ActionPerformed(evt);
+                jDeleteDonationActionPerformed(evt);
             }
         });
 
-        jLabel230.setText("Speciality");
+        jLabel232.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel232.setText("Center Name");
 
-        jEmergency5.setText("Emergency");
+        jLabel233.setText("Type");
 
-        jWalkin5.setText("Walk In");
+        jDonationTypeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Clothes", "Hygiene", "Money" }));
 
-        jLabel231.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel231.setText("Name");
+        jLabel3.setText("Audience");
 
-        jUpdateHospital3.setText("Delete");
-        jUpdateHospital3.addActionListener(new java.awt.event.ActionListener() {
+        jDonationAudienceCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Anyone", "Women Only", "Children", "Men Only", "Seniors", "Veterans" }));
+
+        jAddDonation.setText("Add");
+        jAddDonation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jUpdateHospital3ActionPerformed(evt);
+                jAddDonationActionPerformed(evt);
             }
         });
+
+        jLabel234.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel234.setText("Location");
+
+        sceneLocation.setEditable(false);
+        sceneLocation.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        sceneLocation.setForeground(new java.awt.Color(25, 56, 82));
+
+        jButton2.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(25, 56, 82));
+        jButton2.setText("Set Location");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        try {
+            jDonationPhone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(###) ###-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jDonationPhone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDonationPhoneActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setText("Website");
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel4.setText("Phone");
 
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
         jPanel25Layout.setHorizontalGroup(
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel25Layout.createSequentialGroup()
+                .addGap(337, 337, 337)
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel234)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel25Layout.createSequentialGroup()
+                        .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jDonationWebsite, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                            .addComponent(sceneLocation, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2))
+                    .addComponent(jDonationPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(39, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel25Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jAddDonation)
+                .addGap(72, 72, 72)
+                .addComponent(jUpdateDonation)
+                .addGap(72, 72, 72)
+                .addComponent(jDeleteDonation)
+                .addGap(177, 177, 177))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel25Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel229)
-                .addGap(175, 175, 175))
-            .addGroup(jPanel25Layout.createSequentialGroup()
-                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel25Layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel25Layout.createSequentialGroup()
-                                .addComponent(jLabel231, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jHospitalName5, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel25Layout.createSequentialGroup()
-                                .addComponent(jLabel230)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jHosSpeciality5)))
-                        .addGap(67, 67, 67)
-                        .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jWalkin5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jEmergency5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel25Layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(jUpdateHospital2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jUpdateHospital3)))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addGap(291, 291, 291))
+            .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel25Layout.createSequentialGroup()
+                    .addGap(126, 126, 126)
+                    .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel233)
+                        .addComponent(jLabel232)
+                        .addComponent(jLabel3))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jDonationName)
+                        .addComponent(jDonationTypeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jDonationAudienceCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(413, Short.MAX_VALUE)))
         );
         jPanel25Layout.setVerticalGroup(
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel25Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel229)
-                .addGap(40, 40, 40)
-                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel25Layout.createSequentialGroup()
-                        .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jHospitalName5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel231))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel230)
-                            .addComponent(jHosSpeciality5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel25Layout.createSequentialGroup()
-                        .addComponent(jWalkin5)
-                        .addGap(18, 18, 18)
-                        .addComponent(jEmergency5)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jUpdateHospital2)
-                    .addComponent(jUpdateHospital3))
-                .addGap(16, 16, 16))
+                    .addComponent(jLabel234)
+                    .addComponent(sceneLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jDonationWebsite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jDonationPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jDeleteDonation)
+                    .addComponent(jUpdateDonation)
+                    .addComponent(jAddDonation))
+                .addGap(29, 29, 29))
+            .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel25Layout.createSequentialGroup()
+                    .addGap(68, 68, 68)
+                    .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jDonationName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel232))
+                    .addGap(18, 18, 18)
+                    .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel233)
+                        .addComponent(jDonationTypeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jDonationAudienceCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3))
+                    .addContainerGap(107, Short.MAX_VALUE)))
         );
 
-        jLabel14.setText("Select by City");
-
-        jCity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCityActionPerformed(evt);
-            }
-        });
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Donation Centers");
 
         javax.swing.GroupLayout jDonationAdminLayout = new javax.swing.GroupLayout(jDonationAdmin);
         jDonationAdmin.setLayout(jDonationAdminLayout);
         jDonationAdminLayout.setHorizontalGroup(
             jDonationAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDonationAdminLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDonationAdminLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jDonationAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDonationAdminLayout.createSequentialGroup()
-                        .addGap(330, 330, 330)
-                        .addComponent(jLabel106, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDonationAdminLayout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addGroup(jDonationAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDonationAdminLayout.createSequentialGroup()
-                                .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)
-                                .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jDonationAdminLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(jDonationAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 884, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCity, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(232, Short.MAX_VALUE))
+                    .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 732, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33))
+            .addGroup(jDonationAdminLayout.createSequentialGroup()
+                .addGap(243, 243, 243)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDonationAdminLayout.setVerticalGroup(
             jDonationAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDonationAdminLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel106, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                .addComponent(jCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jDonationAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
         );
 
-        jPanel3.add(jDonationAdmin, "hospitalsyspane");
+        jPanel3.add(jDonationAdmin, "donationadmin");
 
         jMealsAdmin.setBackground(new java.awt.Color(153, 204, 255));
 
-        jLabel114.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel114.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel114.setText("Manage Doctors");
-
-        jPanel20.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), new java.awt.Color(102, 0, 0)));
-
-        jLabel141.setText("View Doctor");
-
-        jUpdateDoctor.setText("Update");
-        jUpdateDoctor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jUpdateDoctorActionPerformed(evt);
-            }
-        });
-
-        jDeleteDoctor.setText("Delete");
-        jDeleteDoctor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jDeleteDoctorActionPerformed(evt);
-            }
-        });
-
-        jLabel132.setText("Last Name");
-
-        jLabel133.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel133.setText("Title");
-
-        jLabel134.setText("First Name");
-
-        jLabel135.setText("Speciality");
-
-        jLabel136.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel136.setText("School");
-
-        jFirstName4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFirstName4ActionPerformed(evt);
-            }
-        });
-
-        jLabel137.setText("Password");
-
-        jUsername4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jUsername4ActionPerformed(evt);
-            }
-        });
-
-        jLabel138.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel138.setText("Username");
-
-        jLabel153.setText("Address");
-
-        jBirthday4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-
-        jLabel154.setText("Birthday");
-
-        jSpeciality1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jSpeciality1ActionPerformed(evt);
-            }
-        });
-
-        jGender4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
-        jGender4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jGender4ActionPerformed(evt);
-            }
-        });
-
-        jLabel155.setText("Gender");
-
-        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
-        jPanel20.setLayout(jPanel20Layout);
-        jPanel20Layout.setHorizontalGroup(
-            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel20Layout.createSequentialGroup()
-                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addGap(321, 321, 321)
-                        .addComponent(jLabel141))
-                    .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addGap(263, 263, 263)
-                        .addComponent(jUpdateDoctor)
-                        .addGap(153, 153, 153)
-                        .addComponent(jDeleteDoctor))
-                    .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel20Layout.createSequentialGroup()
-                                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel134)
-                                    .addComponent(jLabel132))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLastName4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jFirstName4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel20Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel155, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel154, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jGender4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jBirthday4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(94, 94, 94)
-                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel20Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel153)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jAddress10, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel20Layout.createSequentialGroup()
-                                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel138)
-                                    .addComponent(jLabel137, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jUsername4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPassword4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(69, 69, 69)
-                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel133, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel135)
-                            .addComponent(jLabel136))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jSchool1, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                            .addComponent(jSpeciality1)
-                            .addComponent(jTitle1))))
-                .addContainerGap(51, Short.MAX_VALUE))
-        );
-        jPanel20Layout.setVerticalGroup(
-            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel20Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel141)
-                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel20Layout.createSequentialGroup()
-                                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel136)
-                                    .addComponent(jSchool1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel135)
-                                    .addComponent(jSpeciality1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel133)
-                                    .addComponent(jTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel20Layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jFirstName4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel134)
-                                    .addComponent(jAddress10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel153))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel20Layout.createSequentialGroup()
-                                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLastName4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel132))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel155)
-                                            .addComponent(jGender4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jPanel20Layout.createSequentialGroup()
-                                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jUsername4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel138, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jPassword4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel137))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel154)
-                                    .addComponent(jBirthday4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(65, 177, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jDeleteDoctor)
-                            .addComponent(jUpdateDoctor))
-                        .addGap(55, 55, 55))))
-        );
-
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        jTable9.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "DocID", "Doctor", "Title", "Speciality", "School", "Gender"
+                "MealsID", "Restaurant", "Type", "City"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -603,44 +440,216 @@ public class ResourcesAdmin extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable4.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTable9.getTableHeader().setReorderingAllowed(false);
+        jTable9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable4MouseClicked(evt);
+                jTable9MouseClicked(evt);
             }
         });
-        jScrollPane4.setViewportView(jTable4);
+        jScrollPane15.setViewportView(jTable9);
+        jTable9.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        if (jTable9.getColumnModel().getColumnCount() > 0) {
+            jTable9.getColumnModel().getColumn(0).setMinWidth(0);
+            jTable9.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
+
+        jPanel26.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), new java.awt.Color(102, 0, 0)));
+
+        jLabel230.setText("Update Restaurant Info Center");
+
+        jUpdateMealsButtons.setText("Update");
+        jUpdateMealsButtons.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jUpdateMealsButtonsActionPerformed(evt);
+            }
+        });
+
+        jDeleteMealsButton.setText("Delete");
+        jDeleteMealsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDeleteMealsButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel235.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel235.setText("Center Name");
+
+        jLabel236.setText("Type");
+
+        jMealType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Breakfast", "Lunch", "Dinner" }));
+
+        jAddMealsButton.setText("Add");
+        jAddMealsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAddMealsButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel237.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel237.setText("Location");
+
+        sceneLocation1.setEditable(false);
+        sceneLocation1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        sceneLocation1.setForeground(new java.awt.Color(25, 56, 82));
+
+        jButton3.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(25, 56, 82));
+        jButton3.setText("Set Location");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        try {
+            jMealPhone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(###) ###-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel6.setText("Website");
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel7.setText("Phone");
+
+        jlgbtq.setText("LGBTQ+ Friendly?");
+        jlgbtq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jlgbtqActionPerformed(evt);
+            }
+        });
+
+        jvegetarian.setText("Vegetarian Friendly?");
+        jvegetarian.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jvegetarianActionPerformed(evt);
+            }
+        });
+
+        jpeanut.setText("Peanut Allergy Friendly?");
+
+        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
+        jPanel26.setLayout(jPanel26Layout);
+        jPanel26Layout.setHorizontalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel26Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jAddMealsButton)
+                .addGap(72, 72, 72)
+                .addComponent(jUpdateMealsButtons)
+                .addGap(72, 72, 72)
+                .addComponent(jDeleteMealsButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel26Layout.createSequentialGroup()
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel26Layout.createSequentialGroup()
+                        .addGap(272, 272, 272)
+                        .addComponent(jLabel230)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel26Layout.createSequentialGroup()
+                        .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel26Layout.createSequentialGroup()
+                                .addGap(126, 126, 126)
+                                .addComponent(jLabel235)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jMealName, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                                .addComponent(jLabel237))
+                            .addGroup(jPanel26Layout.createSequentialGroup()
+                                .addGap(127, 127, 127)
+                                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel26Layout.createSequentialGroup()
+                                        .addComponent(jpeanut)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel7))
+                                    .addGroup(jPanel26Layout.createSequentialGroup()
+                                        .addComponent(jvegetarian)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel26Layout.createSequentialGroup()
+                                        .addComponent(jlgbtq)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel236)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel26Layout.createSequentialGroup()
+                                .addComponent(sceneLocation1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton3))
+                            .addComponent(jMealPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jMealType, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jMealWebsite, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(68, 68, 68))
+        );
+        jPanel26Layout.setVerticalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel230)
+                .addGap(29, 29, 29)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel237)
+                    .addComponent(sceneLocation1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jMealName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel235))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jMealType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel236)
+                    .addComponent(jlgbtq))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(jvegetarian))
+                    .addComponent(jMealWebsite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jMealPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7))
+                    .addComponent(jpeanut))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jDeleteMealsButton)
+                    .addComponent(jUpdateMealsButtons)
+                    .addComponent(jAddMealsButton))
+                .addGap(29, 29, 29))
+        );
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Restaurants Management");
 
         javax.swing.GroupLayout jMealsAdminLayout = new javax.swing.GroupLayout(jMealsAdmin);
         jMealsAdmin.setLayout(jMealsAdminLayout);
         jMealsAdminLayout.setHorizontalGroup(
             jMealsAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jMealsAdminLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 908, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(103, 103, 103))
             .addGroup(jMealsAdminLayout.createSequentialGroup()
-                .addGroup(jMealsAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(19, 19, 19)
+                .addGroup(jMealsAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jMealsAdminLayout.createSequentialGroup()
-                        .addGap(422, 422, 422)
-                        .addComponent(jLabel114, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jMealsAdminLayout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(252, Short.MAX_VALUE))
+                        .addGap(152, 152, 152)
+                        .addComponent(jLabel8))
+                    .addComponent(jPanel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane15))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jMealsAdminLayout.setVerticalGroup(
             jMealsAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jMealsAdminLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel114, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(17, 17, 17))
+                .addContainerGap(13, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
 
-        jPanel3.add(jMealsAdmin, "doctorsyspane");
+        jPanel3.add(jMealsAdmin, "mealsadmin");
 
         jSplitPane1.setRightComponent(jPanel3);
 
@@ -658,269 +667,257 @@ public class ResourcesAdmin extends javax.swing.JPanel {
 
     private void jDonationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDonationButtonActionPerformed
         // TODO add your handling code here:
-        accountType = "Doctor";
         CardLayout card = (CardLayout)jPanel3.getLayout();
-        card.show(jPanel3, "loginPane");
+        card.show(jPanel3, "donationadmin");
+        populateDonations();
     }//GEN-LAST:event_jDonationButtonActionPerformed
 
     private void jMealButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMealButtonActionPerformed
         // TODO add your handling code here:
-        accountType = "Community";
         CardLayout card = (CardLayout)jPanel3.getLayout();
-        card.show(jPanel3, "loginPane");
+        card.show(jPanel3, "mealsadmin");
+        populateMeals();
     }//GEN-LAST:event_jMealButtonActionPerformed
 
     private void jTable8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable8MouseClicked
         // TODO add your handling code here:
         int selectedRowIndex = jTable8.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel) jTable8.getModel();
-        Hospital p = (Hospital) model.getValueAt(selectedRowIndex, 0);
-        jHospitalName5.setText(p.getName());
-        jHosSpeciality5.setText(p.getSpeciality());
-        jWalkin5.setSelected(p.getWalkins());
-        jEmergency5.setSelected(p.getEmergency());
+        Donations d = (Donations) model.getValueAt(selectedRowIndex, 0);
+        jDonationName.setText(d.getName());
+        jDonationTypeCombo.setSelectedItem(d.getDonationType());
+        jDonationAudienceCombo.setSelectedItem(d.getAudience());
+        sceneLocation.setText(d.getLocationPoint().toString());
+        jDonationWebsite.setText(d.getWebsite());
+        jDonationPhone.setText(Integer.toString(d.getPhone()));
     }//GEN-LAST:event_jTable8MouseClicked
 
-    private void jAddHospital2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAddHospital2ActionPerformed
+    private void jAddDonationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAddDonationActionPerformed
         // TODO add your handling code here:
-        if(jHospitalName4.getText().equals("") || jHosSpeciality4.getText().equals("")){
+        if(jDonationName.getText().equals("") || sceneLocation.getText().equals("")){
             JOptionPane.showMessageDialog(null, "All fields must be filled out");
         }else{
-            Hospital newHospital = new Hospital(jHospitalName4.getText(), jWalkin4.isSelected(), jEmergency4.isSelected(), jHosSpeciality4.getText());
-            City tempCity = getCity(jCity.getSelectedItem().toString());
-            jHospitalName4.setText("");
-            jHosSpeciality4.setText("");
-            tempCity.addHospital(newHospital);
-            displayHospitals(tempCity.getHospitals().getHospitals(),jTable8);
-
+            Donations newDonation = new Donations(jDonationName.getText());
+            newDonation.setDonationType(jDonationTypeCombo.getSelectedItem().toString());
+            newDonation.setAudience(jDonationAudienceCombo.getSelectedItem().toString());
+            newDonation.setLocationPoint(locationPoint);
+            newDonation.setWebsite(jDonationWebsite.getText());
+            newDonation.setPhone(Integer.parseInt(jDonationPhone.getText()));
+            jDonationTypeCombo.setSelectedItem("");
+            jDonationAudienceCombo.setSelectedItem("");
+            sceneLocation.setText("");
+            jDonationWebsite.setText("");
+            jDonationPhone.setText("");
+            resourcelist.addDonations(newDonation);
+            populateDonations();
         }
 
-    }//GEN-LAST:event_jAddHospital2ActionPerformed
+    }//GEN-LAST:event_jAddDonationActionPerformed
 
-    private void jHosSpeciality4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHosSpeciality4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jHosSpeciality4ActionPerformed
-
-    private void jUpdateHospital2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUpdateHospital2ActionPerformed
+    private void jUpdateDonationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUpdateDonationActionPerformed
         // TODO add your handling code here:
         if(!jTable8.getSelectionModel().isSelectionEmpty()){
             int selectedRowIndex = jTable8.getSelectedRow();
             DefaultTableModel model = (DefaultTableModel) jTable8.getModel();
-            Hospital newHospital = (Hospital) model.getValueAt(selectedRowIndex, 0);
-            if(jHospitalName5.getText().equals("") || jHosSpeciality5.getText().equals("")){
+            Donations donation = (Donations) model.getValueAt(selectedRowIndex, 0);
+            if(jDonationName.getText().equals("") || sceneLocation.getText().equals("")){
                 JOptionPane.showMessageDialog(null, "All fields are required");
             }else{
-                newHospital.setName(jHospitalName5.getText());
-                newHospital.setSpeciality(jHosSpeciality5.getText());
-                newHospital.setWalkins(jWalkin5.isSelected());
-                newHospital.setEmergency(jEmergency5.isSelected());
-                City tempCity = getCity(jCity.getSelectedItem().toString());
-                List<Hospital> filteredList2 = tempCity.getHospitals().getHospitals();
-                displayHospitals(filteredList2, jTable8);
+                donation.setName(sceneLocation.getText());
+                donation.setDonationType(jDonationTypeCombo.getSelectedItem().toString());
+                donation.setAudience(jDonationAudienceCombo.getSelectedItem().toString());
+                donation.setLocationPoint(locationPoint);
+                donation.setWebsite(jDonationWebsite.getText());
+                donation.setPhone(Integer.parseInt(jDonationPhone.getText()));
+                jDonationTypeCombo.setSelectedItem("");
+                jDonationAudienceCombo.setSelectedItem("");
+                sceneLocation.setText("");
+                jDonationWebsite.setText("");
+                jDonationPhone.setText("");
+                populateDonations();
 
-                jHospitalName5.setText("");
-                jHosSpeciality5.setText("");
-                jCity.setSelectedIndex(0);
             }
         }else{
-            JOptionPane.showMessageDialog(null, "Please select a Hospital");
+            JOptionPane.showMessageDialog(null, "Please select a Donation Center");
         }
-    }//GEN-LAST:event_jUpdateHospital2ActionPerformed
+    }//GEN-LAST:event_jUpdateDonationActionPerformed
 
-    private void jHosSpeciality5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHosSpeciality5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jHosSpeciality5ActionPerformed
-
-    private void jUpdateHospital3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUpdateHospital3ActionPerformed
+    private void jDeleteDonationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDeleteDonationActionPerformed
         // TODO add your handling code here:
         if(!jTable8.getSelectionModel().isSelectionEmpty()){
             int selectedRowIndex = jTable8.getSelectedRow();
             DefaultTableModel model = (DefaultTableModel) jTable8.getModel();
-            Hospital newHospital = (Hospital) model.getValueAt(selectedRowIndex, 0);
-            City tempCity = getCity(jCity.getSelectedItem().toString());
-            tempCity.removeHospital(newHospital);
-            List<Hospital> filteredList2 = tempCity.getHospitals().getHospitals();
-            displayHospitals(filteredList2, jTable8);
-            jHospitalName5.setText("");
-            jHosSpeciality5.setText("");
-            JOptionPane.showMessageDialog(null, "Hospital deleted");
+            Donations donation = (Donations) model.getValueAt(selectedRowIndex, 0);
+            resourcelist.deleteDonation(donation);
+            jDonationTypeCombo.setSelectedItem("");
+            jDonationAudienceCombo.setSelectedItem("");
+            sceneLocation.setText("");
+            jDonationWebsite.setText("");
+            jDonationPhone.setText("");
+            populateDonations();            
+            JOptionPane.showMessageDialog(null, "Donation center removed");
         }else{
-            JOptionPane.showMessageDialog(null, "Please select a Hospital");
+            JOptionPane.showMessageDialog(null, "Please select a center");
         }
-    }//GEN-LAST:event_jUpdateHospital3ActionPerformed
+    }//GEN-LAST:event_jDeleteDonationActionPerformed
 
-    private void jCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCityActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        OrganizationLocationJPanel muajp = new OrganizationLocationJPanel(userProcessContainer);
+        userProcessContainer.add("OrganizationLocationJPanel", muajp);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTable9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable9MouseClicked
         // TODO add your handling code here:
-        City tempCity = getCity(jCity.getSelectedItem().toString());
-        displayHospitals(tempCity.getHospitals().getHospitals(),jTable8);
-    }//GEN-LAST:event_jCityActionPerformed
+        
+    }//GEN-LAST:event_jTable9MouseClicked
 
-    private void jUpdateDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUpdateDoctorActionPerformed
+    private void jUpdateMealsButtonsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUpdateMealsButtonsActionPerformed
         // TODO add your handling code here:
-        if(!jTable4.getSelectionModel().isSelectionEmpty()){
-            int selectedRowIndex = jTable4.getSelectedRow();
-            DefaultTableModel model = (DefaultTableModel) jTable4.getModel();
-            Doctor newPatient = (Doctor) model.getValueAt(selectedRowIndex, 0);
-            if(jFirstName4.getText().equals("") || jPassword4.getText().equals("") || jBirthday4.getText().equals("") || jGender4.getSelectedItem().toString().equals("") || jUsername4.getText().equals("") || jPassword4.getText().equals("") || jSchool1.getText().equals("") || jSpeciality1.getText().equals("") || jTitle1.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "All fields are required");
-            }else{
-                newPatient.setFirstname(jFirstName4.getText());
-                newPatient.setLastname(jLastName4.getText());
-                try {
-                    newPatient.setBirthday((Date)formatter.parse(jBirthday4.getText()));
-                } catch (ParseException ex) {
-                    Logger.getLogger(HomeFrame.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                newPatient.setGender(jGender4.getSelectedItem().toString());
-                newPatient.setResidence(findHouse(jAddress10.getSelectedItem().toString()));
-                newPatient.setUsername(jUsername4.getText());
-                newPatient.setPassword(jPassword4.getText());
-                newPatient.setSchool(jSchool1.getText());
-                newPatient.setSpeciality(jSpeciality1.getText());
-                newPatient.setTitle(jTitle1.getText());
-                jFirstName4.setText("");
-                jLastName4.setText("");
-                jBirthday4.setText("");
-                jGender4.setSelectedIndex(0);
-                jAddress10.setSelectedIndex(0);
-                jUsername4.setText("");
-                jPassword4.setText("");
-                jSchool1.setText("");
-                jSpeciality1.setText("");
-                jTitle1.setText("");
-                jDoctorDropdown.removeAll();
-                jDoctorDropdown1.removeAll();
-                jDoctorDropdown2.removeAll();
-                jDoctorDropdown3.removeAll();
-
-                for(Doctor s: hospitalSystem.getDoctors().getDoctors()){
-                    jDoctorDropdown.addItem(s.toString());
-                    jDoctorDropdown.setSelectedIndex(0);
-                    jDoctorDropdown1.addItem(s.toString());
-                    jDoctorDropdown1.setSelectedIndex(0);
-                    jDoctorDropdown2.addItem(s.toString());
-                    jDoctorDropdown2.setSelectedIndex(0);
-                    jDoctorDropdown3.addItem(s.toString());
-                    jDoctorDropdown3.setSelectedIndex(0);
-                }
-                displayDoctors(jTable4);
-            }
+        int selectedRowIndex = jTable9.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) jTable9.getModel();
+        Meals meal = (Meals) model.getValueAt(selectedRowIndex, 0);
+        if(jMealName.getText().equals("") || sceneLocation1.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "All fields must be filled out");
         }else{
-            JOptionPane.showMessageDialog(null, "Please select a Doctor");
+            meal.setMealType(jMealType.getSelectedItem().toString());
+            meal.setLgbtfriendly(jlgbtq.isSelected());
+            meal.setVegetarian(jvegetarian.isSelected());
+            meal.setPeanut(jpeanut.isSelected());
+            meal.setLocationPoint(locationPoint);
+            meal.setWebsite(jMealWebsite.getText());
+            meal.setPhone(Integer.parseInt(jMealPhone.getText()));
+            jMealName.setText("");
+            jMealType.setSelectedItem("");
+            sceneLocation1.setText("");
+            jlgbtq.setSelected(false);
+            jvegetarian.setSelected(false);
+            jpeanut.setSelected(false);
+            jMealWebsite.setText("");
+            jMealPhone.setText("");
+            resourcelist.addMeal(meal);
+            populateMeals();
         }
-    }//GEN-LAST:event_jUpdateDoctorActionPerformed
+    }//GEN-LAST:event_jUpdateMealsButtonsActionPerformed
 
-    private void jDeleteDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDeleteDoctorActionPerformed
+    private void jDeleteMealsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDeleteMealsButtonActionPerformed
         // TODO add your handling code here:
-        if(!jTable4.getSelectionModel().isSelectionEmpty()){
-            int selectedRowIndex = jTable4.getSelectedRow();
-            DefaultTableModel model = (DefaultTableModel) jTable4.getModel();
-            Doctor p = (Doctor) model.getValueAt(selectedRowIndex, 0);
-            hospitalSystem.deleteDoctor(p);
-            displayDoctors(jTable4);
-            jDoctorDropdown.removeItem(p.toString());
-            jDoctorDropdown1.removeItem(p.toString());
-            jDoctorDropdown2.removeItem(p.toString());
-            jDoctorDropdown3.removeItem(p.toString());
-
+        if(!jTable9.getSelectionModel().isSelectionEmpty()){
+            int selectedRowIndex = jTable9.getSelectedRow();
+            DefaultTableModel model = (DefaultTableModel) jTable9.getModel();
+            Meals meal = (Meals) model.getValueAt(selectedRowIndex, 0);
+            resourcelist.deleteMeal(meal);
+            jMealName.setText("");
+            jMealType.setSelectedItem("");
+            sceneLocation1.setText("");
+            jlgbtq.setSelected(false);
+            jvegetarian.setSelected(false);
+            jpeanut.setSelected(false);
+            jMealWebsite.setText("");
+            jMealPhone.setText("");
+            populateMeals();            
+            JOptionPane.showMessageDialog(null, "Restaurant removed");
         }else{
-            JOptionPane.showMessageDialog(null, "Please select a Doctor");
+            JOptionPane.showMessageDialog(null, "Please select a restaurant");
         }
-    }//GEN-LAST:event_jDeleteDoctorActionPerformed
+    }//GEN-LAST:event_jDeleteMealsButtonActionPerformed
 
-    private void jFirstName4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFirstName4ActionPerformed
+    private void jAddMealsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAddMealsButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFirstName4ActionPerformed
+        if(jMealName.getText().equals("") || sceneLocation1.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "All fields must be filled out");
+        }else{
+            Meals newMeals = new Meals(jMealName.getText());
+            newMeals.setMealType(jMealType.getSelectedItem().toString());
+            newMeals.setLgbtfriendly(jlgbtq.isSelected());
+            newMeals.setVegetarian(jvegetarian.isSelected());
+            newMeals.setPeanut(jpeanut.isSelected());
+            newMeals.setLocationPoint(locationPoint);
+            newMeals.setWebsite(jMealWebsite.getText());
+            newMeals.setPhone(Integer.parseInt(jMealPhone.getText()));
+            jMealName.setText("");
+            jMealType.setSelectedItem("");
+            sceneLocation1.setText("");
+            jlgbtq.setSelected(false);
+            jvegetarian.setSelected(false);
+            jpeanut.setSelected(false);
+            jMealWebsite.setText("");
+            jMealPhone.setText("");
+            resourcelist.addMeal(newMeals);
+            populateMeals();
+        }
 
-    private void jUsername4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUsername4ActionPerformed
+    }//GEN-LAST:event_jAddMealsButtonActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jUsername4ActionPerformed
+    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jSpeciality1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSpeciality1ActionPerformed
+    private void jDonationPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDonationPhoneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jSpeciality1ActionPerformed
+    }//GEN-LAST:event_jDonationPhoneActionPerformed
 
-    private void jGender4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGender4ActionPerformed
+    private void jlgbtqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jlgbtqActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jGender4ActionPerformed
+    }//GEN-LAST:event_jlgbtqActionPerformed
 
-    private void jTable4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable4MouseClicked
+    private void jvegetarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jvegetarianActionPerformed
         // TODO add your handling code here:
-        int selectedRowIndex = jTable4.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel) jTable4.getModel();
-        Doctor p = (Doctor) model.getValueAt(selectedRowIndex, 0);
-
-        jFirstName4.setText(p.getFirstname());
-        jLastName4.setText(p.getLastname());
-        jBirthday4.setValue(p.getBirthday());
-        jGender4.setSelectedItem(p.getGender());
-        jAddress10.setSelectedItem(p.getResidence().toString());
-        jUsername4.setText(p.getUsername());
-        jPassword4.setText(p.getPassword());
-        jSchool1.setText(p.getSchool());
-        jSpeciality1.setText(p.getSpeciality());
-        jTitle1.setText(p.getTitle());
-    }//GEN-LAST:event_jTable4MouseClicked
+    }//GEN-LAST:event_jvegetarianActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jAddHospital2;
-    private javax.swing.JComboBox<String> jAddress10;
-    private javax.swing.JFormattedTextField jBirthday4;
-    private javax.swing.JComboBox<String> jCity;
-    private javax.swing.JButton jDeleteDoctor;
+    private javax.swing.JButton jAddDonation;
+    private javax.swing.JButton jAddMealsButton;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jDeleteDonation;
+    private javax.swing.JButton jDeleteMealsButton;
     private javax.swing.JPanel jDonationAdmin;
+    private javax.swing.JComboBox<String> jDonationAudienceCombo;
     private javax.swing.JButton jDonationButton;
-    private javax.swing.JCheckBox jEmergency4;
-    private javax.swing.JCheckBox jEmergency5;
-    private javax.swing.JTextField jFirstName4;
-    private javax.swing.JComboBox<String> jGender4;
-    private javax.swing.JTextField jHosSpeciality4;
-    private javax.swing.JTextField jHosSpeciality5;
-    private javax.swing.JTextField jHospitalName4;
-    private javax.swing.JTextField jHospitalName5;
+    private javax.swing.JTextField jDonationName;
+    private javax.swing.JFormattedTextField jDonationPhone;
+    private javax.swing.JComboBox<String> jDonationTypeCombo;
+    private javax.swing.JFormattedTextField jDonationWebsite;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel106;
-    private javax.swing.JLabel jLabel114;
-    private javax.swing.JLabel jLabel132;
-    private javax.swing.JLabel jLabel133;
-    private javax.swing.JLabel jLabel134;
-    private javax.swing.JLabel jLabel135;
-    private javax.swing.JLabel jLabel136;
-    private javax.swing.JLabel jLabel137;
-    private javax.swing.JLabel jLabel138;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel141;
-    private javax.swing.JLabel jLabel153;
-    private javax.swing.JLabel jLabel154;
-    private javax.swing.JLabel jLabel155;
-    private javax.swing.JLabel jLabel216;
-    private javax.swing.JLabel jLabel227;
-    private javax.swing.JLabel jLabel228;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel229;
     private javax.swing.JLabel jLabel230;
-    private javax.swing.JLabel jLabel231;
-    private javax.swing.JTextField jLastName4;
+    private javax.swing.JLabel jLabel232;
+    private javax.swing.JLabel jLabel233;
+    private javax.swing.JLabel jLabel234;
+    private javax.swing.JLabel jLabel235;
+    private javax.swing.JLabel jLabel236;
+    private javax.swing.JLabel jLabel237;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JButton jMealButton;
+    private javax.swing.JTextField jMealName;
+    private javax.swing.JFormattedTextField jMealPhone;
+    private javax.swing.JComboBox<String> jMealType;
+    private javax.swing.JFormattedTextField jMealWebsite;
     private javax.swing.JPanel jMealsAdmin;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel20;
-    private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField jPassword4;
-    private javax.swing.JTextField jSchool1;
     private javax.swing.JScrollPane jScrollPane14;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextField jSpeciality1;
+    private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable8;
-    private javax.swing.JTextField jTitle1;
-    private javax.swing.JButton jUpdateDoctor;
-    private javax.swing.JButton jUpdateHospital2;
-    private javax.swing.JButton jUpdateHospital3;
-    private javax.swing.JTextField jUsername4;
-    private javax.swing.JCheckBox jWalkin4;
-    private javax.swing.JCheckBox jWalkin5;
+    private javax.swing.JTable jTable9;
+    private javax.swing.JButton jUpdateDonation;
+    private javax.swing.JButton jUpdateMealsButtons;
+    private javax.swing.JCheckBox jlgbtq;
+    private javax.swing.JCheckBox jpeanut;
+    private javax.swing.JCheckBox jvegetarian;
+    private javax.swing.JTextField sceneLocation;
+    private javax.swing.JTextField sceneLocation1;
     // End of variables declaration//GEN-END:variables
 }

@@ -26,14 +26,6 @@ public class Donations extends Organization {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public static String[] getDType() {
-        return type;
-    }
-
-    public static void setDType(String[] type) {
-        Donations.type = type;
-    }
-
     public String getDonationType() {
         return donationType;
     }
