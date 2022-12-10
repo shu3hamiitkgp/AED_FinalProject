@@ -3,16 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package FrontEnd.Medical;
+package FrontEnd.Homeless;
 
+import FrontEnd.Medical.*;
 import Backend.Ecosystem.EcoSystem;
 import Backend.Enterprise.Enterprise;
 import Backend.Network.Network;
-import Backend.Organization.Medical;
 import Backend.Organization.Organization;
 import Backend.UserAccount.UserAccount;
-import Backend.WorkQueue.WorkRequest;
-import MainUI.HeaderColors;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -21,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Sahil
  */
-public class MedicalViewPanel extends javax.swing.JPanel {
+public class HomelessViewPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;
     Enterprise enterprise;
@@ -33,7 +31,7 @@ public class MedicalViewPanel extends javax.swing.JPanel {
     /**
      * Creates new form FireSafetyAdminWorkAreaJPanel
      */
-    public MedicalViewPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
+    public HomelessViewPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
@@ -45,18 +43,26 @@ public class MedicalViewPanel extends javax.swing.JPanel {
         populateTable();
     }
 
-    private void populateTable(Medical medicallists) {
+    private void populateTable() {
         workRequestTable.getTableHeader().setDefaultRenderer(new HeaderColors());
         DefaultTableModel model = (DefaultTableModel) workRequestTable.getModel();
         model.setRowCount(0);
-        for (String medical : medicallists.getstatus()) {           
-            Object[] row = new Object[6];
-            row[0] = medicallists.getcategory();
-            row[1] = medicallists.getdoctors();
-            row[2] = medicallists.isfees();
-            row[3] = medicallists.isavailability();
-            row[4] = medicallists.getlocation();
-            
+        for (WorkRequest wr : organization.getWorkQueue().getWorkRequestList()) {
+            if(wr instanceof EmergencyUnitRequest) {
+                Object[] row = new Object[model.getColumnCount()];
+                row[0] = ((EmergencyUnitRequest) wr);
+                row[1] = ((EmergencyUnitRequest) wr).getSender().getEmployee().getName();
+                row[2] = ((EmergencyUnitRequest) wr).getSceneName();
+                row[3] = ((EmergencyUnitRequest) wr).getNoOfVictims();
+                row[4] = ((EmergencyUnitRequest) wr).getSceneLocationPoint();
+                row[5] = ((EmergencyUnitRequest) wr).getMessage();
+                row[6] = ((EmergencyUnitRequest) wr).getStatus();
+                row[7] = ((EmergencyUnitRequest) wr).getSenderOrganization().getName();
+                row[8] = ((EmergencyUnitRequest) wr).getSenderNetwork().getName();
+                row[9] = ((EmergencyUnitRequest) wr).getRequestDate();
+                row[10] = ((EmergencyUnitRequest) wr).getRequirements();
+                model.addRow(row);
+            }
             
         }
     }
@@ -88,24 +94,25 @@ public class MedicalViewPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(25, 56, 82));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("MEDICAL  WORK AREA");
+        jLabel1.setText("HOMELESS  WORK AREA");
+        jLabel1.setToolTipText("");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 30, -1, -1));
 
         workRequestTable.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         workRequestTable.setForeground(new java.awt.Color(25, 56, 82));
         workRequestTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Category", "Location", "Availability", "Fees", "Doctor"
+                "Person Name", "Age", "Location", "Initial Observation", "Status", "Disabled", "Employed"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -286,8 +293,4 @@ public class MedicalViewPanel extends javax.swing.JPanel {
     private javax.swing.JButton rejectBtn;
     private javax.swing.JTable workRequestTable;
     // End of variables declaration//GEN-END:variables
-
-    private void populateTable() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
