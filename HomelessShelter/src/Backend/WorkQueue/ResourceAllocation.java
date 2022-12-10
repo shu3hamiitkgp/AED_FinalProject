@@ -32,8 +32,8 @@ public class ResourceAllocation extends WorkRequest{
     private Organization.Type type;
     private int phone;
     private String website;
-    private String address;
-    private String orgName;
+    private String address
+;    private String orgName;
     private String userName;
     private String userPassword;
     private String userEmailId;

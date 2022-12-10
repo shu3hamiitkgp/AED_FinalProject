@@ -12,23 +12,23 @@ import java.util.ArrayList;
  *
  * @author shubhamgoyal
  */
-public class ShleterGovernment extends Organization {
+public class ShelterGovernment extends Organization {
     
     private String name;
-    private String ShleterGovernment;
+    private String ShelterGovernment;
 
-    public ShleterGovernment(String name) {
+    public ShelterGovernment(String name) {
         super(name);
         this.name = name;
-        ShleterGovernment = name;
+        ShelterGovernment = name;
     }
 
-    public String getShleterGovernment() {
-        return ShleterGovernment;
+    public String getShelterGovernment() {
+        return ShelterGovernment;
     }
 
-    public void setShleterGovernment(String ShelterPrivate) {
-        this.ShleterGovernment = ShelterPrivate;
+    public void setShelterGovernment(String ShelterPrivate) {
+        this.ShelterGovernment = ShelterPrivate;
     }
     
 

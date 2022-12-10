@@ -42,16 +42,28 @@ public class OrganizationDirectory {
             //personal.setVolunteerPersonal(name);
             organization.setLocationPoint(locationPoint);
             organizationList.add(organization);
-        } else if (type.getValue().equals(Type.NGO.getValue())) {
-            organization = new VolunteerNGOOrganization(name);
-            VolunteerNGOOrganization ngo = (VolunteerNGOOrganization) organization;
-            ngo.setVolunteerNGO(name);
+        } else if (type.getValue().equals(Type.NGOShelter.getValue())) {
+            organization = new ShelterNGO(name);
+            ShelterNGO ngo = (ShelterNGO) organization;
+            ngo.setShelterNGO(name);
             organization.setLocationPoint(locationPoint);
             organizationList.add(organization);
-        } else if (type.getValue().equals(Type.Company.getValue())) {
-            organization = new VolunteerCompanyOrganization(name);
-            VolunteerCompanyOrganization company = (VolunteerCompanyOrganization) organization;
-            company.setVolunteerCompany(name);
+        } else if (type.getValue().equals(Type.PrivateShelter.getValue())) {
+            organization = new ShelterPrivate(name);
+            ShelterPrivate company = (ShelterPrivate) organization;
+            company.setShelterPrivate(name);
+            organization.setLocationPoint(locationPoint);
+            organizationList.add(organization);
+        } else if (type.getValue().equals(Type.GovernmentShelter.getValue())) {
+            organization = new ShelterGovernment(name);
+            ShelterGovernment sheltergovt = (ShelterGovernment) organization;
+            sheltergovt.setShelterGovernment(name);
+            organization.setLocationPoint(locationPoint);
+            organizationList.add(organization);
+        } else if (type.getValue().equals(Type.Donations.getValue())) {
+            organization = new Donations(name);
+            Donations donation = (Donations) organization;
+            Donations.setDonations(name);
             organization.setLocationPoint(locationPoint);
             organizationList.add(organization);
         } else if (type.getValue().equals(Type.Medical.getValue())) {
