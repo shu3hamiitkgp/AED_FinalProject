@@ -12,10 +12,6 @@ import Backend.Organization.Organization;
 
 
 
-/**
- *
- * @author Mayank
- */
 public class UserRegistrationRequest extends WorkRequest{
     
     private Network network;
