@@ -43,6 +43,14 @@ public class Meals extends Organization{
         this.services = services;
     }
 
+    public static String[] getTypes() {
+        return types;
+    }
+
+    public static void setTypes(String[] types) {
+        Meals.types = types;
+    }
+
     public boolean isLgbtfriendly() {
         return lgbtfriendly;
     }
@@ -67,11 +75,11 @@ public class Meals extends Organization{
         this.peanut = peanut;
     }
 
-    public String getMealType() {
+    public String getFType() {
         return type;
     }
 
-    public void setMealType(String type) {
+    public void setFType(String type) {
         this.type = type;
     }
 
