@@ -42,6 +42,7 @@ public abstract class Organization {
         Donations("Donations Organization"), 
         Meals("Meals Organization"), 
         Jobs("Jobs Organization"); 
+        
         private String value;
         private Type(String value) {
             this.value = value;
