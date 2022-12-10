@@ -49,7 +49,7 @@ public class MedicalViewPanel extends javax.swing.JPanel {
         workRequestTable.getTableHeader().setDefaultRenderer(new HeaderColors());
         DefaultTableModel model = (DefaultTableModel) workRequestTable.getModel();
         model.setRowCount(0);
-        for (String medical : medicallists.getstatus()) {           
+        for (String medical : medicallists.gethospitalname()) {           
             Object[] row = new Object[6];
             row[0] = medicallists.getcategory();
             row[1] = medicallists.getdoctors();
@@ -95,17 +95,17 @@ public class MedicalViewPanel extends javax.swing.JPanel {
         workRequestTable.setForeground(new java.awt.Color(25, 56, 82));
         workRequestTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Category", "Location", "Availability", "Fees", "Doctor"
+                "Hospital Name", "Category", "Location", "Availability", "Fees", "Doctor"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                true, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

@@ -1,6 +1,6 @@
 package Backend.DB4OUtil;
 
-import Backend.Ecosystem.ConfigSysAdmin;
+import Backend.ConfigureASystem;
 import Backend.Ecosystem.EcoSystem;
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
@@ -65,7 +65,7 @@ public class DB4OUtil {
         ObjectSet<EcoSystem> systems = conn.query(EcoSystem.class); // Change to the object you want to save
         EcoSystem system;
         if (systems.size() == 0){
-            system = ConfigSysAdmin.configure();  // If there's no System in the record, create a new one
+            system = ConfigureASystem.configure();  // If there's no System in the record, create a new one
         }
         else{
             system = systems.get(systems.size() - 1);

@@ -13,18 +13,19 @@ import java.util.List;
  * @author Sahil
  */
 public class Medical extends Organization{
-    List<String> status;
+    List<String> hospitalname;
     static String[] category = {"Orthopedian","General Practicioner", "Obstetricians", "Neurologists" };
     int fees;
     boolean availability;
     String doctors;
     String location;
     
+    
 
 
     public Medical(String name) {
         super(name);
-        status = new ArrayList<String>();
+        hospitalname = new ArrayList<String>();
     }
     
 
@@ -33,12 +34,12 @@ public class Medical extends Organization{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public List<String> getstatus() {
-        return status;
+    public List<String> gethospitalname() {
+        return hospitalname;
     }
 
-    public void setstatus(List<String> status) {
-        this.status = status;
+    public void sethospitalname(List<String> hospitalname) {
+        this.hospitalname = hospitalname;
     }
 
     public static String[] getcategory() {
