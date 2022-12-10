@@ -16,6 +16,9 @@ import Backend.Role.EmploymentManager;
 import Backend.Role.HealthManager;
 import Backend.Role.HomelessPerson;
 import Backend.Role.MealManager;
+import Backend.Role.GovernmentSupervisor;
+import Backend.Role.NGOAdmin;
+import Backend.Role.PrivateCompanySupervisor;
 import static Backend.Role.Role.RoleType.SystemAdmin;
 import Backend.UserAccount.UserAccount;
 
@@ -153,28 +156,31 @@ public class HomeJFrame extends javax.swing.JFrame {
          
         if (userAccount != null && userAccount.getRole() != null) {
             String greetings = "Hi";
-            if (userAccount.getRole() instanceof SystemAdmin) {
+            if (userAccount.getRole() instanceof DonationManager) {
                 greetings = greetings + " " + userAccount.getUsername();
                 container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
-            } else if (userAccount.getRole() instanceof MealManager) {
+            } else if (userAccount.getRole() instanceof EmploymentManager) {
                 greetings = greetings + " " + userAccount.getUsername();
                 container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
-            } else if (userAccount.getRole() instanceof ShelterManager) {
-                greetings = greetings + " " + userAccount.getUsername();
-                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
-            } else if (userAccount.getRole() instanceof Volunteers) {
+            } else if (userAccount.getRole() instanceof GovernmentSupervisor) {
                 greetings = greetings + " " + userAccount.getUsername();
                 container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
             } else if (userAccount.getRole() instanceof HealthManager) {
                 greetings = greetings + " " + userAccount.getUsername();
                 container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
-            }else if (userAccount.getRole() instanceof EmploymentManager) {
+            } else if (userAccount.getRole() instanceof HomelessPerson) {
+                greetings = greetings + " " + userAccount.getUsername();
+                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
+            }else if (userAccount.getRole() instanceof MealManager) {
                 greetings = greetings + " " + userAccount.getUsername();
                 container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
-            }else if (userAccount.getRole() instanceof HomelessPerson) {
+            }else if (userAccount.getRole() instanceof NGOAdmin) {
                 greetings = greetings + " " + userAccount.getUsername();
                 container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
-            }else if (userAccount.getRole() instanceof DonatorManager) {
+            }else if (userAccount.getRole() instanceof PrivateCompanySupervisor) {
+                greetings = greetings + " " + userAccount.getUsername();
+                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
+            }else if (userAccount.getRole() instanceof SystemAdminRole) {
                 greetings = greetings + " " + userAccount.getUsername();
                 container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
             }else {
