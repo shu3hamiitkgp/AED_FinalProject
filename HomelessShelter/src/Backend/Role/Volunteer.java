@@ -4,23 +4,36 @@
  */
 package Backend.Role;
 
-import Backend.Ecosystem.EcoSystem;
 import Backend.Enterprise.Enterprise;
+import Backend.Enterprise.Shelter;
 import Backend.Network.Network;
 import Backend.Organization.Organization;
 import Backend.UserAccount.UserAccount;
-import FrontEnd.Resources.DonationsViewPanel;
 import javax.swing.JPanel;
 
 /**
  *
- * @author Megha Patel
+ * @author shubhamgoyal
  */
-public class DonationManager extends Role{
+public class Volunteer extends Role {
+    
+    Shelter shelter;
 
-    @Override
+    public Shelter getShelter() {
+        return shelter;
+    }
+
+    public void setShelter(Shelter shelter) {
+        this.shelter = shelter;
+    }
+    
+     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
-        System.out.println(userProcessContainer.getComponents());
-        return new DonationsViewPanel(userProcessContainer, system);    
-}    
+        return new VolunteerAreaJPanel(userProcessContainer, account, organization, enterprise, network, business);
+    }
+     @Override
+    public String toString(){
+        return (RoleType.Volunteers.getValue());
+    }
+    
 }

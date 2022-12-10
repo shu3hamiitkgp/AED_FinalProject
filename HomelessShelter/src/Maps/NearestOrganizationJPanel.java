@@ -9,16 +9,17 @@ import Backend.Ecosystem.EcoSystem;
 import Backend.Enterprise.Enterprise;
 import Backend.Location.Location;
 import Backend.Network.Network;
-import Backend.Organization.Counceling;
+import Backend.Organization.Counselling;
 import Backend.Organization.Donations;
 import Backend.Organization.Jobs;
 import Backend.Organization.Meals;
 import Backend.Organization.Medical;
 import Backend.Organization.Organization;
-import static Backend.Organization.Organization.Type.Counceling;
+import static Backend.Organization.Organization.Type.Counselling;
 import Backend.UserAccount.UserAccount;
 import Backend.WorkQueue.ReportingAdminSceneRequest;
 import Backend.WorkQueue.WorkRequest;
+import MainUI.HeaderColors;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -265,7 +266,7 @@ public class NearestOrganizationJPanel extends javax.swing.JPanel {
             System.out.println("network2 ---===--->> " + network);
             for (Organization org : ent.getOrganizationDirectory().getOrganizationList()) {
                 System.out.println("network3 ---===--->> " + network);
-                if (org instanceof Counceling) {
+                if (org instanceof Counselling) {
                     recieverOrganization = org;
                     System.out.println("network4 ---===--->> " + network);
                     Location point = new Location();

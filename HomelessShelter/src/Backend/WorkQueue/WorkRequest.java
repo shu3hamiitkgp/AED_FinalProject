@@ -4,6 +4,7 @@
  */
 package Backend.WorkQueue;
 
+import Backend.UserAccount.UserAccount;
 import java.util.Date;
 
 /**

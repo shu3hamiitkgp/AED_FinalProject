@@ -1,8 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//*/
+// * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+// * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+// */
 package Backend.WorkQueue;
 
 import Backend.Enterprise.Enterprise;
@@ -10,10 +9,12 @@ import Backend.Location.Location;
 import Backend.Network.Network;
 import Backend.Organization.Organization;
 
-
-
-public class UserRegistrationRequest extends WorkRequest{
-    
+/**
+ *
+ * @author shubhamgoyal
+ */
+public class ShelterRegistration extends WorkRequest {
+ 
     private Network network;
     private Enterprise enterprise;
     private Organization.Type orgType;
@@ -25,15 +26,15 @@ public class UserRegistrationRequest extends WorkRequest{
     private String userCity;
     private String userContact;
     private Location userLocationPoint;
-    private String contactCarrierName;
+//    private String contactCarrierName;
 
-    public String getContactCarrierName() {
-        return contactCarrierName;
-    }
-
-    public void setContactCarrierName(String contactCarrierName) {
-        this.contactCarrierName = contactCarrierName;
-    }
+//    public String getContactCarrierName() {
+//        return contactCarrierName;
+//    }
+//
+//    public void setContactCarrierName(String contactCarrierName) {
+//        this.contactCarrierName = contactCarrierName;
+//    }
     
     public Network getNetwork() {
         return network;

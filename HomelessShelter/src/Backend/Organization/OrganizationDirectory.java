@@ -32,13 +32,13 @@ public class OrganizationDirectory {
             organizationList.add(organization);
         } else if (type.getValue().equals(Type.Jobs.getValue())) {
             organization = new Jobs(name);
-            Jobs hospital = (Jobs) organization;
+            Jobs job = (Jobs) organization;
             //hospital.setHospital(name);
             organization.setLocationPoint(locationPoint);
             organizationList.add(organization);
         } else if (type.getValue().equals(Type.Meals.getValue())) {
             organization = new Meals(name);
-            Meals personal = (Meals) organization;
+            Meals meal = (Meals) organization;
             //personal.setVolunteerPersonal(name);
             organization.setLocationPoint(locationPoint);
             organizationList.add(organization);
@@ -62,13 +62,13 @@ public class OrganizationDirectory {
             organizationList.add(organization);
         } else if (type.getValue().equals(Type.Donations.getValue())) {
             organization = new Donations(name);
-            Donations donation = (Donations) organization;
-            Donations.setDonations(name);
+//            Donations donation = (Donations) organization;
+//            Donations.setName(name);
             organization.setLocationPoint(locationPoint);
             organizationList.add(organization);
         } else if (type.getValue().equals(Type.Medical.getValue())) {
             organization = new Medical(name);
-            Medical fireSafety = (Medical) organization;
+//            Medical fireSafety = (Medical) organization;
             //fireSafety.setFireSafety(name);
             organization.setLocationPoint(locationPoint);
             organizationList.add(organization);
