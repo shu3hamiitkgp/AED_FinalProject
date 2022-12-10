@@ -20,7 +20,7 @@ public class PrivateCompanySupervisor extends Role {
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         return new PrivateCompanySupervisorWorkAreaJPanel(userProcessContainer, account, organization, enterprise, network, business);
     }
-     @Override
+     @Override 
     public String toString(){
         return (RoleType.PrivateCompanySupervisor.getValue());
     }

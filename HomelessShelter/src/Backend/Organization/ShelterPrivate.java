@@ -4,6 +4,7 @@
  */
 package Backend.Organization;
 
+import Backend.Role.PrivateCompanySupervisor;
 import Backend.Role.Role;
 import java.util.ArrayList;
 
