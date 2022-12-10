@@ -9,7 +9,7 @@ package Backend.WorkQueue;
  * @author Sahil
  */
 public class VolunteerAssignment extends WorkRequest {
-    
+    private String volunteerName;
     private String requestType;
     private int quantity;
     private int remainingQuantity;
@@ -22,6 +22,15 @@ public class VolunteerAssignment extends WorkRequest {
         this.requestType = requestType;
     }
 
+    public String getVolunteerName() {
+    return volunteerName;
+    }
+
+    public void setVolunteerName(String volunteerName) {
+        this.volunteerName = volunteerName;
+    }
+    
+    
     public int getQuantity() {
         return quantity;
     }
