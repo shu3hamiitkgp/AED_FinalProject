@@ -2,72 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package FrontEnd.ShelterNGO;
-
-import Backend.Ecosystem.EcoSystem;
-import Backend.Enterprise.Enterprise;
-import Backend.Network.Network;
-import Backend.Organization.Organization;
-import Backend.UserAccount.UserAccount;
-import java.awt.CardLayout;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.util.ArrayList;
-import java.util.Collections;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+package FrontEnd.UserRegistration;
 
 /**
  *
  * @author shubhamgoyal
  */
-public class NGOAdminWorkArea extends javax.swing.JPanel {
+public class VolunteerWorkArea extends javax.swing.JPanel {
 
     /**
-     * Creates new form NGOAdminWorkArea
+     * Creates new form VolunteerWorkArea
      */
-    JPanel userProcessContainer;
-    Enterprise enterprise;
-    Network network;
-    Organization organization;
-    EcoSystem system;
-    UserAccount account;
-    public NGOAdminWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
+    public VolunteerWorkArea() {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
-        this.account = account;
-        this.organization = organization;
-        this.enterprise = enterprise;
-        this.network = network;
-        this.system = system;
-//        populateAlerts();
-        manageScene();
     }
-    
-
-    
-        private void manageScene(){
-//        manageScenePanel.setBackground(new Color(236,113,107));
-//        manageRequestPanel.setBackground(new Color(215,81,81));
-        NGOAdminManageReside manageScene = new NGOAdminManageSceneJPanel( rightSystemAdminPanel,  enterprise,  system,  organization,  network, account);
-        rightSystemAdminPanel.add("ManageHospitalSceneJPanel", manageScene);
-        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
-        layout.next(rightSystemAdminPanel);
-    }
-    
-    private void manageRequest(){
-        manageRequestPanel.setBackground(new Color(236,113,107));
-        manageScenePanel.setBackground(new Color(215,81,81));
-       NGOAdminWorkRequestJPanel manageIndividualWorkRequest = new NGOAdminWorkRequestJPanel( rightSystemAdminPanel,  account,  organization,  enterprise,  network,  system);
-        rightSystemAdminPanel.add("IndividualAdminWorkAreaJPanel", manageIndividualWorkRequest);
-        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
-        layout.next(rightSystemAdminPanel);
-    }
-    
-   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -80,25 +28,18 @@ public class NGOAdminWorkArea extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         lblManageResidents = new javax.swing.JLabel();
-        lblManageReq = new javax.swing.JLabel();
         lblManageVolu = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
-        lblManageResidents.setText("Manage Residents");
+        lblManageResidents.setText("Create New Profile");
         lblManageResidents.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblManageResidentsMousePressed(evt);
             }
         });
 
-        lblManageReq.setText("Manage Request");
-        lblManageReq.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblManageReqMousePressed(evt);
-            }
-        });
-
-        lblManageVolu.setText("Manage Volunteers");
+        lblManageVolu.setText("Shelter Allocation");
         lblManageVolu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblManageVoluMousePressed(evt);
@@ -112,10 +53,9 @@ public class NGOAdminWorkArea extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblManageReq, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblManageResidents, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblManageVolu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,20 +64,26 @@ public class NGOAdminWorkArea extends javax.swing.JPanel {
                 .addComponent(lblManageResidents, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblManageVolu, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(lblManageReq, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(753, Short.MAX_VALUE))
+                .addContainerGap(790, Short.MAX_VALUE))
         );
+
+        jLabel1.setText("Welcome to the Homeless Shelter database, please select option on the left");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 901, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(403, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -158,21 +104,21 @@ public class NGOAdminWorkArea extends javax.swing.JPanel {
 
     private void lblManageResidentsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageResidentsMousePressed
         // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_lblManageResidentsMousePressed
-
-    private void lblManageReqMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageReqMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblManageReqMousePressed
 
     private void lblManageVoluMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageVoluMousePressed
         // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_lblManageVoluMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblManageReq;
     private javax.swing.JLabel lblManageResidents;
     private javax.swing.JLabel lblManageVolu;
     // End of variables declaration//GEN-END:variables

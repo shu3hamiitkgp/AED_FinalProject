@@ -6,6 +6,7 @@ package FrontEnd.ShelterNGO;
 
 import Backend.Ecosystem.EcoSystem;
 import Backend.Enterprise.Enterprise;
+import Backend.Location.Location;
 import Backend.Network.Network;
 import Backend.Organization.Organization;
 import Backend.UserAccount.UserAccount;
@@ -30,7 +31,7 @@ public class NGOAdminManageResident extends javax.swing.JPanel {
     Organization organization;
     Network network;
     UserAccount account;
-    LocationPoint locationPoint;
+    Location locationPoint;
     private String imagePath;
 
     public NGOAdminManageResident(JPanel userProcessContainer, Enterprise enterprise, EcoSystem system, Organization organization, Network network, UserAccount account) {
@@ -56,14 +57,14 @@ public class NGOAdminManageResident extends javax.swing.JPanel {
             if (wr instanceof HomelessAllocation) {
                 Object[] row = new Object[model.getColumnCount()];
                 row[0] = wr;
-                row[1] = ((HomelessAllocation) wr).getName();
-                row[2] = ((HomelessAllocation) wr).getSceneZipcode();
-                row[3] = ((HomelessAllocation) wr).getSceneLocationPoint();
-                row[4] = ((HomelessAllocation) wr).getNoOfVictims();
-                row[5] = ((HomelessAllocation) wr).getEstimatedLoss();
-                row[6] = ((HomelessAllocation) wr).getStatus();
-                row[7] = ((HomelessAllocation) wr).getRequestDate();
-                row[8] = ((HomelessAllocation) wr).getMessage();
+                row[1] = ((HomelessAllocation) wr).getUserID();
+                row[2] = ((HomelessAllocation) wr).getName();
+//                row[3] = ((HomelessAllocation) wr).getAge();
+                row[3] = ((HomelessAllocation) wr).getGender();
+                row[4] = ((HomelessAllocation) wr).getRequestDate();
+                row[5] = ((HomelessAllocation) wr).getStatus();
+//                row[6] = ((HomelessAllocation) wr).getRequestDate();
+//                row[7] = ((HomelessAllocation) wr).getMessage();
                 //row[2] = org.getPosition();
                 model.addRow(row);
             }
@@ -108,17 +109,17 @@ public class NGOAdminManageResident extends javax.swing.JPanel {
 
         tblResident.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "User ID", "Name", "Age", "Gender", "Start Date", "Special Category"
+                "User ID", "Name", "Gender", "Start Date", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, false
+                false, false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -128,12 +129,6 @@ public class NGOAdminManageResident extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblResident);
 
         jLabel2.setText("Name");
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("Age");
 
@@ -146,6 +141,11 @@ public class NGOAdminManageResident extends javax.swing.JPanel {
         jLabel7.setText("Photo");
 
         btnView.setText("View");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -251,11 +251,13 @@ public class NGOAdminManageResident extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        
+    }//GEN-LAST:event_btnViewActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
