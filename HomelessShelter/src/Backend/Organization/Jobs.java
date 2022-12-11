@@ -19,6 +19,7 @@ public class Jobs extends Organization{
     boolean disabled;
     String type;
     String skills;
+    String jobtitle;
     
 
 
@@ -85,5 +86,13 @@ public class Jobs extends Organization{
         this.skills = skills;
     }
     
+    public String getjobtitle() {
+        return jobtitle;
+    }
+
+    public void setjobtitle(String jobtitle) {
+        this.jobtitle = jobtitle;
+    }    
     
 }
+
