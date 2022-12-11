@@ -4,6 +4,16 @@
  */
 package FrontEnd.ShelterNGO;
 
+import Backend.Ecosystem.EcoSystem;
+import Backend.Enterprise.Enterprise;
+import Backend.Network.Network;
+import Backend.Organization.Organization;
+import Backend.UserAccount.UserAccount;
+import Backend.WorkQueue.HomelessAllocation;
+import Backend.WorkQueue.WorkRequest;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author shubhamgoyal
@@ -13,9 +23,57 @@ public class NGOAdminManageResident extends javax.swing.JPanel {
     /**
      * Creates new form NGOAdminManageResident
      */
-    public NGOAdminManageResident() {
+    
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Organization organization;
+    Network network;
+    UserAccount account;
+    LocationPoint locationPoint;
+    private String imagePath;
+
+    public NGOAdminManageResident(JPanel userProcessContainer, Enterprise enterprise, EcoSystem system, Organization organization, Network network, UserAccount account) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.enterprise = enterprise;
+        this.system = system;
+        this.organization = organization;
+        this.network = network;
+        this.account = account;
+//        tblResident.getTableHeader().setDefaultRenderer(new HeaderColors());
+        populateSceneTable();
     }
+
+    private void populateSceneTable() {
+//        tblScene.getTableHeader().setDefaultRenderer(new HeaderColors());
+        DefaultTableModel model = (DefaultTableModel) tblResident.getModel();
+
+        model.setRowCount(0);
+
+        for (WorkRequest wr : organization.getWorkQueue().getWorkRequestList()) {
+
+            if (wr instanceof HomelessAllocation) {
+                Object[] row = new Object[model.getColumnCount()];
+                row[0] = wr;
+                row[1] = ((HomelessAllocation) wr).getName();
+                row[2] = ((HomelessAllocation) wr).getSceneZipcode();
+                row[3] = ((HomelessAllocation) wr).getSceneLocationPoint();
+                row[4] = ((HomelessAllocation) wr).getNoOfVictims();
+                row[5] = ((HomelessAllocation) wr).getEstimatedLoss();
+                row[6] = ((HomelessAllocation) wr).getStatus();
+                row[7] = ((HomelessAllocation) wr).getRequestDate();
+                row[8] = ((HomelessAllocation) wr).getMessage();
+                //row[2] = org.getPosition();
+                model.addRow(row);
+            }
+
+            /*Object[] row = new Object[2];
+            row[0] = organization.getOrganizationID();
+            row[1] = organization.getName();
+            
+            model.addRow(row);*/
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,7 +86,7 @@ public class NGOAdminManageResident extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblResident = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -48,7 +106,7 @@ public class NGOAdminManageResident extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel1.setText("Manage Residents");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblResident.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -67,7 +125,7 @@ public class NGOAdminManageResident extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblResident);
 
         jLabel2.setText("Name");
 
@@ -212,12 +270,12 @@ public class NGOAdminManageResident extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTable tblResident;
     // End of variables declaration//GEN-END:variables
 }

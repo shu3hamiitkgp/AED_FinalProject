@@ -4,10 +4,12 @@
  */
 package Backend.Role;
 
+import Backend.Ecosystem.EcoSystem;
 import Backend.Enterprise.Enterprise;
 import Backend.Network.Network;
 import Backend.Organization.Organization;
 import Backend.UserAccount.UserAccount;
+import FrontEnd.ShelterPrivateCompany.PrivateShelterWorkArea;
 import javax.swing.JPanel;
 
 /**
@@ -18,7 +20,7 @@ public class PrivateCompanySupervisor extends Role {
     
      @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
-        return new PrivateCompanySupervisorWorkAreaJPanel(userProcessContainer, account, organization, enterprise, network, business);
+        return new PrivateShelterWorkArea(userProcessContainer, account, organization, enterprise, network, business);
     }
      @Override 
     public String toString(){
