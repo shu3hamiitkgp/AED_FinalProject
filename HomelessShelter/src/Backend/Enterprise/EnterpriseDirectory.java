@@ -47,7 +47,7 @@ public class EnterpriseDirectory {
             enterprise = new Resources(name);
             enterpriseList.add(enterprise);
         }else if (type == Enterprise.EnterpriseType.PartTimeEmployement) {
-            enterprise = new PartTimeEmployment(name);
+            enterprise = new PartTimeEmployement(name);
             enterpriseList.add(enterprise);
         }
         return enterprise;
