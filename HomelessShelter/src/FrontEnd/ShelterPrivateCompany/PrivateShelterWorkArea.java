@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package FrontEnd.ShelterNGO;
+package FrontEnd.ShelterPrivateCompany;
 
 /**
  *
  * @author shubhamgoyal
  */
-public class NGOAdminWorkArea extends javax.swing.JPanel {
+public class PrivateShelterWorkArea extends javax.swing.JPanel {
 
     /**
-     * Creates new form NGOAdminWorkArea
+     * Creates new form PrivateShelterWorkArea
      */
-    public NGOAdminWorkArea() {
+    public PrivateShelterWorkArea() {
         initComponents();
     }
 
