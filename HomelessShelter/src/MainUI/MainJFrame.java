@@ -17,7 +17,7 @@ import Backend.Role.HomelessPerson;
 import Backend.Role.MealManager;
 import Backend.Role.NGOAdmin;
 import Backend.Role.PrivateCompanySupervisor;
-import Backend.Role.ShelterManager;
+//import Backend.Role.ShelterManager;
 import Backend.Role.SystemAdminRole;
 import Backend.Role.Volunteer;
 //import static Backend.Role.Role.RoleType.EmploymentManager;
@@ -87,9 +87,9 @@ public class MainJFrame extends javax.swing.JFrame {
             }else if (userAccount.getRole() instanceof PrivateCompanySupervisor) {
 //                greetings = greetings + " " + userAccount.getUsername();
                 container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
-            }else if (userAccount.getRole() instanceof ShelterManager) {
+//            }else if (userAccount.getRole() instanceof ShelterManager) {
 //                greetings = greetings + " " + userAccount.getUsername();
-                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
+//                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
             }else if (userAccount.getRole() instanceof SystemAdminRole) {
 //                greetings = greetings + " " + userAccount.getUsername();
                 container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
