@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Sahil
  */
-public class MedicalManager extends javax.swing.JPanel {
+public class HealthManager extends javax.swing.JPanel {
 
     /**
      * Creates new form Hospital
@@ -38,7 +38,7 @@ public class MedicalManager extends javax.swing.JPanel {
     Location locationPoint;
     private String imagePath;
 
-    public MedicalManager(JPanel userProcessContainer, Enterprise enterprise, EcoSystem system, Organization organization, Network network, UserAccount account) {
+    public HealthManager(JPanel userProcessContainer, Enterprise enterprise, EcoSystem system, Organization organization, Network network, UserAccount account) {
         
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
