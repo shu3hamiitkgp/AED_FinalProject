@@ -4,16 +4,14 @@
  */
 package FronEnd.Employment;
 
-
-
 /**
  *
- * @author Sahil
+ * @author Megha Patel
  */
 public class EmploymentViewPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form NGOAdminWorkArea
+     * Creates new form EmploymentViewPanel
      */
     public EmploymentViewPanel() {
         initComponents();
@@ -32,11 +30,11 @@ public class EmploymentViewPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 671, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 476, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

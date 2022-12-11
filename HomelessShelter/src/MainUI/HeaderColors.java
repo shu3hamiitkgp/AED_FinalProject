@@ -17,7 +17,7 @@ import javax.swing.table.TableCellRenderer;
 
 /**
  *
- * @author shivibhatt
+ * @author Megha Patel
  */
 public class HeaderColors extends DefaultTableCellRenderer {
 
