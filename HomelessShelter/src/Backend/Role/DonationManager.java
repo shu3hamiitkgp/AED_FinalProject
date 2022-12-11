@@ -21,6 +21,7 @@ public class DonationManager extends Role{
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         System.out.println(userProcessContainer.getComponents());
-        return new DonationsViewPanel(userProcessContainer, system);    
+        return new DonationsViewPanel(userProcessContainer, account, organization, enterprise, network, business); 
+    }
 }    
-}
+
