@@ -17,6 +17,7 @@ import Backend.Organization.Medical;
 import Backend.Organization.Organization;
 import static Backend.Organization.Organization.Type.Counselling;
 import Backend.UserAccount.UserAccount;
+import Backend.WorkQueue.HomelessAllocation;
 import Backend.WorkQueue.ReportingAdminSceneRequest;
 import Backend.WorkQueue.WorkRequest;
 import MainUI.HeaderColors;
@@ -94,7 +95,6 @@ public class NearestOrganizationJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         Donations = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jobs = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
@@ -203,16 +203,6 @@ public class NearestOrganizationJPanel extends javax.swing.JPanel {
             }
         });
         add(Donations, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 200, -1));
-
-        jButton4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(25, 56, 82));
-        jButton4.setText("Another Org");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, 210, -1));
 
         jButton5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(25, 56, 82));
@@ -401,14 +391,14 @@ public class NearestOrganizationJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Select a row!");
         } else {
             int orgId = (int) nearestOrgTable.getValueAt(selectedRow, 0);
-            for (WorkRequest wr : account.getWorkQueue().getWorkRequestList()) { 
-                if(wr instanceof EmergencyUnitRequest) {
-                    if(((EmergencyUnitRequest)wr).getRecieverOrganization().getOrganizationID() ==  orgId && !((EmergencyUnitRequest)wr).getStatus().equals("Completed") && !((EmergencyUnitRequest)wr).getStatus().equals("Cancelled") && !((EmergencyUnitRequest)wr).getStatus().equals("Rejected")) {
-                        JOptionPane.showMessageDialog(null, "Request to this organization is already sent!");
-                        return;
-                    }
-                }
-            }
+//            for (WorkRequest wr : account.getWorkQueue().getWorkRequestList()) { 
+//                if(wr instanceof HomelessAllocation) {
+//                    if(((HomelessAllocation)wr).getRecieverOrganization().getOrganizationID() ==  orgId && !((HomelessAllocation)wr).getStatus().equals("Completed") && !((HomelessAllocation)wr).getStatus().equals("Cancelled") && !((HomelessAllocation)wr).getStatus().equals("Rejected")) {
+//                        JOptionPane.showMessageDialog(null, "Request to this organization is already sent!");
+//                        return;
+//                    }
+//                }
+//            }
             
             /*for (Network n : business.getNetworkList()) {
                 for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
@@ -435,45 +425,6 @@ public class NearestOrganizationJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "The request has been sent to the selected organization");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        orgType = "NGO";
-        ArrayList<Organization> orgList = new ArrayList<Organization>();
-        DefaultTableModel model = (DefaultTableModel) nearestOrgTable.getModel();
-        model.setRowCount(0);
-        Object[] row = new Object[3];
-        for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
-            for (Organization org : ent.getOrganizationDirectory().getOrganizationList()) {
-                if (org instanceof VolunteerNGOOrganization) {
-                    recieverOrganization = org;
-                    Location point = new Location();
-                    point.setLatitude(((ReportingAdminSceneRequest) workRequest).getSceneLocationPoint().getLatitude());
-                    point.setLongitude(((ReportingAdminSceneRequest) workRequest).getSceneLocationPoint().getLongitude());
-                    point.setName("p");
-                    //if (org.getOrganizationDistanceFromScene(point) < 1) {
-                    orgList.add(org);
-                    org.setNearestLocationPoint(org.getOrganizationDistanceFromScene(point));
-                    /*row[0] = org.getOrganizationID();
-                    row[1] = org.getName();
-                    row[2] = org.getOrganizationDistanceFromScene(point);
-                    model.addRow(row);*/
-                    //}
-                }
-            }
-
-        }
-        Collections.sort(orgList, (o1, o2) -> Double.compare(o1.getNearestLocationPoint(), o2.getNearestLocationPoint()));
-        if(orgList.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No NGO Organization found for this network. Please choose the same from other network to place cross network request.");
-        }
-        for (Organization oo : orgList) {
-            row[0] = oo.getOrganizationID();
-            row[1] = oo.getName();
-            row[2] = oo.getNearestLocationPoint();
-            model.addRow(row);
-        }
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void DonationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonationsActionPerformed
         // TODO add your handling code here:
@@ -601,7 +552,7 @@ public class NearestOrganizationJPanel extends javax.swing.JPanel {
         for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
             for (Organization org : ent.getOrganizationDirectory().getOrganizationList()) {
                 System.out.println(org.getName()+" "+orgType);
-                if (org instanceof Counceling && orgType.equalsIgnoreCase("Counceling")) {
+                if (org instanceof Counselling && orgType.equalsIgnoreCase("Counceling")) {
                     atleastOneSelected = true;
                     coordinates += "['" + org.getName() + " - FireSafety'," + org.getLocationPoint().getLatitude() + ", " + org.getLocationPoint().getLongitude() + "],\n";
                 } else if (org instanceof Donations && orgType.equalsIgnoreCase("Donations")) {
@@ -708,7 +659,6 @@ public class NearestOrganizationJPanel extends javax.swing.JPanel {
     private javax.swing.JButton hospitals;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;

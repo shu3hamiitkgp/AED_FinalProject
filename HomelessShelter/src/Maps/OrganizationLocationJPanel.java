@@ -7,6 +7,10 @@ package Maps;
 
 
 import Backend.Location.Location;
+import FrontEnd.Resources.ResourcesAdmin;
+import FrontEnd.ShelterGovernment.GovtShelterManageResident;
+import FrontEnd.ShelterNGO.NGOAdminManageResident;
+import FrontEnd.ShelterPrivateCompany.PrivateShelterManageResident;
 import com.teamdev.jxbrowser.browser.Browser;
 import com.teamdev.jxbrowser.engine.Engine;
 import com.teamdev.jxbrowser.engine.EngineOptions;
@@ -134,33 +138,33 @@ public class OrganizationLocationJPanel extends javax.swing.JPanel {
 
             userProcessContainer.remove(this);
             Component[] componentArray = userProcessContainer.getComponents();
-            if (userProcessContainer.getComponent(componentArray.length - 1) instanceof EmergencyManageOrganizationJPanel) {
-                EmergencyManageOrganizationJPanel orgManagement = (EmergencyManageOrganizationJPanel) userProcessContainer.getComponent(componentArray.length - 1);
+            if (userProcessContainer.getComponent(componentArray.length - 1) instanceof ResourcesAdmin) {
+                ResourcesAdmin orgManagement = (ResourcesAdmin) userProcessContainer.getComponent(componentArray.length - 1);
                 orgManagement.populateLongituteLatitude(locationPoint);
-            }else if (userProcessContainer.getComponent(componentArray.length - 1) instanceof IncidentManagerManageOrganizationJPanel) {
-                IncidentManagerManageOrganizationJPanel orgManagement = (IncidentManagerManageOrganizationJPanel) userProcessContainer.getComponent(componentArray.length - 1);
-                orgManagement.populateLongituteLatitude(locationPoint);
-            }else if (userProcessContainer.getComponent(componentArray.length - 1) instanceof VoluntaryOperatingUnitManageOrganizationsJPanel) {
-                VoluntaryOperatingUnitManageOrganizationsJPanel orgManagement = (VoluntaryOperatingUnitManageOrganizationsJPanel) userProcessContainer.getComponent(componentArray.length - 1);
-                orgManagement.populateLongituteLatitude(locationPoint);
-            }else if (userProcessContainer.getComponent(componentArray.length - 1) instanceof UserRegistrationJPanel) {
-                UserRegistrationJPanel orgManagement = (UserRegistrationJPanel) userProcessContainer.getComponent(componentArray.length - 1);
-                orgManagement.populateLongituteLatitude(locationPoint);
-            }else if(userProcessContainer.getComponent(componentArray.length - 1) instanceof ReportingAdminManageSceneJPanel){
-                ReportingAdminManageSceneJPanel reportingComponent = (ReportingAdminManageSceneJPanel) userProcessContainer.getComponent(componentArray.length - 1);
-                reportingComponent.populateLongituteLatitude(locationPoint);
-            }else if(userProcessContainer.getComponent(componentArray.length - 1) instanceof IndividualAdminManageSceneJPanel){
-                IndividualAdminManageSceneJPanel reportingComponent = (IndividualAdminManageSceneJPanel) userProcessContainer.getComponent(componentArray.length - 1);
-                reportingComponent.populateLongituteLatitude(locationPoint);
-            }else if(userProcessContainer.getComponent(componentArray.length - 1) instanceof HospitalAdminManageSceneJPanel){
-                HospitalAdminManageSceneJPanel reportingComponent = (HospitalAdminManageSceneJPanel) userProcessContainer.getComponent(componentArray.length - 1);
-                reportingComponent.populateLongituteLatitude(locationPoint);
-            }else if(userProcessContainer.getComponent(componentArray.length - 1) instanceof NGOAdminManageSceneJPanel){
-                NGOAdminManageSceneJPanel reportingComponent = (NGOAdminManageSceneJPanel) userProcessContainer.getComponent(componentArray.length - 1);
-                reportingComponent.populateLongituteLatitude(locationPoint);
-            }else if(userProcessContainer.getComponent(componentArray.length - 1) instanceof CompanyAdminManageSceneJPanel){
-                CompanyAdminManageSceneJPanel reportingComponent = (CompanyAdminManageSceneJPanel) userProcessContainer.getComponent(componentArray.length - 1);
-                reportingComponent.populateLongituteLatitude(locationPoint);
+//            }else if (userProcessContainer.getComponent(componentArray.length - 1) instanceof IncidentManagerManageOrganizationJPanel) {
+//                IncidentManagerManageOrganizationJPanel orgManagement = (IncidentManagerManageOrganizationJPanel) userProcessContainer.getComponent(componentArray.length - 1);
+//                orgManagement.populateLongituteLatitude(locationPoint);
+//            }else if (userProcessContainer.getComponent(componentArray.length - 1) instanceof VoluntaryOperatingUnitManageOrganizationsJPanel) {
+//                VoluntaryOperatingUnitManageOrganizationsJPanel orgManagement = (VoluntaryOperatingUnitManageOrganizationsJPanel) userProcessContainer.getComponent(componentArray.length - 1);
+//                orgManagement.populateLongituteLatitude(locationPoint);
+//            }else if (userProcessContainer.getComponent(componentArray.length - 1) instanceof UserRegistrationJPanel) {
+//                UserRegistrationJPanel orgManagement = (UserRegistrationJPanel) userProcessContainer.getComponent(componentArray.length - 1);
+//                orgManagement.populateLongituteLatitude(locationPoint);
+//            }else if(userProcessContainer.getComponent(componentArray.length - 1) instanceof ReportingAdminManageSceneJPanel){
+//                ReportingAdminManageSceneJPanel reportingComponent = (ReportingAdminManageSceneJPanel) userProcessContainer.getComponent(componentArray.length - 1);
+//                reportingComponent.populateLongituteLatitude(locationPoint);
+//            }else if(userProcessContainer.getComponent(componentArray.length - 1) instanceof IndividualAdminManageSceneJPanel){
+//                IndividualAdminManageSceneJPanel reportingComponent = (IndividualAdminManageSceneJPanel) userProcessContainer.getComponent(componentArray.length - 1);
+//                reportingComponent.populateLongituteLatitude(locationPoint);
+//            }else if(userProcessContainer.getComponent(componentArray.length - 1) instanceof GovtShelterManageResident){
+//                GovtShelterManageResident reportingComponent = (GovtShelterManageResident) userProcessContainer.getComponent(componentArray.length - 1);
+//                reportingComponent.populateLongituteLatitude(locationPoint);
+//            }else if(userProcessContainer.getComponent(componentArray.length - 1) instanceof NGOAdminManageResident){
+//                NGOAdminManageResident reportingComponent = (NGOAdminManageResident) userProcessContainer.getComponent(componentArray.length - 1);
+//                reportingComponent.populateLongituteLatitude(locationPoint);
+//            }else if(userProcessContainer.getComponent(componentArray.length - 1) instanceof PrivateShelterManageResident){
+//                PrivateShelterManageResident reportingComponent = (PrivateShelterManageResident) userProcessContainer.getComponent(componentArray.length - 1);
+//                reportingComponent.populateLongituteLatitude(locationPoint);
             }else{
                 System.out.println("ELSE LOCATION " + componentArray.length);
                 System.out.println("ELSE CONTAINER " + userProcessContainer.toString());
