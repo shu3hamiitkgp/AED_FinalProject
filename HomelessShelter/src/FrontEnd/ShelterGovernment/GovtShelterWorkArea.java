@@ -9,6 +9,7 @@ import Backend.Enterprise.Enterprise;
 import Backend.Network.Network;
 import Backend.Organization.Organization;
 import Backend.UserAccount.UserAccount;
+import FrontEnd.ShelterNGO.NGOAdminManageVolu;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -43,49 +44,49 @@ public class GovtShelterWorkArea extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.network = network;
         this.system = system;
-        populateAlerts();
-        manageScene();
+//        populateAlerts();
+        manageResident();
     }
     
-    public void populateAlerts() {
-        
-        JTextField txtField;
-        JTextArea textArea;
-        alertPanel.setLayout(new GridLayout(20, 1));
-        int pos = 0;
-        boolean showAlertMsg = false;
-        
-        ArrayList<BroadcastAlertRequest> bb = new ArrayList<>();
-        for(WorkRequest wr : organization.getWorkQueue().getWorkRequestList()) {
-            if(wr instanceof BroadcastAlertRequest) {
-                bb.add((BroadcastAlertRequest)wr);
-            }
-        }
-        Collections.sort(bb, (o1, o2) -> o2.getRequestDate().compareTo(o1.getRequestDate()));
-        
-        for(BroadcastAlertRequest wr : bb) {
-            if(wr instanceof BroadcastAlertRequest) {
-                if(!((BroadcastAlertRequest) wr).isIsAlertSeen()) {
-                    showAlertMsg = true;
-                    ((BroadcastAlertRequest) wr).setIsAlertSeen(true);
-                }
-                txtField = new JTextField(wr.getRequestDate() + ": Broadcasted by: " + wr.getSender().getEmployee().getName());
-                txtField.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
-                txtField.setEditable(false);
-                txtField.setVisible(true);
-                textArea = new JTextArea("Network: " + ((BroadcastAlertRequest) wr).getInNetwork().getName() + "\nAlert: " + ((BroadcastAlertRequest) wr).getAlertMessage());
-                textArea.setEditable(false);
-                textArea.setVisible(true);
-                alertPanel.add(txtField,pos);
-                alertPanel.add(textArea,++pos);
-                ++pos;
-            }
-        }
-        if(showAlertMsg) {
-            JOptionPane.showMessageDialog(null, "You have a new alert broadcasted.");
-        }
-        
-    }
+//    public void populateAlerts() {
+//        
+//        JTextField txtField;
+//        JTextArea textArea;
+//        alertPanel.setLayout(new GridLayout(20, 1));
+//        int pos = 0;
+//        boolean showAlertMsg = false;
+//        
+//        ArrayList<BroadcastAlertRequest> bb = new ArrayList<>();
+//        for(WorkRequest wr : organization.getWorkQueue().getWorkRequestList()) {
+//            if(wr instanceof BroadcastAlertRequest) {
+//                bb.add((BroadcastAlertRequest)wr);
+//            }
+//        }
+//        Collections.sort(bb, (o1, o2) -> o2.getRequestDate().compareTo(o1.getRequestDate()));
+//        
+//        for(BroadcastAlertRequest wr : bb) {
+//            if(wr instanceof BroadcastAlertRequest) {
+//                if(!((BroadcastAlertRequest) wr).isIsAlertSeen()) {
+//                    showAlertMsg = true;
+//                    ((BroadcastAlertRequest) wr).setIsAlertSeen(true);
+//                }
+//                txtField = new JTextField(wr.getRequestDate() + ": Broadcasted by: " + wr.getSender().getEmployee().getName());
+//                txtField.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
+//                txtField.setEditable(false);
+//                txtField.setVisible(true);
+//                textArea = new JTextArea("Network: " + ((BroadcastAlertRequest) wr).getInNetwork().getName() + "\nAlert: " + ((BroadcastAlertRequest) wr).getAlertMessage());
+//                textArea.setEditable(false);
+//                textArea.setVisible(true);
+//                alertPanel.add(txtField,pos);
+//                alertPanel.add(textArea,++pos);
+//                ++pos;
+//            }
+//        }
+//        if(showAlertMsg) {
+//            JOptionPane.showMessageDialog(null, "You have a new alert broadcasted.");
+//        }
+//        
+//    }
     
         private void manageResident(){
 //        manageScenePanel.setBackground(new Color(236,113,107));
@@ -96,22 +97,22 @@ public class GovtShelterWorkArea extends javax.swing.JPanel {
         layout.next(rightPanel);
     }
         
-        private void manageVolu(){
-        manageScenePanel.setBackground(new Color(236,113,107));
-        manageRequestPanel.setBackground(new Color(215,81,81));
-        NGOAdminManageSceneJPanel manageScene = new NGOAdminManageSceneJPanel( rightSystemAdminPanel,  enterprise,  system,  organization,  network, account);
-        rightSystemAdminPanel.add("ManageHospitalSceneJPanel", manageScene);
-        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
-        layout.next(rightSystemAdminPanel);
-    }
+//        private void manageVolu(){
+////        manageScenePanel.setBackground(new Color(236,113,107));
+////        manageRequestPanel.setBackground(new Color(215,81,81));
+////        GovtShelterManageVolu manageScene = new GovtShelterManageVolu( rightPanel,  enterprise,  system,  organization,  network, account);
+//        rightPanel.add("ManageHospitalSceneJPanel", manageScene);
+//        CardLayout layout = (CardLayout) rightPanel.getLayout();
+//        layout.next(rightPanel);
+//    }
     
         private void manageRequest(){
-        manageRequestPanel.setBackground(new Color(236,113,107));
-        manageScenePanel.setBackground(new Color(215,81,81));
-       NGOAdminWorkRequestJPanel manageIndividualWorkRequest = new NGOAdminWorkRequestJPanel( rightSystemAdminPanel,  account,  organization,  enterprise,  network,  system);
-        rightSystemAdminPanel.add("IndividualAdminWorkAreaJPanel", manageIndividualWorkRequest);
-        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
-        layout.next(rightSystemAdminPanel);
+//        manageRequestPanel.setBackground(new Color(236,113,107));
+//        manageScenePanel.setBackground(new Color(215,81,81));
+        GovtShelterWorkReq manageIndividualWorkRequest = new GovtShelterWorkReq( rightPanel,  account,  organization,  enterprise,  network,  system);
+        rightPanel.add("IndividualAdminWorkAreaJPanel", manageIndividualWorkRequest);
+        CardLayout layout = (CardLayout) rightPanel.getLayout();
+        layout.next(rightPanel);
     }
 
     /**
@@ -203,7 +204,7 @@ public class GovtShelterWorkArea extends javax.swing.JPanel {
 
     private void lblManageResidentsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageResidentsMousePressed
         // TODO add your handling code here:
-        manageResident():
+        manageResident();
     }//GEN-LAST:event_lblManageResidentsMousePressed
 
     private void lblManageReqMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageReqMousePressed
@@ -213,7 +214,7 @@ public class GovtShelterWorkArea extends javax.swing.JPanel {
 
     private void lblManageVoluMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageVoluMousePressed
         // TODO add your handling code here:
-        manageVolu();
+//        manageVolu();
     }//GEN-LAST:event_lblManageVoluMousePressed
 
 

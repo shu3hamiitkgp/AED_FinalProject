@@ -4,18 +4,74 @@
  */
 package FrontEnd.ShelterGovernment;
 
+import Backend.Ecosystem.EcoSystem;
+import Backend.Enterprise.Enterprise;
+import Backend.Network.Network;
+import Backend.Organization.Organization;
+import Backend.UserAccount.UserAccount;
+import Backend.WorkQueue.HomelessAllocation;
+import Backend.WorkQueue.WorkRequest;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author shubhamgoyal
  */
-public class GovtShelterWokrReq extends javax.swing.JPanel {
+public class GovtShelterWorkReq extends javax.swing.JPanel {
 
     /**
      * Creates new form GovtShelterWokrReq
      */
-    public GovtShelterWokrReq() {
+    
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Organization organization;
+    Network network;
+    UserAccount account;
+
+    /**
+     * Creates new form FireSafetyAdminWorkAreaJPanel
+     */
+    public GovtShelterWorkReq(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.enterprise = enterprise;
+        this.system = system;
+        this.organization = organization;
+        this.network = network;
+        this.account = account;
+//         workRequestTable.getTableHeader().setDefaultRenderer(new HeaderColors());
+        populateTable();
     }
+
+    private void populateTable() {
+//        workRequestTable.getTableHeader().setDefaultRenderer(new HeaderColors());
+        DefaultTableModel model = (DefaultTableModel) workRequestTable.getModel();
+        model.setRowCount(0);
+        for (WorkRequest wr : organization.getWorkQueue().getWorkRequestList()) {
+            if(wr instanceof HomelessAllocation) {
+                Object[] row = new Object[model.getColumnCount()];
+                row[0] = ((HomelessAllocation) wr).getUserID();
+                row[1] = ((HomelessAllocation) wr).getSender().getEmployee().getName();
+                row[2] = ((HomelessAllocation) wr).getName();
+//                row[3] = ((HomelessAllocation) wr).getNoOfVictims();
+//                row[4] = ((HomelessAllocation) wr).getSceneLocationPoint();
+                row[3] = ((HomelessAllocation) wr).getUserCity();
+           
+                row[4] = ((HomelessAllocation) wr).getStatus();
+//                row[7] = ((HomelessAllocation) wr).getSenderOrganization().getName();
+//                row[8] = ((HomelessAllocation) wr).getSenderNetwork().getName();
+                row[5] = ((HomelessAllocation) wr).getRequestDate();
+                model.addRow(row);
+            }
+            
+        }
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,17 +104,17 @@ public class GovtShelterWokrReq extends javax.swing.JPanel {
         workRequestTable.setForeground(new java.awt.Color(25, 56, 82));
         workRequestTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Person Id", "Sender", "Person Name", "Location", "Message", "Status", "Requested Date"
+                "Person Id", "Sender", "Person Name", "Location", "Status", "Requested Date"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -136,7 +192,7 @@ public class GovtShelterWokrReq extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Select one row", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
             int selectedRow = workRequestTable.getSelectedRow();
-            EmergencyUnitRequest emerReq = (EmergencyUnitRequest) workRequestTable.getValueAt(selectedRow, 0);
+            HomelessAllocation emerReq = (HomelessAllocation) workRequestTable.getValueAt(selectedRow, 0);
             if(emerReq.getStatus().equals("Cancelled")) {
                 JOptionPane.showMessageDialog(null, "Request is already cancelled by sender");
             }else if(emerReq.getStatus().equals("Processing")){
@@ -162,7 +218,7 @@ public class GovtShelterWokrReq extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Select a request");
         }else {
             int selectedRow = workRequestTable.getSelectedRow();
-            EmergencyUnitRequest emerReq = (EmergencyUnitRequest) workRequestTable.getValueAt(selectedRow, 0);
+            HomelessAllocation emerReq = (HomelessAllocation) workRequestTable.getValueAt(selectedRow, 0);
             if(emerReq.getStatus().equals("Rejected")) {
                 JOptionPane.showMessageDialog(null, "Request is already Rejected");
             }else if(emerReq.getStatus().equals("Accepted")) {
@@ -189,7 +245,7 @@ public class GovtShelterWokrReq extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Select a request");
         }else {
             int selectedRow = workRequestTable.getSelectedRow();
-            EmergencyUnitRequest emerReq = (EmergencyUnitRequest) workRequestTable.getValueAt(selectedRow, 0);
+            HomelessAllocation emerReq = (HomelessAllocation) workRequestTable.getValueAt(selectedRow, 0);
             if(emerReq.getStatus().equals("Rejected")) {
                 JOptionPane.showMessageDialog(null, "Request is already Rejected");
             }else if(emerReq.getStatus().equals("Accepted")) {
@@ -215,7 +271,7 @@ public class GovtShelterWokrReq extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Select a request");
         }else {
             int selectedRow = workRequestTable.getSelectedRow();
-            EmergencyUnitRequest emerReq = (EmergencyUnitRequest) workRequestTable.getValueAt(selectedRow, 0);
+            HomelessAllocation emerReq = (HomelessAllocation) workRequestTable.getValueAt(selectedRow, 0);
             if(emerReq.getStatus().equals("Rejected")) {
                 JOptionPane.showMessageDialog(null, "Request is already Rejected");
             }else if(emerReq.getStatus().equals("Accepted")) {
