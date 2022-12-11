@@ -11,6 +11,7 @@ import Backend.Enterprise.Enterprise;
 import Backend.Network.Network;
 import Backend.Organization.Organization;
 import Backend.UserAccount.UserAccount;
+import Backend.WorkQueue.HomelessAllocation;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -86,7 +87,7 @@ public class HomelessWorkReq extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         workRequestTable = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(187, 187, 187));
         setMinimumSize(new java.awt.Dimension(1338, 840));
         setPreferredSize(new java.awt.Dimension(1338, 840));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -98,7 +99,7 @@ public class HomelessWorkReq extends javax.swing.JPanel {
         jLabel1.setToolTipText("");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 30, -1, -1));
 
-        processReqBtn.setBackground(new java.awt.Color(255, 255, 255));
+        processReqBtn.setBackground(new java.awt.Color(187, 187, 187));
         processReqBtn.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         processReqBtn.setForeground(new java.awt.Color(25, 56, 82));
         processReqBtn.setText("Process Request");
@@ -109,7 +110,7 @@ public class HomelessWorkReq extends javax.swing.JPanel {
         });
         add(processReqBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, -1, -1));
 
-        acceptBtn.setBackground(new java.awt.Color(255, 255, 255));
+        acceptBtn.setBackground(new java.awt.Color(187, 187, 187));
         acceptBtn.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         acceptBtn.setForeground(new java.awt.Color(25, 56, 82));
         acceptBtn.setText("Accept Request");
@@ -120,7 +121,7 @@ public class HomelessWorkReq extends javax.swing.JPanel {
         });
         add(acceptBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, -1, -1));
 
-        rejectBtn.setBackground(new java.awt.Color(255, 255, 255));
+        rejectBtn.setBackground(new java.awt.Color(187, 187, 187));
         rejectBtn.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         rejectBtn.setForeground(new java.awt.Color(25, 56, 82));
         rejectBtn.setText("Reject Request");
@@ -131,7 +132,7 @@ public class HomelessWorkReq extends javax.swing.JPanel {
         });
         add(rejectBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, -1, -1));
 
-        completeReqBtn.setBackground(new java.awt.Color(255, 255, 255));
+        completeReqBtn.setBackground(new java.awt.Color(187, 187, 187));
         completeReqBtn.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         completeReqBtn.setForeground(new java.awt.Color(25, 56, 82));
         completeReqBtn.setText("Complete Request");
@@ -176,17 +177,110 @@ public class HomelessWorkReq extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void processReqBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processReqBtnActionPerformed
+        // TODO add your handling code here:
+        int count = workRequestTable.getSelectedRowCount();
+        if (count != 1) {
+            JOptionPane.showMessageDialog(null, "Select one row", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            int selectedRow = workRequestTable.getSelectedRow();
+            HomelessAllocation emerReq = (HomelessAllocation) workRequestTable.getValueAt(selectedRow, 0);
+            if(emerReq.getStatus().equals("Cancelled")) {
+                JOptionPane.showMessageDialog(null, "Request is already cancelled by sender");
+            }else if(emerReq.getStatus().equals("Processing")){
+                JOptionPane.showMessageDialog(null, "Request is already Processing");
+            }else if(emerReq.getStatus().equals("Rejected")){
+                JOptionPane.showMessageDialog(null, "Request is already Rejected");
+            }else if(emerReq.getStatus().equals("Completed")){
+                JOptionPane.showMessageDialog(null, "Request is already Completed");
+            }else if(emerReq.getStatus().equals("Requested")) {
+                JOptionPane.showMessageDialog(null, "Request is not yet Accepted");
+            }else {
+                String msg = JOptionPane.showInputDialog("Additional Message");                
+                emerReq.setStatus("Processing");
+                emerReq.setMessage(msg);
+                populateTable();
+            }            
+        }
     
     }//GEN-LAST:event_processReqBtnActionPerformed
 
     private void acceptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBtnActionPerformed
-        
+        int count = workRequestTable.getSelectedRowCount();
+        if(count != 1) {
+            JOptionPane.showMessageDialog(null, "Select a request");
+        }else {
+            int selectedRow = workRequestTable.getSelectedRow();
+            HomelessAllocation emerReq = (HomelessAllocation) workRequestTable.getValueAt(selectedRow, 0);
+            if(emerReq.getStatus().equals("Rejected")) {
+                JOptionPane.showMessageDialog(null, "Request is already Rejected");
+            }else if(emerReq.getStatus().equals("Accepted")) {
+                JOptionPane.showMessageDialog(null, "Request is already Accepted");
+            }else if(emerReq.getStatus().equals("Processing")) {
+                JOptionPane.showMessageDialog(null, "Request is already Processing");
+            }else if(emerReq.getStatus().equals("Completed")) {
+                JOptionPane.showMessageDialog(null, "Request is already Completed");
+            }else if(emerReq.getStatus().equals("Cancelled")) {
+                JOptionPane.showMessageDialog(null, "Request is already cancelled by sender");
+            }else {
+                String msg = JOptionPane.showInputDialog("Additional Message");
+                emerReq.setStatus("Accepted");
+                emerReq.setMessage(msg);
+                populateTable();
+            }
+            //emerReq.setStatus("Accepted");
+        }        
     }//GEN-LAST:event_acceptBtnActionPerformed
 
     private void rejectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rejectBtnActionPerformed
+        int count = workRequestTable.getSelectedRowCount();
+        if(count != 1) {
+            JOptionPane.showMessageDialog(null, "Select a request");
+        }else {
+            int selectedRow = workRequestTable.getSelectedRow();
+            HomelessAllocation emerReq = (HomelessAllocation) workRequestTable.getValueAt(selectedRow, 0);
+            if(emerReq.getStatus().equals("Rejected")) {
+                JOptionPane.showMessageDialog(null, "Request is already Rejected");
+            }else if(emerReq.getStatus().equals("Accepted")) {
+                JOptionPane.showMessageDialog(null, "Request is already Accepted");
+            }else if(emerReq.getStatus().equals("Processing")) {
+                JOptionPane.showMessageDialog(null, "Request is already Accepted and Processing");
+            }else if(emerReq.getStatus().equals("Completed")) {
+                JOptionPane.showMessageDialog(null, "Request is already Completed");
+            }else if(emerReq.getStatus().equals("Cancelled")) {
+                JOptionPane.showMessageDialog(null, "Request is already cancelled by sender");
+            }else {
+                String msg = JOptionPane.showInputDialog("Additional Message");
+                emerReq.setStatus("Rejected");
+                emerReq.setMessage(msg);
+                populateTable();
+            }
+        }
     }//GEN-LAST:event_rejectBtnActionPerformed
 
     private void completeReqBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completeReqBtnActionPerformed
+        int count = workRequestTable.getSelectedRowCount();
+        if(count != 1) {
+            JOptionPane.showMessageDialog(null, "Select a request");
+        }else {
+            int selectedRow = workRequestTable.getSelectedRow();
+            HomelessAllocation emerReq = (HomelessAllocation) workRequestTable.getValueAt(selectedRow, 0);
+            if(emerReq.getStatus().equals("Rejected")) {
+                JOptionPane.showMessageDialog(null, "Request is already Rejected");
+            }else if(emerReq.getStatus().equals("Accepted")) {
+                JOptionPane.showMessageDialog(null, "Request should be in processing state before marking complete");
+            }else if(emerReq.getStatus().equals("Completed")) {
+                JOptionPane.showMessageDialog(null, "Request is already Completed");
+            }else if(emerReq.getStatus().equals("Cancelled")) {
+                JOptionPane.showMessageDialog(null, "Request is already cancelled by sender");
+            }else if(emerReq.getStatus().equals("Requested")) {
+                JOptionPane.showMessageDialog(null, "Request is not yet Accepted");
+            }else {
+                String msg = JOptionPane.showInputDialog("Additional Message");
+                emerReq.setStatus("Completed");
+                emerReq.setMessage(msg);
+                populateTable();
+            }
+        }
 
     }//GEN-LAST:event_completeReqBtnActionPerformed
 
