@@ -9,6 +9,7 @@ import Backend.Enterprise.Enterprise;
 import Backend.Network.Network;
 import Backend.Organization.Organization;
 import Backend.UserAccount.UserAccount;
+import FrontEnd.ShelterGovernment.GovtShelterManageResident;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -49,16 +50,25 @@ public class NGOAdminWorkArea extends javax.swing.JPanel {
     
 
     
-        private void manageScene(){
+      private void manageResident(){
 //        manageScenePanel.setBackground(new Color(236,113,107));
 //        manageRequestPanel.setBackground(new Color(215,81,81));
-        NGOAdminManageReside manageScene = new NGOAdminManageSceneJPanel( rightSystemAdminPanel,  enterprise,  system,  organization,  network, account);
+        NGOAdminManageResident manageResident = new NGOAdminManageResident( rightPanel,  enterprise,  system,  organization,  network, account);
+        rightPanel.add("ManageResidentJPanel", manageResident);
+        CardLayout layout = (CardLayout) rightPanel.getLayout();
+        layout.next(rightPanel);
+    }
+        
+        private void manageVolu(){
+        manageScenePanel.setBackground(new Color(236,113,107));
+        manageRequestPanel.setBackground(new Color(215,81,81));
+        NGOAdminManageSceneJPanel manageScene = new NGOAdminManageSceneJPanel( rightSystemAdminPanel,  enterprise,  system,  organization,  network, account);
         rightSystemAdminPanel.add("ManageHospitalSceneJPanel", manageScene);
         CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
         layout.next(rightSystemAdminPanel);
     }
     
-    private void manageRequest(){
+        private void manageRequest(){
         manageRequestPanel.setBackground(new Color(236,113,107));
         manageScenePanel.setBackground(new Color(215,81,81));
        NGOAdminWorkRequestJPanel manageIndividualWorkRequest = new NGOAdminWorkRequestJPanel( rightSystemAdminPanel,  account,  organization,  enterprise,  network,  system);

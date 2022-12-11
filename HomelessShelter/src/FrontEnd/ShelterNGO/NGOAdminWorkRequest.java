@@ -4,6 +4,8 @@
  */
 package FrontEnd.ShelterNGO;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author shubhamgoyal
