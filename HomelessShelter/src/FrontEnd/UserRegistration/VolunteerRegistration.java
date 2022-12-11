@@ -4,6 +4,33 @@
  */
 package FrontEnd.UserRegistration;
 
+import Backend.Ecosystem.EcoSystem;
+import Backend.Enterprise.Enterprise;
+import Backend.Location.Location;
+import Backend.Network.Network;
+import Backend.Organization.Organization;
+import Backend.Validations.Validations;
+import Backend.WorkQueue.UserRegistrationRequest;
+import Backend.WorkQueue.WorkQueue;
+import Maps.OrganizationLocationJPanel;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import static java.time.Clock.system;
+import static java.time.InstantSource.system;
+import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author shubhamgoyal
@@ -13,9 +40,62 @@ public class VolunteerRegistration extends javax.swing.JPanel {
     /**
      * Creates new form UserRegistration
      */
-    public VolunteerRegistration() {
+    
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private Location locationPoint;
+    private Validations validation;
+    private ActionListener eventListener;
+    private boolean emailValid;
+    private boolean contactValid;
+    private boolean userUnique;
+    /**
+     * Creates new form UserRegistrationJPanel
+     */
+    public VolunteerRegistration(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+        populateNetworkComboBox();
+//        populateCarrierComboBox();
+        validation = new Validations();
+//        usernameExistsMessage.setVisible(false);
+//        emailValidateMessage.setVisible(false);
+//        emailSuccessLabel.setVisible(false);
+//        userNameSuccessLabel.setVisible(false);
+        populateOrgTypes();
+
     }
+
+    public void populateNetworkComboBox() {
+        stateCombo.removeAllItems();
+        for (Network network : system.getNetworkList()) {
+            stateCombo.addItem(network);
+        }
+    }
+
+//    public void populateCarrierComboBox() {
+//        contactCarrier.removeAllItems();
+//        contactCarrier.addItem("ATT");
+//        contactCarrier.addItem("Sprint");
+//        contactCarrier.addItem("TMobile");
+//        contactCarrier.addItem("Verizon");
+//    }
+    
+    public void populateOrgTypes() {
+        orgCombo.addItem(Organization.Type.PrivateShelter);
+        orgCombo.addItem(Organization.Type.NGOShelter);
+        orgCombo.addItem(Organization.Type.GovernmentShelter);
+//        orgCombo.addItem(Organization.Type.Hospital);
+    }
+
+    public void populateLongituteLatitude(Location locationPoint) {
+        uLocation.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        uLocation.setForeground(Color.BLACK);
+        this.locationPoint = locationPoint;
+        uLocation.setText(locationPoint.getLatitude() + "," + locationPoint.getLongitude());
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -334,26 +414,26 @@ public class VolunteerRegistration extends javax.swing.JPanel {
 
     private void uNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uNameKeyReleased
         // TODO add your handling code here:
-        if (!system.checkIfUserIsUnique(uName.getText())) {
-            usernameExistsMessage.setVisible(true);
-            userNameSuccessLabel.setVisible(false);
-            userUnique = false;
-        } else {
-            uName.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-            uName.setForeground(Color.BLACK);
-            usernameExistsMessage.setVisible(false);
-            userNameSuccessLabel.setVisible(true);
-            userUnique = true;
-            int delay = 2500; //milliseconds
-            ActionListener taskPerformer = new ActionListener() {
-                public void actionPerformed(ActionEvent evt) {
-                    userNameSuccessLabel.setVisible(false);
-                }
-            };
-            javax.swing.Timer tick = new javax.swing.Timer(delay, taskPerformer);
-            tick.setRepeats(false);
-            tick.start();
-        }
+//        if (!system.checkIfUserIsUnique(uName.getText())) {
+//            usernameExistsMessage.setVisible(true);
+//            userNameSuccessLabel.setVisible(false);
+//            userUnique = false;
+//        } else {
+//            uName.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+//            uName.setForeground(Color.BLACK);
+//            usernameExistsMessage.setVisible(false);
+//            userNameSuccessLabel.setVisible(true);
+//            userUnique = true;
+//            int delay = 2500; //milliseconds
+//            ActionListener taskPerformer = new ActionListener() {
+//                public void actionPerformed(ActionEvent evt) {
+//                    userNameSuccessLabel.setVisible(false);
+//                }
+//            };
+//            javax.swing.Timer tick = new javax.swing.Timer(delay, taskPerformer);
+//            tick.setRepeats(false);
+//            tick.start();
+//        }
     }//GEN-LAST:event_uNameKeyReleased
 
     private void uNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uNameKeyTyped
@@ -368,25 +448,25 @@ public class VolunteerRegistration extends javax.swing.JPanel {
 
     private void uEmailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uEmailKeyTyped
         // TODO add your handling code here:
-        if (!validation.emailValidator(uEmail.getText())) {
-            emailValidateMessage.setVisible(true);
-            emailValid = false;
-        } else {
-            uEmail.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-            uEmail.setForeground(Color.BLACK);
-            emailValidateMessage.setVisible(false);
-            emailSuccessLabel.setVisible(true);
-            emailValid = true;
-            int delay = 2500; //milliseconds
-            ActionListener taskPerformer = new ActionListener() {
-                public void actionPerformed(ActionEvent evt) {
-                    emailSuccessLabel.setVisible(false);
-                }
-            };
-            javax.swing.Timer tick = new javax.swing.Timer(delay, taskPerformer);
-            tick.setRepeats(false);
-            tick.start();
-        }
+//        if (!validation.emailValidator(uEmail.getText())) {
+//            emailValidateMessage.setVisible(true);
+//            emailValid = false;
+//        } else {
+//            uEmail.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+//            uEmail.setForeground(Color.BLACK);
+//            emailValidateMessage.setVisible(false);
+//            emailSuccessLabel.setVisible(true);
+//            emailValid = true;
+//            int delay = 2500; //milliseconds
+//            ActionListener taskPerformer = new ActionListener() {
+//                public void actionPerformed(ActionEvent evt) {
+//                    emailSuccessLabel.setVisible(false);
+//                }
+//            };
+//            javax.swing.Timer tick = new javax.swing.Timer(delay, taskPerformer);
+//            tick.setRepeats(false);
+//            tick.start();
+//        }
     }//GEN-LAST:event_uEmailKeyTyped
 
     private void uCityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uCityKeyTyped
@@ -559,21 +639,21 @@ public class VolunteerRegistration extends javax.swing.JPanel {
             registrationRequest.setUserLocationPoint(locationPoint);
             String contact = "";
 
-            if (contactCarrier.getSelectedItem().equals("ATT")) {
-                contact = uContact.getText() + "@txt.att.net";
-            } else if (contactCarrier.getSelectedItem().equals("Verizon")) {
-                contact = uContact.getText() + "@vmobl.com";
-            } else if (contactCarrier.getSelectedItem().equals("Sprint")) {
-                contact = uContact.getText() + "@messaging.sprintpcs.com";
-            } else if (contactCarrier.getSelectedItem().equals("TMobile")) {
-                contact = uContact.getText() + "@tmomail.net";
-            }
+//            if (contactCarrier.getSelectedItem().equals("ATT")) {
+//                contact = uContact.getText() + "@txt.att.net";
+//            } else if (contactCarrier.getSelectedItem().equals("Verizon")) {
+//                contact = uContact.getText() + "@vmobl.com";
+//            } else if (contactCarrier.getSelectedItem().equals("Sprint")) {
+//                contact = uContact.getText() + "@messaging.sprintpcs.com";
+//            } else if (contactCarrier.getSelectedItem().equals("TMobile")) {
+//                contact = uContact.getText() + "@tmomail.net";
+//            }
             registrationRequest.setContactCarrierName(contact);
             sendEmailMessage(uEmail.getText());
             sendTextMessage(contact);
             for (Network network1 : system.getNetworkList()) {
                 for (Enterprise enterprise : network1.getEnterpriseDirectory().getEnterpriseList()) {
-                    if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.VoluntaryOperatingUnit) {
+                    if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Shelter) {
                         if (enterprise.getWorkQueue() == null) {
                             enterprise.setWorkQueue(new WorkQueue());
                         }
@@ -594,6 +674,121 @@ public class VolunteerRegistration extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnRegisterActionPerformed
 
+    public static void sendEmailMessage(String emailId) {
+// Recipient's email ID needs to be mentioned.
+        String to = emailId;
+        String from = "donotreplyers@gmail.com";
+        String pass = "devhuskies";
+// Assuming you are sending email from localhost
+// String host = "192.168.0.16";
+
+// Get system properties
+        Properties properties = System.getProperties();
+        String host = "smtp.gmail.com";
+
+        properties.put("mail.smtp.starttls.enable", "true");
+
+        properties.put("mail.smtp.ssl.trust", host);
+        properties.put("mail.smtp.user", from);
+// properties.put("mail.smtp.password", pass);
+        properties.put("mail.smtp.port", "587");
+        properties.put("mail.smtp.auth", "true");
+
+// Setup mail server
+// properties.setProperty("mail.smtp.host", host);
+// properties.put("mail.smtp.starttls.enable", "true");
+// Get the default Session object.
+        Session session = Session.getDefaultInstance(properties);
+
+        try {
+// Create a default MimeMessage object.
+            MimeMessage message = new MimeMessage(session);
+
+// Set From: header field of the header.
+            message.setFrom(new InternetAddress(from));
+
+// Set To: header field of the header.
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+// Set Subject: header field
+            message.setSubject("Volunteer Registration");
+            message.setText("Thank you for registering with us. Your account will be activated in some time.");
+// Send message
+            Transport transport = session.getTransport("smtp");
+            transport.connect(host, from, pass);
+            transport.sendMessage(message, message.getAllRecipients());
+            transport.close();
+            System.out.println("Sent message");
+        } catch (MessagingException mex) {
+            mex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Invalid email id");
+        }
+    }
+
+    public static void sendTextMessage(String contact) {
+        // Recipient's email ID needs to be mentioned.
+        String to = contact;
+        System.out.println(contact);
+        String from = "donotreplyers@gmail.com";
+        String pass = "devhuskies";
+        // Assuming you are sending email from localhost
+        // String host = "192.168.0.16";
+        // Get system properties
+        Properties properties = System.getProperties();
+        String host = "smtp.gmail.com";
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.ssl.trust", host);
+        properties.put("mail.smtp.user", from);
+        // properties.put("mail.smtp.password", pass);
+        properties.put("mail.smtp.port", "587");
+        properties.put("mail.smtp.auth", "true");
+        // Setup mail server
+        // properties.setProperty("mail.smtp.host", host);
+        //  properties.put("mail.smtp.starttls.enable", "true");
+        // Get the default Session object.
+        Session session = Session.getDefaultInstance(properties);
+        //       final PasswordAuthentication auth = new PasswordAuthentication(from, pass);
+//Session session = Session.getDefaultInstance(properties, new Authenticator() {
+//    @Override
+//    protected PasswordAuthentication getPasswordAuthentication() { return auth; }
+//});
+//Session session = Session.getInstance(properties);
+        try {
+            // Create a default MimeMessage object.
+            MimeMessage message = new MimeMessage(session);
+
+            // Set From: header field of the header.
+            message.setFrom(new InternetAddress(from));
+
+            // Set To: header field of the header.
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+            // Set Subject: header field
+            message.setSubject("Volunteer Registration");
+            message.setText("Thank you for registering with us. Your account will be activated in some time.");
+            // Send message
+            Transport transport = session.getTransport("smtp");
+            transport.connect(host, from, pass);
+            transport.sendMessage(message, message.getAllRecipients());
+            transport.close();
+            System.out.println("Sent message");
+        } catch (MessagingException mex) {
+            mex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Invalid email id");
+        }
+    }
+
+    public Boolean contactValidity(String custContact) {
+        String regex = "^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})$";
+        Pattern pattern = Pattern.compile(regex);
+        
+        Matcher matcher = pattern.matcher(custContact);
+        if(matcher.matches()){
+            return true;
+        }
+        return false;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegister;
