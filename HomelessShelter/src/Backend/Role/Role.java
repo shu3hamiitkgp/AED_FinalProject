@@ -19,13 +19,12 @@ public abstract class Role {
     
     public enum RoleType{
         SystemAdmin("SystemAdmin"),
-        MealManager("MealManager"),
+        ResourceManager("ResourceManager"),
         ShelterManager("ShelterManager"),
         Volunteers("Volunteers"),
         HealthManagers("HealthManagers"),
         EmploymentManager("EmploymentManager"),
         HomelessUser("HomelessUser"),
-        DonatorManager("DonatorManager"),
         GovernmentSupervisor("GovernmentSupervisor"),
         PrivateCompanySupervisor("PrivateCompanySupervisor"),
         NGOAdmin("NGOAdmin");

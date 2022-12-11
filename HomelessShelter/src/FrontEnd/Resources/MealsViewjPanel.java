@@ -30,7 +30,6 @@ public class MealsViewjPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     UserAccount account;
     Organization organization;
-    Organization recieverOrganization;
     WorkRequest workRequest;
     Enterprise enterprise;
     Network network;
@@ -87,7 +86,7 @@ public class MealsViewjPanel extends javax.swing.JPanel {
         for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
             for (Organization org : ent.getOrganizationDirectory().getOrganizationList()) {
                 if (org instanceof Meals) {
-                    recieverOrganization = org;
+                    organization = org;
                     Location point = new Location();
                     point.setLatitude(((ReportingAdminSceneRequest) workRequest).getSceneLocationPoint().getLatitude());
                     point.setLongitude(((ReportingAdminSceneRequest) workRequest).getSceneLocationPoint().getLongitude());
@@ -110,7 +109,7 @@ public class MealsViewjPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "No Restaurants found near you.");
         }
         for (Organization oo : orgList) {
-            row[0] = oo.getOrganizationID();
+            row[0] = oo;
             row[1] = oo.getName();
             row[2] = oo.getNearestLocationPoint();
             model.addRow(row);

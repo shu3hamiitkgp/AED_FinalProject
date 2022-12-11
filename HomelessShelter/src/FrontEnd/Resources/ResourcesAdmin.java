@@ -13,9 +13,12 @@ import Backend.Organization.Donations;
 import Backend.Organization.Meals;
 import Backend.Organization.Organization;
 import Backend.UserAccount.UserAccount;
+import Backend.WorkQueue.ReportingAdminSceneRequest;
 import MainUI.HeaderColors;
 import Maps.OrganizationLocationJPanel;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import java.util.Collections;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -29,7 +32,6 @@ public class ResourcesAdmin extends javax.swing.JPanel {
     /**
      * Creates new form ResourcesAdmin
      */
-    Resources resourcelist;
     JPanel userProcessContainer;
     Enterprise enterprise;
     EcoSystem system;
@@ -37,39 +39,72 @@ public class ResourcesAdmin extends javax.swing.JPanel {
     Network network;
     UserAccount account;
     Location locationPoint;
-    public ResourcesAdmin(Resources resources) {
+    public ResourcesAdmin(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
-        resourcelist = resources;
-        
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        //this.workRequest = workRequest;
+        this.enterprise = enterprise;
+        this.organization = organization;
+        this.network = network;
+        this.network = network;
+        this.system = business;  
+        populateDonations();
+        populateMeals();
     }
     
     private void populateDonations(){
-        jTable8.getTableHeader().setDefaultRenderer(new HeaderColors());
+        ArrayList<Organization> orgList = new ArrayList<Organization>();
         DefaultTableModel model = (DefaultTableModel) jTable8.getModel();
-        
         model.setRowCount(0);
+        Object[] row = new Object[5];
+        for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
+            for (Organization org : ent.getOrganizationDirectory().getOrganizationList()) {
+                if (org instanceof Donations) {
+                    organization = org;
+                    
+                    orgList.add(org);
+                }
+            }
+
+        }
         
-        for (Donations d : resourcelist.getDonations()){
-            Object[] row = new Object[2];
-            row[0] = d;
-            row[1] = d.getName();
-            row[2] = d.getDonationType();
-            row[3] = d.getLocationPoint().toString();
+        Collections.sort(orgList, (o1, o2) -> Double.compare(o1.getNearestLocationPoint(), o2.getNearestLocationPoint()));
+        if(orgList.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No Restaurants found near you.");
+        }
+        for (Organization oo : orgList) {
+            row[0] = oo;
+            row[1] = oo.getName();
+            row[2] = oo.getLocationPoint().toString();
             model.addRow(row);
         }
     }
     
     private void populateMeals(){
-        jTable9.getTableHeader().setDefaultRenderer(new HeaderColors());
-        DefaultTableModel model = (DefaultTableModel) jTable9.getModel();
-        
+        ArrayList<Organization> orgList = new ArrayList<Organization>();
+        DefaultTableModel model = (DefaultTableModel) jTable8.getModel();
         model.setRowCount(0);
+        Object[] row = new Object[5];
+        for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
+            for (Organization org : ent.getOrganizationDirectory().getOrganizationList()) {
+                if (org instanceof Meals) {
+                    organization = org;
+                    
+                    orgList.add(org);
+                }
+            }
+
+        }
         
-        for (Meals meal : resourcelist.getMeals()){
-            Object[] row = new Object[2];
-            row[0] = meal;
-            row[1] = meal.getName();
-            row[2] = meal.getLocationPoint().toString();
+        Collections.sort(orgList, (o1, o2) -> Double.compare(o1.getNearestLocationPoint(), o2.getNearestLocationPoint()));
+        if(orgList.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No Restaurants found near you.");
+        }
+        for (Organization oo : orgList) {
+            row[0] = oo;
+            row[1] = oo.getName();
+            row[2] = oo.getLocationPoint().toString();
             model.addRow(row);
         }
     }
@@ -708,6 +743,7 @@ public class ResourcesAdmin extends javax.swing.JPanel {
             sceneLocation.setText("");
             jDonationWebsite.setText("");
             jDonationPhone.setText("");
+            Resources resourcelist = (Resources) enterprise;
             resourcelist.addDonations(newDonation);
             populateDonations();
         }
@@ -748,7 +784,14 @@ public class ResourcesAdmin extends javax.swing.JPanel {
             int selectedRowIndex = jTable8.getSelectedRow();
             DefaultTableModel model = (DefaultTableModel) jTable8.getModel();
             Donations donation = (Donations) model.getValueAt(selectedRowIndex, 0);
-            resourcelist.deleteDonation(donation);
+            for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
+                if(ent instanceof Resources){
+                    Resources resourcelist = (Resources) ent;
+                    resourcelist.deleteDonation(donation);
+                }
+
+            }
+            
             jDonationTypeCombo.setSelectedItem("");
             jDonationAudienceCombo.setSelectedItem("");
             sceneLocation.setText("");
@@ -796,6 +839,7 @@ public class ResourcesAdmin extends javax.swing.JPanel {
             jpeanut.setSelected(false);
             jMealWebsite.setText("");
             jMealPhone.setText("");
+            Resources resourcelist = (Resources) enterprise;
             resourcelist.addMeal(meal);
             populateMeals();
         }
@@ -807,6 +851,7 @@ public class ResourcesAdmin extends javax.swing.JPanel {
             int selectedRowIndex = jTable9.getSelectedRow();
             DefaultTableModel model = (DefaultTableModel) jTable9.getModel();
             Meals meal = (Meals) model.getValueAt(selectedRowIndex, 0);
+            Resources resourcelist = (Resources) enterprise;
             resourcelist.deleteMeal(meal);
             jMealName.setText("");
             jMealType.setSelectedItem("");
@@ -844,6 +889,7 @@ public class ResourcesAdmin extends javax.swing.JPanel {
             jpeanut.setSelected(false);
             jMealWebsite.setText("");
             jMealPhone.setText("");
+            Resources resourcelist = (Resources) enterprise;
             resourcelist.addMeal(newMeals);
             populateMeals();
         }

@@ -102,7 +102,7 @@ public class DonationsViewPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "No Donation Centers found for this network. Please choose the same from other network to place cross network request.");
         }
         for (Organization oo : orgList) {
-            row[0] = oo.getOrganizationID();
+            row[0] = oo;
             row[1] = oo.getName();
             row[2] = oo.getNearestLocationPoint();
             model.addRow(row);

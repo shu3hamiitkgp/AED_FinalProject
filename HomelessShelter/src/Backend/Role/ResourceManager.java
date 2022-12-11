@@ -9,19 +9,19 @@ import Backend.Enterprise.Enterprise;
 import Backend.Network.Network;
 import Backend.Organization.Organization;
 import Backend.UserAccount.UserAccount;
-import FrontEnd.Resources.DonationsViewPanel;
+import FrontEnd.Resources.ResourcesAdmin;
 import javax.swing.JPanel;
 
 /**
  *
  * @author Megha Patel
  */
-public class DonationManager extends Role{
+public class ResourceManager extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         System.out.println(userProcessContainer.getComponents());
-        return new DonationsViewPanel(userProcessContainer, account, organization, enterprise, network, business); 
+        return new ResourcesAdmin(userProcessContainer, account, organization, enterprise, network, business);
     }
-}    
-
+    
+}

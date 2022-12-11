@@ -9,14 +9,13 @@ import Backend.Ecosystem.EcoSystem;
 import Backend.Enterprise.Enterprise;
 import Backend.Network.Network;
 import Backend.Organization.Organization;
-import Backend.Role.DonationManager;
 import Backend.Role.EmploymentManager;
 import Backend.Role.GovernmentSupervisor;
 import Backend.Role.HealthManager;
 import Backend.Role.HomelessPerson;
-import Backend.Role.MealManager;
 import Backend.Role.NGOAdmin;
 import Backend.Role.PrivateCompanySupervisor;
+import Backend.Role.ResourceManager;
 //import Backend.Role.ShelterManager;
 import Backend.Role.SystemAdminRole;
 import Backend.Role.Volunteer;
@@ -63,7 +62,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         if (userAccount != null && userAccount.getRole() != null) {
 //            String greetings = "Hi";
-            if (userAccount.getRole() instanceof DonationManager) {
+            if (userAccount.getRole() instanceof ResourceManager) {
 //                greetings = greetings + " " + userAccount.getUsername();
                 container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
             } else if (userAccount.getRole() instanceof EmploymentManager) {
@@ -78,9 +77,6 @@ public class MainJFrame extends javax.swing.JFrame {
             } else if (userAccount.getRole() instanceof HomelessPerson) {
 //                greetings = greetings + " " + userAccount.getUsername();
                 container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
-            }else if (userAccount.getRole() instanceof MealManager) {
-//                greetings = greetings + " " + userAccount.getUsername();
-                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
             }else if (userAccount.getRole() instanceof NGOAdmin) {
 //                greetings = greetings + " " + userAccount.getUsername();
                 container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
