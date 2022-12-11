@@ -8,10 +8,13 @@ import Backend.Ecosystem.EcoSystem;
 import Backend.Enterprise.Enterprise;
 import Backend.Location.Location;
 import Backend.Network.Network;
+import Backend.Organization.Donations;
 import Backend.Organization.Organization;
+import static Backend.Organization.Organization.Type.Medical;
 import Backend.UserAccount.UserAccount;
 import Backend.WorkQueue.HomelessAllocation;
 import Backend.WorkQueue.WorkRequest;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
