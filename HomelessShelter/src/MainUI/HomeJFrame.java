@@ -5,6 +5,7 @@
 package MainUI;
 
 import Backend.Ecosystem.EcoSystem;
+import Backend.DB4OUtil.DB4OUtil;
 import Backend.Enterprise.Enterprise;
 import Backend.Network.Network;
 import Backend.Organization.Organization;
@@ -21,6 +22,7 @@ import Backend.Role.NGOAdmin;
 import Backend.Role.PrivateCompanySupervisor;
 import static Backend.Role.Role.RoleType.SystemAdmin;
 import Backend.UserAccount.UserAccount;
+import java.awt.CardLayout;
 
 /**
  *
@@ -31,8 +33,20 @@ public class HomeJFrame extends javax.swing.JFrame {
     /**
      * Creates new form HomeJFrame
      */
+    private EcoSystem system;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    UserAccount userAccount;
+    Enterprise inEnterprise;
+    Organization inOrganization;
+    Network networkEmergency;
+    
     public HomeJFrame() {
         initComponents();
+        system = dB4OUtil.retrieveSystem();
+        EcoSystem.setInstance(system);
+        loginJPanel.setVisible(true);
+        container.setVisible(false);
+        jPanel1.setVisible(false);
     }
 
     /**
@@ -45,7 +59,10 @@ public class HomeJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jSplitPane1 = new javax.swing.JSplitPane();
-        jPanel1 = new javax.swing.JPanel();
+        leftPanel = new javax.swing.JPanel();
+        btnLogoutLabel = new javax.swing.JLabel();
+        greetingUserLabel = new javax.swing.JLabel();
+        btnBackLabel = new javax.swing.JLabel();
         loginJPanel = new javax.swing.JPanel();
         txtUserName = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
@@ -53,21 +70,33 @@ public class HomeJFrame extends javax.swing.JFrame {
         lblRegister = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        container = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 182, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
-        );
+        leftPanel.setBackground(new java.awt.Color(244, 242, 227));
+        leftPanel.setMinimumSize(new java.awt.Dimension(1338, 60));
+        leftPanel.setPreferredSize(new java.awt.Dimension(1338, 60));
+        leftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jSplitPane1.setLeftComponent(jPanel1);
+        btnLogoutLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnLogoutLabelMousePressed(evt);
+            }
+        });
+        leftPanel.add(btnLogoutLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 0, 70, 60));
+
+        greetingUserLabel.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        leftPanel.add(greetingUserLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 690, 60));
+
+        btnBackLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnBackLabelMousePressed(evt);
+            }
+        });
+        leftPanel.add(btnBackLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 0, 60, 60));
+
+        jSplitPane1.setLeftComponent(leftPanel);
 
         lblLogin.setText("Login");
 
@@ -82,7 +111,7 @@ public class HomeJFrame extends javax.swing.JFrame {
         loginJPanelLayout.setHorizontalGroup(
             loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginJPanelLayout.createSequentialGroup()
-                .addContainerGap(564, Short.MAX_VALUE)
+                .addContainerGap(725, Short.MAX_VALUE)
                 .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginJPanelLayout.createSequentialGroup()
                         .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -114,10 +143,16 @@ public class HomeJFrame extends javax.swing.JFrame {
                 .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLogin)
                     .addComponent(lblRegister))
-                .addContainerGap(518, Short.MAX_VALUE))
+                .addContainerGap(668, Short.MAX_VALUE))
         );
 
         jSplitPane1.setRightComponent(loginJPanel);
+
+        container.setBackground(new java.awt.Color(25, 56, 82));
+        container.setForeground(new java.awt.Color(31, 50, 97));
+        container.setPreferredSize(new java.awt.Dimension(1338, 840));
+        container.setLayout(new java.awt.CardLayout());
+        jSplitPane1.setRightComponent(container);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,6 +167,15 @@ public class HomeJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLogoutLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutLabelMousePressed
+        logout();
+    }//GEN-LAST:event_btnLogoutLabelMousePressed
+
+    private void btnBackLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackLabelMousePressed
+        // TODO add your handling code here:
+        logout();
+    }//GEN-LAST:event_btnBackLabelMousePressed
 
     /**
      * @param args the command line arguments
@@ -167,59 +211,61 @@ public class HomeJFrame extends javax.swing.JFrame {
             }
         });
     }
-//<<<<<<< HEAD
-//    
-//     private void changePanel1() {
-//         
-//        if (userAccount != null && userAccount.getRole() != null) {
-//            String greetings = "Hi";
-//            if (userAccount.getRole() instanceof DonationManager) {
-//                greetings = greetings + " " + userAccount.getUsername();
-//                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
-//            } else if (userAccount.getRole() instanceof EmploymentManager) {
-//                greetings = greetings + " " + userAccount.getUsername();
-//                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
-//            } else if (userAccount.getRole() instanceof GovernmentSupervisor) {
-//                greetings = greetings + " " + userAccount.getUsername();
-//                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
-//            } else if (userAccount.getRole() instanceof HealthManager) {
-//                greetings = greetings + " " + userAccount.getUsername();
-//                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
-//            } else if (userAccount.getRole() instanceof HomelessPerson) {
-//                greetings = greetings + " " + userAccount.getUsername();
-//                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
-//            }else if (userAccount.getRole() instanceof MealManager) {
-//                greetings = greetings + " " + userAccount.getUsername();
-//                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
-//            }else if (userAccount.getRole() instanceof NGOAdmin) {
-//                greetings = greetings + " " + userAccount.getUsername();
-//                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
-//            }else if (userAccount.getRole() instanceof PrivateCompanySupervisor) {
-//                greetings = greetings + " " + userAccount.getUsername();
-//                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
-//            }else if (userAccount.getRole() instanceof SystemAdminRole) {
-//                greetings = greetings + " " + userAccount.getUsername();
-//                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
-//            }else {
-//                greetings = greetings + " " + userAccount.getUsername();
-//                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
-//            }
-//            greetingUserLabel.setText(greetings + " !!!");
-//            CardLayout layout = (CardLayout) container.getLayout();
-//            layout.next(container);
-//        }
-//
-//    }
-//=======
-//>>>>>>> 62876a1fc50e4a12da2e0de2155a23a321c99490
+ 
+     private void changePanel1() {
+         
+        if (userAccount != null && userAccount.getRole() != null) {
+            String greetings = "Hi";
+            if (userAccount.getRole() instanceof DonationManager) {
+                greetings = greetings + " " + userAccount.getUsername();
+                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
+            } else if (userAccount.getRole() instanceof EmploymentManager) {
+                greetings = greetings + " " + userAccount.getUsername();
+                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
+            } else if (userAccount.getRole() instanceof GovernmentSupervisor) {
+                greetings = greetings + " " + userAccount.getUsername();
+                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
+            } else if (userAccount.getRole() instanceof HealthManager) {
+                greetings = greetings + " " + userAccount.getUsername();
+                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
+            } else if (userAccount.getRole() instanceof HomelessPerson) {
+                greetings = greetings + " " + userAccount.getUsername();
+                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
+            }else if (userAccount.getRole() instanceof MealManager) {
+                greetings = greetings + " " + userAccount.getUsername();
+                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
+            }else if (userAccount.getRole() instanceof NGOAdmin) {
+                greetings = greetings + " " + userAccount.getUsername();
+                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
+            }else if (userAccount.getRole() instanceof PrivateCompanySupervisor) {
+                greetings = greetings + " " + userAccount.getUsername();
+                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
+            }else if (userAccount.getRole() instanceof SystemAdminRole) {
+                greetings = greetings + " " + userAccount.getUsername();
+                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system)); 
+            }else {
+                greetings = greetings + " " + userAccount.getUsername();
+                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, networkEmergency, system));
+            }
+            greetingUserLabel.setText(greetings + " !!!");
+            CardLayout layout = (CardLayout) container.getLayout();
+            layout.next(container);
+        }
+
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnBackLabel;
+    private javax.swing.JLabel btnLogoutLabel;
+    private javax.swing.JPanel container;
+    private javax.swing.JLabel greetingUserLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton lblLogin;
     private javax.swing.JButton lblRegister;
+    private javax.swing.JPanel leftPanel;
     private javax.swing.JPanel loginJPanel;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUserName;

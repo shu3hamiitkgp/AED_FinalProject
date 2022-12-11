@@ -30,13 +30,6 @@ public class Donations extends Organization {
         return type;
     }
 
-    public static void setDType(String[] type) {
-        Donations.type = type;
-    }
-
-    public String getDonationType() {
-        return donationType;
-    }
 
     public void setDonationType(String donationType) {
         this.donationType = donationType;
