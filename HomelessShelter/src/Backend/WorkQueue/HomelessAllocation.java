@@ -20,9 +20,6 @@ public class HomelessAllocation extends WorkRequest {
     private Organization.Type orgType;
     private String name;
     private String orgName;
-    
-    
-    
     private String userCity;
     private String userContact;
     private Location userLocationPoint;
