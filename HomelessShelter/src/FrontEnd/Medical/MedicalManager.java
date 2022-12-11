@@ -4,6 +4,17 @@
  */
 package FrontEnd.Medical;
 
+import Backend.Ecosystem.EcoSystem;
+import Backend.Enterprise.Enterprise;
+import Backend.Location.Location;
+import Backend.Network.Network;
+import Backend.Organization.Organization;
+import Backend.UserAccount.UserAccount;
+import Backend.WorkQueue.HomelessAllocation;
+import Backend.WorkQueue.WorkRequest;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 
 
 /**
@@ -13,12 +24,51 @@ package FrontEnd.Medical;
 public class MedicalManager extends javax.swing.JPanel {
 
     /**
-     * Creates new form GovtShelterManageResident
+     * Creates new form Hospital
      */
-    public MedicalManager() {
-        initComponents();
-    }
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Organization organization;
+    Network network;
+    UserAccount account;
+    Location locationPoint;
+    private String imagePath;
 
+    public MedicalManager(JPanel userProcessContainer, Enterprise enterprise, EcoSystem system, Organization organization, Network network, UserAccount account) {
+        
+        this.userProcessContainer = userProcessContainer;
+        this.enterprise = enterprise;
+        this.system = system;
+        this.organization = organization;
+        this.network = network;
+        this.account = account;
+//         tblResident.getTableHeader().setDefaultRenderer(new HeaderColors());
+        populateSceneTable();
+    }
+    
+        private void populateSceneTable() {
+//        tblResident.getTableHeader().setDefaultRenderer(new HeaderColors());
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+        model.setRowCount(0);
+
+        for (WorkRequest wr : organization.getWorkQueue().getWorkRequestList()) {
+
+            if (wr instanceof HomelessAllocation) {
+                Object[] row = new Object[model.getColumnCount()];
+                row[0] = wr;
+                row[1] = ((HomelessAllocation) wr).getUserID();
+                row[2] = ((HomelessAllocation) wr).getName();
+                row[3] = ((HomelessAllocation) wr).getGender();
+//                row[4] = ((HomelessAllocation) wr).getNoOfVictims();
+//                row[5] = ((HomelessAllocation) wr).getEstimatedLoss();
+                row[4] = ((HomelessAllocation) wr).getStatus();
+                row[5] = ((HomelessAllocation) wr).getRequestDate();
+//                row[8] = ((HomelessAllocation) wr).getMessage();
+                //row[2] = org.getPosition();
+                model.addRow(row);
+            }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
