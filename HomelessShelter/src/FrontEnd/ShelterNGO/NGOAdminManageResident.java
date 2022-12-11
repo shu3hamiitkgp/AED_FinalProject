@@ -42,12 +42,12 @@ public class NGOAdminManageResident extends javax.swing.JPanel {
         this.organization = organization;
         this.network = network;
         this.account = account;
-//        tblResident.getTableHeader().setDefaultRenderer(new HeaderColors());
+//         tblResident.getTableHeader().setDefaultRenderer(new HeaderColors());
         populateSceneTable();
     }
 
     private void populateSceneTable() {
-//        tblScene.getTableHeader().setDefaultRenderer(new HeaderColors());
+//        tblResident.getTableHeader().setDefaultRenderer(new HeaderColors());
         DefaultTableModel model = (DefaultTableModel) tblResident.getModel();
 
         model.setRowCount(0);
@@ -59,12 +59,12 @@ public class NGOAdminManageResident extends javax.swing.JPanel {
                 row[0] = wr;
                 row[1] = ((HomelessAllocation) wr).getUserID();
                 row[2] = ((HomelessAllocation) wr).getName();
-//                row[3] = ((HomelessAllocation) wr).getAge();
                 row[3] = ((HomelessAllocation) wr).getGender();
-                row[4] = ((HomelessAllocation) wr).getRequestDate();
-                row[5] = ((HomelessAllocation) wr).getStatus();
-//                row[6] = ((HomelessAllocation) wr).getRequestDate();
-//                row[7] = ((HomelessAllocation) wr).getMessage();
+//                row[4] = ((HomelessAllocation) wr).getNoOfVictims();
+//                row[5] = ((HomelessAllocation) wr).getEstimatedLoss();
+                row[4] = ((HomelessAllocation) wr).getStatus();
+                row[5] = ((HomelessAllocation) wr).getRequestDate();
+//                row[8] = ((HomelessAllocation) wr).getMessage();
                 //row[2] = org.getPosition();
                 model.addRow(row);
             }
@@ -75,6 +75,7 @@ public class NGOAdminManageResident extends javax.swing.JPanel {
             
             model.addRow(row);*/
         }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
