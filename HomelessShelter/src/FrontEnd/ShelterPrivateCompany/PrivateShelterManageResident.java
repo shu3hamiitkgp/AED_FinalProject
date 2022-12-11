@@ -4,6 +4,17 @@
  */
 package FrontEnd.ShelterPrivateCompany;
 
+import Backend.Ecosystem.EcoSystem;
+import Backend.Enterprise.Enterprise;
+import Backend.Location.Location;
+import Backend.Network.Network;
+import Backend.Organization.Organization;
+import Backend.UserAccount.UserAccount;
+import Backend.WorkQueue.HomelessAllocation;
+import Backend.WorkQueue.WorkRequest;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author shubhamgoyal
@@ -13,8 +24,56 @@ public class PrivateShelterManageResident extends javax.swing.JPanel {
     /**
      * Creates new form PrivateShelterManageResident
      */
-    public PrivateShelterManageResident() {
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Organization organization;
+    Network network;
+    UserAccount account;
+    Location locationPoint;
+    private String imagePath;
+
+    public PrivateShelterManageResident(JPanel userProcessContainer, Enterprise enterprise, EcoSystem system, Organization organization, Network network, UserAccount account) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.enterprise = enterprise;
+        this.system = system;
+        this.organization = organization;
+        this.network = network;
+        this.account = account;
+//         tblResident.getTableHeader().setDefaultRenderer(new HeaderColors());
+        populateSceneTable();
+    }
+
+    private void populateSceneTable() {
+//        tblResident.getTableHeader().setDefaultRenderer(new HeaderColors());
+        DefaultTableModel model = (DefaultTableModel) tblResident.getModel();
+
+        model.setRowCount(0);
+
+        for (WorkRequest wr : organization.getWorkQueue().getWorkRequestList()) {
+
+            if (wr instanceof HomelessAllocation) {
+                Object[] row = new Object[model.getColumnCount()];
+                row[0] = wr;
+                row[1] = ((HomelessAllocation) wr).getUserID();
+                row[2] = ((HomelessAllocation) wr).getName();
+                row[3] = ((HomelessAllocation) wr).getGender();
+//                row[4] = ((HomelessAllocation) wr).getNoOfVictims();
+//                row[5] = ((HomelessAllocation) wr).getEstimatedLoss();
+                row[4] = ((HomelessAllocation) wr).getStatus();
+                row[5] = ((HomelessAllocation) wr).getRequestDate();
+//                row[8] = ((HomelessAllocation) wr).getMessage();
+                //row[2] = org.getPosition();
+                model.addRow(row);
+            }
+
+            /*Object[] row = new Object[2];
+            row[0] = organization.getOrganizationID();
+            row[1] = organization.getName();
+            
+            model.addRow(row);*/
+        }
     }
 
     /**
@@ -41,7 +100,7 @@ public class PrivateShelterManageResident extends javax.swing.JPanel {
         jTextField5 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblResident = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -73,7 +132,7 @@ public class PrivateShelterManageResident extends javax.swing.JPanel {
 
         jLabel6.setText("Start Date");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblResident.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -92,7 +151,7 @@ public class PrivateShelterManageResident extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblResident);
 
         jLabel7.setText("Photo");
 
@@ -212,12 +271,12 @@ public class PrivateShelterManageResident extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTable tblResident;
     // End of variables declaration//GEN-END:variables
 }
