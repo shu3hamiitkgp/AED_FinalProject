@@ -21,8 +21,8 @@ public class HomelessAllocation extends WorkRequest {
     private String name;
     private String orgName;
     
-    
-    
+    private String gender;
+    private String userid;
     private String userCity;
     private String userContact;
     private Location userLocationPoint;
@@ -92,6 +92,14 @@ public class HomelessAllocation extends WorkRequest {
 
     public void setUserLocationPoint(Location userLocationPoint) {
         this.userLocationPoint = userLocationPoint;
+    }
+    
+        public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
     
 }
