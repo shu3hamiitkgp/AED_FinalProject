@@ -81,7 +81,7 @@ public class MedicalWorkReq extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(187, 187, 187));
         setMinimumSize(new java.awt.Dimension(1338, 840));
         setPreferredSize(new java.awt.Dimension(1338, 840));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -118,7 +118,7 @@ public class MedicalWorkReq extends javax.swing.JPanel {
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 1220, 180));
 
-        processReqBtn.setBackground(new java.awt.Color(255, 255, 255));
+        processReqBtn.setBackground(new java.awt.Color(187, 187, 187));
         processReqBtn.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         processReqBtn.setForeground(new java.awt.Color(25, 56, 82));
         processReqBtn.setText("Process Request");
@@ -129,7 +129,7 @@ public class MedicalWorkReq extends javax.swing.JPanel {
         });
         add(processReqBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, -1, -1));
 
-        acceptBtn.setBackground(new java.awt.Color(255, 255, 255));
+        acceptBtn.setBackground(new java.awt.Color(187, 187, 187));
         acceptBtn.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         acceptBtn.setForeground(new java.awt.Color(25, 56, 82));
         acceptBtn.setText("Accept Request");
@@ -140,7 +140,7 @@ public class MedicalWorkReq extends javax.swing.JPanel {
         });
         add(acceptBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, -1, -1));
 
-        rejectBtn.setBackground(new java.awt.Color(255, 255, 255));
+        rejectBtn.setBackground(new java.awt.Color(187, 187, 187));
         rejectBtn.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         rejectBtn.setForeground(new java.awt.Color(25, 56, 82));
         rejectBtn.setText("Reject Request");
@@ -151,7 +151,7 @@ public class MedicalWorkReq extends javax.swing.JPanel {
         });
         add(rejectBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, -1, -1));
 
-        completeReqBtn.setBackground(new java.awt.Color(255, 255, 255));
+        completeReqBtn.setBackground(new java.awt.Color(187, 187, 187));
         completeReqBtn.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         completeReqBtn.setForeground(new java.awt.Color(25, 56, 82));
         completeReqBtn.setText("Complete Request");
