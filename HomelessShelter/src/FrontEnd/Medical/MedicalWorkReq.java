@@ -11,6 +11,7 @@ import Backend.Network.Network;
 import Backend.Organization.Medical;
 import Backend.Organization.Organization;
 import Backend.UserAccount.UserAccount;
+import Backend.WorkQueue.HomelessAllocation;
 import Backend.WorkQueue.WorkRequest;
 import MainUI.HeaderColors;
 import javax.swing.JOptionPane;
@@ -175,7 +176,7 @@ public class MedicalWorkReq extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Select one row", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
             int selectedRow = workRequestTable.getSelectedRow();
-            EmergencyUnitRequest emerReq = (EmergencyUnitRequest) workRequestTable.getValueAt(selectedRow, 0);
+            HomelessAllocation emerReq = (HomelessAllocation) workRequestTable.getValueAt(selectedRow, 0);
             if(emerReq.getStatus().equals("Cancelled")) {
                 JOptionPane.showMessageDialog(null, "Request is already cancelled by sender");
             }else if(emerReq.getStatus().equals("Processing")){
@@ -201,7 +202,7 @@ public class MedicalWorkReq extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Select a request");
         }else {
             int selectedRow = workRequestTable.getSelectedRow();
-            EmergencyUnitRequest emerReq = (EmergencyUnitRequest) workRequestTable.getValueAt(selectedRow, 0);
+            HomelessAllocation emerReq = (HomelessAllocation) workRequestTable.getValueAt(selectedRow, 0);
             if(emerReq.getStatus().equals("Rejected")) {
                 JOptionPane.showMessageDialog(null, "Request is already Rejected");
             }else if(emerReq.getStatus().equals("Accepted")) {
@@ -228,7 +229,7 @@ public class MedicalWorkReq extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Select a request");
         }else {
             int selectedRow = workRequestTable.getSelectedRow();
-            EmergencyUnitRequest emerReq = (EmergencyUnitRequest) workRequestTable.getValueAt(selectedRow, 0);
+            HomelessAllocation emerReq = (HomelessAllocation) workRequestTable.getValueAt(selectedRow, 0);
             if(emerReq.getStatus().equals("Rejected")) {
                 JOptionPane.showMessageDialog(null, "Request is already Rejected");
             }else if(emerReq.getStatus().equals("Accepted")) {
@@ -254,7 +255,7 @@ public class MedicalWorkReq extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Select a request");
         }else {
             int selectedRow = workRequestTable.getSelectedRow();
-            EmergencyUnitRequest emerReq = (EmergencyUnitRequest) workRequestTable.getValueAt(selectedRow, 0);
+            HomelessAllocation emerReq = (HomelessAllocation) workRequestTable.getValueAt(selectedRow, 0);
             if(emerReq.getStatus().equals("Rejected")) {
                 JOptionPane.showMessageDialog(null, "Request is already Rejected");
             }else if(emerReq.getStatus().equals("Accepted")) {
