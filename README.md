@@ -16,7 +16,21 @@ The Homeless Shelter System's purpose is to provide essential guidance and keep 
 
 ## Key Functionalities:
 
+1. Registration of the homeless, including location and image.
 
+2. View a report of all incidents in a specific network.
+
+3. Notification to the appropriate authority for response.
+
+4. Verification of reported emergencies to prevent hoax reporting, which will result in user account suspension.
+
+5. Sends alert messages to all registered users about a specific action request, with regular updates.
+
+6. Non-governmental organizations (NGOs) can also register / login and participate in the event of a disaster to provide additional assistance.
+
+7. Cross-network communication with the ability to seek assistance from other networks if resources are depleted.
+
+8. Management of contingency resources. 
 
 
 - Shubham Goyal (NEUID 002747584)
