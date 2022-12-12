@@ -17,7 +17,7 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import static java.time.Clock.system;
-import static java.time.InstantSource.system;
+//import static java.time.InstantSource.system;
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

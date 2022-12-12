@@ -16,6 +16,9 @@ import Backend.Organization.Meals;
 import Backend.Organization.Medical;
 import Backend.Organization.Organization;
 import static Backend.Organization.Organization.Type.Counselling;
+import Backend.Organization.ShelterGovernment;
+import Backend.Organization.ShelterNGO;
+import Backend.Organization.ShelterPrivate;
 import Backend.UserAccount.UserAccount;
 import Backend.WorkQueue.HomelessAllocation;
 import Backend.WorkQueue.ReportingAdminSceneRequest;
@@ -435,7 +438,7 @@ public class NearestOrganizationJPanel extends javax.swing.JPanel {
         Object[] row = new Object[3];
         for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
             for (Organization org : ent.getOrganizationDirectory().getOrganizationList()) {
-                if (org instanceof VolunteerHospitalOrganization) {
+                if (org instanceof Meals) {
                     recieverOrganization = org;
                     Location point = new Location();
                     point.setLatitude(((ReportingAdminSceneRequest) workRequest).getSceneLocationPoint().getLatitude());
@@ -474,7 +477,7 @@ public class NearestOrganizationJPanel extends javax.swing.JPanel {
         Object[] row = new Object[3];
         for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
             for (Organization org : ent.getOrganizationDirectory().getOrganizationList()) {
-                if (org instanceof VolunteerPersonalOrganization) {
+                if (org instanceof ShelterPrivate) {
                     recieverOrganization = org;
                     Location point = new Location();
                     point.setLatitude(((ReportingAdminSceneRequest) workRequest).getSceneLocationPoint().getLatitude());
@@ -513,7 +516,7 @@ public class NearestOrganizationJPanel extends javax.swing.JPanel {
         Object[] row = new Object[3];
         for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
             for (Organization org : ent.getOrganizationDirectory().getOrganizationList()) {
-                if (org instanceof VolunteerCompanyOrganization) {
+                if (org instanceof ShelterNGO) {
                     recieverOrganization = org;
                     Location point = new Location();
                     point.setLatitude(((ReportingAdminSceneRequest) workRequest).getSceneLocationPoint().getLatitude());
@@ -567,34 +570,34 @@ public class NearestOrganizationJPanel extends javax.swing.JPanel {
                 } else if (org instanceof Meals && orgType.equalsIgnoreCase("Meals")) {
                     atleastOneSelected = true;
                     coordinates += "['" + org.getName() + " - Hospital'," + org.getLocationPoint().getLatitude() + ", " + org.getLocationPoint().getLongitude() + "],\n";
-                } else if (org instanceof Public && orgType.equalsIgnoreCase("Public")) {
-                    atleastOneSelected = true;
-                    coordinates += "['" + org.getName() + " - Company'," + org.getLocationPoint().getLatitude() + ", " + org.getLocationPoint().getLongitude() + "],\n";
-                } else if (org instanceof Private && orgType.equalsIgnoreCase("Private")) {
-                    atleastOneSelected = true;
-                    coordinates += "['" + org.getName() + " - Personal'," + org.getLocationPoint().getLatitude() + ", " + org.getLocationPoint().getLongitude() + "],\n";
+//                } else if (org instanceof Public && orgType.equalsIgnoreCase("Public")) {
+//                    atleastOneSelected = true;
+//                    coordinates += "['" + org.getName() + " - Company'," + org.getLocationPoint().getLatitude() + ", " + org.getLocationPoint().getLongitude() + "],\n";
+//                } else if (org instanceof Private && orgType.equalsIgnoreCase("Private")) {
+//                    atleastOneSelected = true;
+//                    coordinates += "['" + org.getName() + " - Personal'," + org.getLocationPoint().getLatitude() + ", " + org.getLocationPoint().getLongitude() + "],\n";
                 } else {
-                    if (org instanceof FireSafetyOrganization) {
-                        allCoordinates += "['" + org.getName() + " - FireSafety'," + org.getLocationPoint().getLatitude() + ", " + org.getLocationPoint().getLongitude() + "],\n";
-                    }
-                    if (org instanceof PoliceOrganization) {
-                        allCoordinates += "['" + org.getName() + " - Police'," + org.getLocationPoint().getLatitude() + ", " + org.getLocationPoint().getLongitude() + "],\n";
-                    }
-                    if (org instanceof MedicalOrganization) {
-                        allCoordinates += "['" + org.getName() + " - Medicine'," + org.getLocationPoint().getLatitude() + ", " + org.getLocationPoint().getLongitude() + "],\n";
-                    }
-                    if (org instanceof VolunteerNGOOrganization) {
+//                    if (org instanceof FireSafetyOrganization) {
+//                        allCoordinates += "['" + org.getName() + " - FireSafety'," + org.getLocationPoint().getLatitude() + ", " + org.getLocationPoint().getLongitude() + "],\n";
+//                    }
+//                    if (org instanceof PoliceOrganization) {
+//                        allCoordinates += "['" + org.getName() + " - Police'," + org.getLocationPoint().getLatitude() + ", " + org.getLocationPoint().getLongitude() + "],\n";
+//                    }
+//                    if (org instanceof MedicalOrganization) {
+//                        allCoordinates += "['" + org.getName() + " - Medicine'," + org.getLocationPoint().getLatitude() + ", " + org.getLocationPoint().getLongitude() + "],\n";
+//                    }
+                    if (org instanceof ShelterNGO) {
                         allCoordinates += "['" + org.getName() + " - NGO'," + org.getLocationPoint().getLatitude() + ", " + org.getLocationPoint().getLongitude() + "],\n";
                     }
-                    if (org instanceof VolunteerHospitalOrganization) {
+                    if (org instanceof ShelterPrivate) {
                         allCoordinates += "['" + org.getName() + " - Hospital'," + org.getLocationPoint().getLatitude() + ", " + org.getLocationPoint().getLongitude() + "],\n";
                     }
-                    if (org instanceof VolunteerCompanyOrganization) {
+                    if (org instanceof ShelterGovernment) {
                         allCoordinates += "['" + org.getName() + " - Company'," + org.getLocationPoint().getLatitude() + ", " + org.getLocationPoint().getLongitude() + "],\n";
                     }
-                    if (org instanceof VolunteerPersonalOrganization) {
-                        allCoordinates += "['" + org.getName() + " - Personal'," + org.getLocationPoint().getLatitude() + ", " + org.getLocationPoint().getLongitude() + "],\n";
-                    }
+//                    if (org instanceof VolunteerPersonalOrganization) {
+//                        allCoordinates += "['" + org.getName() + " - Personal'," + org.getLocationPoint().getLatitude() + ", " + org.getLocationPoint().getLongitude() + "],\n";
+//                    }
                 }
             }
         }
@@ -623,31 +626,31 @@ public class NearestOrganizationJPanel extends javax.swing.JPanel {
 //        organization.getWorkQueue().getWorkRequestList().add(emergencyRequest);
 //        recieverOrganization.getWorkQueue().getWorkRequestList().add(emergencyRequest);
                         String msg = JOptionPane.showInputDialog("Additional Message");
-                        EmergencyUnitRequest sceneReq = new EmergencyUnitRequest();
+                        HomelessAllocation sceneReq = new HomelessAllocation();
                         
-                        sceneReq.setSceneName(((ReportingAdminSceneRequest) workRequest).getSceneName());
-                        sceneReq.setSceneZipcode(((ReportingAdminSceneRequest) workRequest).getSceneZipcode());
-                        sceneReq.setNoOfVictims(((ReportingAdminSceneRequest) workRequest).getNoOfVictims());
-                        sceneReq.setEstimatedLoss(((ReportingAdminSceneRequest) workRequest).getEstimatedLoss());
-                        sceneReq.setSceneLocationPoint(((ReportingAdminSceneRequest) workRequest).getSceneLocationPoint());
-                        sceneReq.setStatus("Requested");
-                        //sceneReq.setSender(workRequest.getSender());
-                        sceneReq.setSender(account);
-                        sceneReq.setRequestDate(new Date());
-                        sceneReq.setSceneId(((ReportingAdminSceneRequest) workRequest).getSceneId());
-                        if(requirements != null){
-                            sceneReq.setRequirements(requirements);
-                        }
-                        sceneReq.setSceneManager(((ReportingAdminSceneRequest) workRequest).getSceneManager());
-                        //sceneReq.setMessage(org.getName() + " Requested");
-                        sceneReq.setMessage(msg);
-                        sceneReq.setSenderNetwork(senderNetwork);
-                        sceneReq.setSenderOrganization(organization);
-                        sceneReq.setRecieverOrganization(org);
-                        sceneReq.setRecieverNetwork(network);
-                        //sceneReq.setConsiderInGraph(false);
-                        org.getWorkQueue().getWorkRequestList().add(sceneReq);
-                        account.getWorkQueue().getWorkRequestList().add(sceneReq);
+//                        sceneReq.setName(((ReportingAdminSceneRequest) workRequest).getName());
+//                        sceneReq.setGender(((ReportingAdminSceneRequest) workRequest).getSceneZipcode());
+//                        sceneReq.setNoOfVictims(((ReportingAdminSceneRequest) workRequest).getNoOfVictims());
+//                        sceneReq.setEstimatedLoss(((ReportingAdminSceneRequest) workRequest).getEstimatedLoss());
+//                        sceneReq.setSceneLocationPoint(((ReportingAdminSceneRequest) workRequest).getSceneLocationPoint());
+//                        sceneReq.setStatus("Requested");
+//                        //sceneReq.setSender(workRequest.getSender());
+//                        sceneReq.setSender(account);
+//                        sceneReq.setRequestDate(new Date());
+//                        sceneReq.setSceneId(((ReportingAdminSceneRequest) workRequest).getSceneId());
+//                        if(requirements != null){
+//                            sceneReq.setRequirements(requirements);
+//                        }
+//                        sceneReq.setSceneManager(((ReportingAdminSceneRequest) workRequest).getSceneManager());
+//                        //sceneReq.setMessage(org.getName() + " Requested");
+//                        sceneReq.setMessage(msg);
+//                        sceneReq.setSenderNetwork(senderNetwork);
+//                        sceneReq.setSenderOrganization(organization);
+//                        sceneReq.setRecieverOrganization(org);
+//                        sceneReq.setRecieverNetwork(network);
+//                        //sceneReq.setConsiderInGraph(false);
+//                        org.getWorkQueue().getWorkRequestList().add(sceneReq);
+//                        account.getWorkQueue().getWorkRequestList().add(sceneReq);
                     }
                 }
             }

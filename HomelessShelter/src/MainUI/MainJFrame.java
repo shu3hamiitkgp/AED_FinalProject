@@ -54,7 +54,7 @@ public class MainJFrame extends javax.swing.JFrame {
         system = dB4OUtil.retrieveSystem();
         EcoSystem.setInstance(system);
         loginJPanel.setVisible(true);
-        container.setVisible(false);
+        container.setVisible(true);
 //        leftPanel.setVisible(false);
         getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
     }
@@ -158,14 +158,12 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         userNameJTextField.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        userNameJTextField.setForeground(new java.awt.Color(255, 255, 255));
         userNameJTextField.setToolTipText("");
         userNameJTextField.setBorder(null);
         userNameJTextField.setCaretColor(new java.awt.Color(255, 255, 255));
         userNameJTextField.setDisabledTextColor(new java.awt.Color(16, 10, 55));
 
         passwordField.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        passwordField.setForeground(new java.awt.Color(255, 255, 255));
         passwordField.setBorder(null);
         passwordField.setCaretColor(new java.awt.Color(255, 255, 255));
         passwordField.addActionListener(new java.awt.event.ActionListener() {
@@ -342,10 +340,10 @@ public class MainJFrame extends javax.swing.JFrame {
         userNameJTextField.setText("");
         passwordField.setText("");
         //cc();
-        //SystemAdminRole r = new SystemAdminRole();
-//        container.add("workArea", panel);
-//        CardLayout layout = (CardLayout) container.getLayout();
-//        layout.next(container);
+//        SystemAdminRole r = new SystemAdminRole();
+        container.add("workArea", panel);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.next(container);
     }//GEN-LAST:event_btnRegisterMousePressed
 
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed

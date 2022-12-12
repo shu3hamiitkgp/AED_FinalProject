@@ -44,8 +44,8 @@ public class MedicalWorkArea extends javax.swing.JPanel {
             private void manageHospitals(){
 //        manageScenePanel.setBackground(new Color(236,113,107));
 //        manageRequestPanel.setBackground(new Color(215,81,81));
-        GovtShelterManageResident manageHospitals = new GovtShelterManageResident( rightPanel,  enterprise,  system,  organization,  network, account);
-        rightPanel.add("ManageResidentJPanel", manageHospitals);
+//        GovtShelterManageResident manageHospitals = new GovtShelterManageResident( rightPanel,  enterprise,  system,  organization,  network, account);
+//        rightPanel.add("ManageResidentJPanel", manageHospitals);
         CardLayout layout = (CardLayout) rightPanel.getLayout();
         layout.next(rightPanel);
     }

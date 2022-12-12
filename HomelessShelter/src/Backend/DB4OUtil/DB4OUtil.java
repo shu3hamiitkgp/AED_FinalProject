@@ -34,21 +34,25 @@ public class DB4OUtil {
 
     private ObjectContainer createConnection() {
         try {
-
+//                        System.out.print("hello1");
             EmbeddedConfiguration config = Db4oEmbedded.newConfiguration();
             config.common().add(new TransparentPersistenceSupport());
             //Controls the number of objects in memory
+//                        System.out.print("hello2");
+
             config.common().activationDepth(Integer.MAX_VALUE);
             //Controls the depth/level of updation of Object
             config.common().updateDepth(Integer.MAX_VALUE);
+//            System.out.print("hello3");
 
             //Register your top most Class here
             config.common().objectClass(EcoSystem.class).cascadeOnUpdate(true); // Change to the object you want to save
-
+//            System.out.print("hello4");
             ObjectContainer db = Db4oEmbedded.openFile(config, FILENAME);
+//            System.out.print("hello");
             return db;
         } catch (Exception ex) {
-            System.out.print(ex.getMessage());
+            System.out.print(ex);
         }
         return null;
     }
