@@ -228,7 +228,7 @@ public class HomelessPersonView extends javax.swing.JPanel {
             jTextField3.setText("");
             jTextField2.setText("");
             jTextField1.setText("");
-            populateDonations();            
+//            populateDonations();            
             JOptionPane.showMessageDialog(null, "Homeless Person removed");
         }else{
             JOptionPane.showMessageDialog(null, "Please select a Homeless Person");

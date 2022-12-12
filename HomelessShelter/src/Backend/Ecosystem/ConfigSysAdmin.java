@@ -14,8 +14,8 @@ import Backend.UserAccount.UserAccount;
  */
 public class ConfigSysAdmin {
     
-    public static EcoSystem configure(){
-        
+    public static EcoSystem configure(){ 
+       
         EcoSystem system = EcoSystem.getInstance();
         
         
