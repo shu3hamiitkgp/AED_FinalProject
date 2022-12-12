@@ -4,11 +4,13 @@
  */
 package Backend.Role;
 
+import Backend.Ecosystem.EcoSystem;
 import Backend.Enterprise.Enterprise;
 import Backend.Enterprise.Shelter;
 import Backend.Network.Network;
 import Backend.Organization.Organization;
 import Backend.UserAccount.UserAccount;
+import FrontEnd.UserRegistration.VolunteerWorkArea;
 import javax.swing.JPanel;
 
 /**
@@ -29,7 +31,7 @@ public class Volunteer extends Role {
     
      @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
-        return new VolunteerAreaJPanel(userProcessContainer, account, organization, enterprise, network, business);
+        return new VolunteerWorkArea(userProcessContainer, account, organization, enterprise, network, business);
     }
      @Override
     public String toString(){

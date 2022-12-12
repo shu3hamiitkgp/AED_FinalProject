@@ -10,6 +10,7 @@ import Backend.Network.Network;
 import Backend.Organization.Jobs;
 import Backend.Organization.Organization;
 import Backend.UserAccount.UserAccount;
+import FronEnd.Employment.JobManager;
 import javax.swing.JPanel;
 
 /**
@@ -34,7 +35,7 @@ public class EmploymentManager extends Role{
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-         return new EmploymentManager(userProcessContainer, account, organization, enterprise, network, business);
+//         return new JobManager(userProcessContainer, account, organization, enterprise, network, business);
     }
     
 }
