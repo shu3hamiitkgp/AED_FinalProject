@@ -1,5 +1,15 @@
 # AED_FinalProject 
 
+<img width="468" alt="image" src="https://www.planstreetinc.com/wp-content/uploads/2022/03/homeless2.jpg">
+
+# Homeless Shelter
+
+## Problem Statement:
+
+
+
+## Key Functionalities:
+
 
 
 
