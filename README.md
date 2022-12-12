@@ -6,6 +6,12 @@
 
 ## Problem Statement:
 
+Poverty is having an unprecedented impact on the world today. Poverty's health, economic, political, and societal consequences can be devastating, both in the short and long term. They have a significant impact on community health and well-being, the resilience of health-care systems, the stability of national economies, and progress toward the Sustainable Development Goals. 
+
+Managing homeless shelters can be difficult, especially in developing countries with limited infrastructure. There is an overreliance on media outlets, which can lead to false information. There may be some critical information that does not reach immediately and cannot be filtered out. 
+
+The Homeless Shelter System's purpose is to provide essential guidance and keep users up to date on any nearby shelters, donation facilities, and homeless people can even be employed by selecting the right skillsets. Furthermore, this application organizes and manages the resources and responsibilities of each operational unit in humanitarian grounds, reducing the impact of people being homeless and unemployed. 
+
 
 
 ## Key Functionalities:
