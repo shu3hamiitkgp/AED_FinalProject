@@ -33,6 +33,8 @@ The Homeless Shelter System's purpose is to provide essential guidance and keep 
 8. Management of contingency resources. 
 
 
+
+
 - Shubham Goyal (NEUID 002747584)
 - Megha Patel (NEUID 001247876)
 - Sahil Gothoskar (NEUID 002775631)
