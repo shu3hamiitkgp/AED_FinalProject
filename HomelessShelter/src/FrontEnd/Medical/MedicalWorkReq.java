@@ -13,7 +13,7 @@ import Backend.Organization.Organization;
 import Backend.UserAccount.UserAccount;
 import Backend.WorkQueue.HomelessAllocation;
 import Backend.WorkQueue.WorkRequest;
-import MainUI.HeaderColors;
+//import MainUI.HeaderColors;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -42,12 +42,12 @@ public class MedicalWorkReq extends javax.swing.JPanel {
         this.organization = organization;
         this.network = network;
         this.account = account;
-         workRequestTable.getTableHeader().setDefaultRenderer(new HeaderColors());
+//         workRequestTable.getTableHeader().setDefaultRenderer(new HeaderColors());
         populateTable();
     }
 
     private void populateTable(Medical medicallists) {
-        workRequestTable.getTableHeader().setDefaultRenderer(new HeaderColors());
+//        workRequestTable.getTableHeader().setDefaultRenderer(new HeaderColors());
         DefaultTableModel model = (DefaultTableModel) workRequestTable.getModel();
         model.setRowCount(0);
         for (String medical : medicallists.gethospitalname()) {           

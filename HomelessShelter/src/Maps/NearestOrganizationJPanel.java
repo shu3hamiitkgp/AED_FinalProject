@@ -23,7 +23,7 @@ import Backend.UserAccount.UserAccount;
 import Backend.WorkQueue.HomelessAllocation;
 import Backend.WorkQueue.ReportingAdminSceneRequest;
 import Backend.WorkQueue.WorkRequest;
-import MainUI.HeaderColors;
+//import MainUI.HeaderColors;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -66,7 +66,7 @@ public class NearestOrganizationJPanel extends javax.swing.JPanel {
         populateNetwork();
         this.orgType = "";
         //model = (DefaultTableModel) nearestOrgTable.getModel();
-        nearestOrgTable.getTableHeader().setDefaultRenderer(new HeaderColors());
+//        nearestOrgTable.getTableHeader().setDefaultRenderer(new HeaderColors());
     }
 
     private void populateNetwork() {

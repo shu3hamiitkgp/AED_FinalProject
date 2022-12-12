@@ -13,7 +13,7 @@ import Backend.Organization.Donations;
 import Backend.Organization.Meals;
 import Backend.Organization.Organization;
 import Backend.UserAccount.UserAccount;
-import MainUI.HeaderColors;
+//import MainUI.HeaderColors;
 import Maps.OrganizationLocationJPanel;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -44,7 +44,7 @@ public class ResourcesAdmin extends javax.swing.JPanel {
     }
     
     private void populateDonations(){
-        jTable8.getTableHeader().setDefaultRenderer(new HeaderColors());
+//        jTable8.getTableHeader().setDefaultRenderer(new HeaderColors());
         DefaultTableModel model = (DefaultTableModel) jTable8.getModel();
         
         model.setRowCount(0);
@@ -60,7 +60,7 @@ public class ResourcesAdmin extends javax.swing.JPanel {
     }
     
     private void populateMeals(){
-        jTable9.getTableHeader().setDefaultRenderer(new HeaderColors());
+//        jTable9.getTableHeader().setDefaultRenderer(new HeaderColors());
         DefaultTableModel model = (DefaultTableModel) jTable9.getModel();
         
         model.setRowCount(0);

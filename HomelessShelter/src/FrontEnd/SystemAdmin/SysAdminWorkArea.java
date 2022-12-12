@@ -175,7 +175,7 @@ public class SysAdminWorkArea extends javax.swing.JPanel {
                 manageNetwork3MousePressed(evt);
             }
         });
-        jPanel6.add(manageNetwork3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 225, 36));
+        jPanel6.add(manageNetwork3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 225, 36));
 
         manageEnterpriseLabel.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         manageEnterpriseLabel.setText("Manage Enterprise");
@@ -184,7 +184,7 @@ public class SysAdminWorkArea extends javax.swing.JPanel {
                 manageEnterpriseLabelMousePressed(evt);
             }
         });
-        jPanel6.add(manageEnterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 229, 38));
+        jPanel6.add(manageEnterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 229, 38));
 
         manageEnterpriseAdminLabel.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageEnterpriseAdminLabel.setText("Manage Enterprise Admin");
@@ -252,25 +252,13 @@ public class SysAdminWorkArea extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTree jTree1;
     private javax.swing.JLabel manageEnterpriseAdminLabel;
     private javax.swing.JLabel manageEnterpriseLabel;
-    private javax.swing.JLabel manageNetwork;
-    private javax.swing.JLabel manageNetwork1;
-    private javax.swing.JLabel manageNetwork2;
     private javax.swing.JLabel manageNetwork3;
-    private javax.swing.JPanel manageNetworkPanel;
-    private javax.swing.JPanel manageNetworkPanel1;
-    private javax.swing.JPanel manageNetworkPanel2;
     private javax.swing.JPanel rightSystemAdminPanel;
     // End of variables declaration//GEN-END:variables
 }
