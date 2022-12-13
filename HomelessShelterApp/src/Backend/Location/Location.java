@@ -14,6 +14,12 @@ public class Location {
     private double latitude;
     private String name;
 
+    public Location(double longitude, double latitude) {
+        this.longitude = longitude;
+        this.latitude = latitude;
+    }
+    
+
     public String getName() {
         return name;
     }
