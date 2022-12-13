@@ -71,7 +71,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         }else{
             for(Organization d : system.getNetworkList().get(0).getEnterpriseDirectory().getResources().getDonations()){
-                Object[] row = new Object[2];
+                Object[] row = new Object[5];
                 row[0] = d;
                 row[1] = d.getName();
                 row[2] = "Donation Center";
@@ -465,8 +465,8 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel79 = new javax.swing.JLabel();
         jLabel80 = new javax.swing.JLabel();
         jComboBoxRole = new javax.swing.JComboBox<>();
-        txtpass = new javax.swing.JTextField();
         btnLogin1 = new javax.swing.JButton();
+        jPasswordField1 = new javax.swing.JPasswordField();
         CreatePanel = new javax.swing.JPanel();
         jLabel81 = new javax.swing.JLabel();
         txtName5 = new javax.swing.JTextField();
@@ -1570,12 +1570,13 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(jLabel43)
                     .addComponent(jComboBoxshelter2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(NGOPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Address9)
-                    .addComponent(txtAddress4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(NGOPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(NGOPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel42)
-                        .addComponent(txtMobile16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtMobile16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(NGOPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Address9)
+                        .addComponent(txtAddress4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(45, 45, 45)
                 .addGroup(NGOPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd5)
@@ -1707,12 +1708,13 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(jLabel48)
                     .addComponent(jComboBoxshelter3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(PrivatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Address15)
-                    .addComponent(txtAddress5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(PrivatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PrivatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(Address14)
-                        .addComponent(txtMobile17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtMobile17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PrivatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Address15)
+                        .addComponent(txtAddress5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(130, 130, 130)
                 .addGroup(PrivatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd8)
@@ -1845,12 +1847,13 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(jLabel53)
                     .addComponent(jComboBoxshelter4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(GovtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Address19)
-                    .addComponent(txtAddress6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(GovtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(GovtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(Address18)
-                        .addComponent(txtMobile20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtMobile20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(GovtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Address19)
+                        .addComponent(txtAddress6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(130, 130, 130)
                 .addGroup(GovtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd11)
@@ -3165,28 +3168,30 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        jPasswordField1.setText("jPasswordField1");
+
         javax.swing.GroupLayout LoginPanelLayout = new javax.swing.GroupLayout(LoginPanel);
         LoginPanel.setLayout(LoginPanelLayout);
         LoginPanelLayout.setHorizontalGroup(
             LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LoginPanelLayout.createSequentialGroup()
                 .addGap(240, 240, 240)
-                .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LoginPanelLayout.createSequentialGroup()
-                        .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel80)
-                            .addComponent(jLabel78))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBoxRole, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtuser, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(LoginPanelLayout.createSequentialGroup()
                         .addComponent(jLabel79)
                         .addGap(18, 18, 18)
                         .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnLogin1)
-                            .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(351, Short.MAX_VALUE))
+                            .addComponent(jPasswordField1)))
+                    .addGroup(LoginPanelLayout.createSequentialGroup()
+                        .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel80)
+                            .addComponent(jLabel78))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBoxRole, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtuser))))
+                .addContainerGap(341, Short.MAX_VALUE))
         );
         LoginPanelLayout.setVerticalGroup(
             LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3202,10 +3207,10 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel79)
-                    .addComponent(txtpass))
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(btnLogin1)
-                .addContainerGap(343, Short.MAX_VALUE))
+                .addContainerGap(354, Short.MAX_VALUE))
         );
 
         displayJPanel.add(LoginPanel, "loginpane");
@@ -3404,7 +3409,7 @@ public class MainJFrame extends javax.swing.JFrame {
             System.out.println(Objects.equals(role, "SystemAdmin"));
             if(Objects.equals(role, "SystemAdmin")){
                 userAccount = system.getDirectory().getUser(txtuser.getText());
-                if(userAccount.getPassword().equals(txtpass.getText())){
+                if(userAccount.getPassword().equals(jPasswordField1.getText())){
                     System.out.println("hello");
                     CardLayout card = (CardLayout)displayJPanel.getLayout();
                     card.show(displayJPanel, "adminpane");
@@ -3420,7 +3425,7 @@ public class MainJFrame extends javax.swing.JFrame {
             case "Resource Manager":
             if(system.getDirectory().getUser(txtuser.getText()).getRole().equals("ResourceDonator")){
                 userAccount = system.getDirectory().getUser(txtuser.getText());
-                if(userAccount.getPassword().equals(txtpass.getText())){
+                if(userAccount.getPassword().equals(jPasswordField1.getText())){
                     CardLayout card = (CardLayout)displayJPanel.getLayout();
                     card.show(displayJPanel, "resourcepane");
                     displayResources(tblMeals, "Meal");
@@ -3436,7 +3441,7 @@ public class MainJFrame extends javax.swing.JFrame {
             case "User":
             if(system.getDirectory().getUser(txtuser.getText()).getRole().equals("HomelessPerson")){
                 userAccount = system.getDirectory().getUser(txtuser.getText());
-                if(userAccount.getPassword().equals(txtpass.getText())){
+                if(userAccount.getPassword().equals(jPasswordField1.getText())){
                     CardLayout card = (CardLayout)displayJPanel.getLayout();
                     card.show(displayJPanel, "homelesspane");
                     displayNetwork(tblNetwork);
@@ -3451,7 +3456,7 @@ public class MainJFrame extends javax.swing.JFrame {
             case "Shelter Manager":
             if(system.getDirectory().getUser(txtuser.getText()).getRole().equals("ShelterManager")){
                 userAccount = system.getDirectory().getUser(txtuser.getText());
-                if(userAccount.getPassword().equals(txtpass.getText())){
+                if(userAccount.getPassword().equals(jPasswordField1.getText())){
                     CardLayout card = (CardLayout)displayJPanel.getLayout();
                     card.show(displayJPanel, "shelterpane");
                     displayNetwork(tblNetwork);
@@ -3466,7 +3471,7 @@ public class MainJFrame extends javax.swing.JFrame {
             case "Employment Manager":
             if(system.getDirectory().getUser(txtuser.getText()).getRole().equals("EmploymentManager")){
                 userAccount = system.getDirectory().getUser(txtuser.getText());
-                if(userAccount.getPassword().equals(txtpass.getText())){
+                if(userAccount.getPassword().equals(jPasswordField1.getText())){
                     CardLayout card = (CardLayout)displayJPanel.getLayout();
                     card.show(displayJPanel, "employmentpane");
                     displayJobs(tblResources3);
@@ -3481,7 +3486,7 @@ public class MainJFrame extends javax.swing.JFrame {
             case "Health Manager":
             if(system.getDirectory().getUser(txtuser.getText()).getRole().equals("HealthManager")){
                 userAccount = system.getDirectory().getUser(txtuser.getText());
-                if(userAccount.getPassword().equals(txtpass.getText())){
+                if(userAccount.getPassword().equals(jPasswordField1.getText())){
                     CardLayout card = (CardLayout)displayJPanel.getLayout();
                     card.show(displayJPanel, "healthpane");
                     displayNetwork(tblNetwork);
@@ -3575,7 +3580,7 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         int selectedRowIndex = tblDonations.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel) tblDonations.getModel();
-        Meals p = (Meals) model.getValueAt(selectedRowIndex, 0);
+        Donations p = (Donations) model.getValueAt(selectedRowIndex, 0);
         
         txtname8.setText(p.getName());
         txtAddress8.setText(p.getAddress());
@@ -4158,6 +4163,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -4256,7 +4262,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtname7;
     private javax.swing.JTextField txtname8;
     private javax.swing.JTextField txtname9;
-    private javax.swing.JTextField txtpass;
     private javax.swing.JTextField txtpassword;
     private javax.swing.JTextField txtpassword1;
     private javax.swing.JTextField txtuser;
