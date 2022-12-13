@@ -12,38 +12,49 @@ import java.util.ArrayList;
  */
 public class EnterpriseDirectory {
     
-    private ArrayList<Enterprise> enterpriseList;
-   
+    Resources resources;
+    Shelter shelters;
+    Health hospitals;
+    PartTimeEmployement jobs;
 
-    public ArrayList<Enterprise> getEnterpriseList() {
-        return enterpriseList;
+    public Resources getResources() {
+        return resources;
     }
 
-    public void setEnterpriseList(ArrayList<Enterprise> enterpriseList) {
-        this.enterpriseList = enterpriseList;
+    public void setResources(Resources resources) {
+        this.resources = resources;
     }
-    
+
+    public Shelter getShelters() {
+        return shelters;
+    }
+
+    public void setShelters(Shelter shelters) {
+        this.shelters = shelters;
+    }
+
+    public Health getHospitals() {
+        return hospitals;
+    }
+
+    public void setHospitals(Health hospitals) {
+        this.hospitals = hospitals;
+    }
+
+    public PartTimeEmployement getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(PartTimeEmployement jobs) {
+        this.jobs = jobs;
+    }
+     
     public EnterpriseDirectory(){
-        enterpriseList=new ArrayList<Enterprise>();
+        resources = new Resources("Resources");
+        shelters = new Shelter("Shelters");
+        hospitals = new Health("Hospitals");
+        jobs = new PartTimeEmployement("Jobs");
         
     }
-    
-    public Enterprise createAndAddEnterprise(String name, Enterprise.EnterpriseType type){
-        Enterprise enterprise=null;
-        if (type == Enterprise.EnterpriseType.Shelter) {
-            enterprise = new Shelter(name);
-            enterpriseList.add(enterprise);
-        }else if (type == Enterprise.EnterpriseType.Health) {
-            enterprise = new Health(name);
-            enterpriseList.add(enterprise);
-        }else if (type == Enterprise.EnterpriseType.Resources) {
-            enterprise = new Resources(name);
-            enterpriseList.add(enterprise);
-        }else if (type == Enterprise.EnterpriseType.PartTimeEmployement) {
-            enterprise = new PartTimeEmployement(name);
-            enterpriseList.add(enterprise);
-        }
-        return enterprise;
-    }
-    
+       
 }

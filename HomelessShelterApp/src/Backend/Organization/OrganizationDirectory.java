@@ -4,7 +4,7 @@
  */
 package Backend.Organization;
 
-import Backend.Location.Location;
+//import Backend.Location.Location;
 import Backend.Organization.Organization.Type;
 import java.util.ArrayList;
 
@@ -24,57 +24,55 @@ public class OrganizationDirectory {
         return organizationList;
     }
 
-    public Organization createOrganization(Type type, String name, Location locationPoint) {
-        Organization organization = null;
-        if (type.getValue().equals(Type.Counselling.getValue())) {
-            organization = new Counselling(name);
-            organization.setLocationPoint(locationPoint);
-            organizationList.add(organization);
-        } else if (type.getValue().equals(Type.Jobs.getValue())) {
-            organization = new Jobs(name);
-            Jobs job = (Jobs) organization;
-            //hospital.setHospital(name);
-            organization.setLocationPoint(locationPoint);
-            organizationList.add(organization);
-        } else if (type.getValue().equals(Type.Meals.getValue())) {
-            organization = new Meals(name);
-            Meals meal = (Meals) organization;
-            //personal.setVolunteerPersonal(name);
-            organization.setLocationPoint(locationPoint);
-            organizationList.add(organization);
-        } else if (type.getValue().equals(Type.NGOShelter.getValue())) {
-            organization = new ShelterNGO(name);
-            ShelterNGO ngo = (ShelterNGO) organization;
-            ngo.setShelterNGO(name);
-            organization.setLocationPoint(locationPoint);
-            organizationList.add(organization);
-        } else if (type.getValue().equals(Type.PrivateShelter.getValue())) {
-            organization = new ShelterPrivate(name);
-            ShelterPrivate company = (ShelterPrivate) organization;
-            company.setShelterPrivate(name);
-            organization.setLocationPoint(locationPoint);
-            organizationList.add(organization);
-        } else if (type.getValue().equals(Type.GovernmentShelter.getValue())) {
-            organization = new ShelterGovernment(name);
-            ShelterGovernment sheltergovt = (ShelterGovernment) organization;
-            sheltergovt.setShelterGovernment(name);
-            organization.setLocationPoint(locationPoint);
-            organizationList.add(organization);
-        } else if (type.getValue().equals(Type.Donations.getValue())) {
-            organization = new Donations(name);
+//    public Organization createOrganization(Type type, String name,String address) {
+//        Organization organization = null;
+//        if (type.getValue().equals(Type.Counselling.getValue())) {
+//            organization = new Counselling(name);
+//            organization.setAddress(address);
+//            organizationList.add(organization);
+//        } else if (type.getValue().equals(Type.Jobs.getValue())) {
+//            organization = new Jobs(name);
+//            Jobs job = (Jobs) organization;
+//            //hospital.setHospital(name);
+//            organization.setAddress(address);
+//            organizationList.add(organization);
+//        } else if (type.getValue().equals(Type.Meals.getValue())) {
+//            organization = new Meals(name);
+//            Meals meal = (Meals) organization;
+//            organization.setAddress(address);
+//            organizationList.add(organization);
+//        } else if (type.getValue().equals(Type.NGOShelter.getValue())) {
+//            organization = new ShelterNGO(name);
+//            ShelterNGO ngo = (ShelterNGO) organization;
+//            ngo.setShelterNGO(name);
+//            organization.setAddress(address);
+//            organizationList.add(organization);
+//        } else if (type.getValue().equals(Type.PrivateShelter.getValue())) {
+//            organization = new ShelterPrivate(name);
+//            ShelterPrivate company = (ShelterPrivate) organization;
+//            company.setShelterPrivate(name);
+//            organization.setAddress(address);
+//            organizationList.add(organization);
+//        } else if (type.getValue().equals(Type.GovernmentShelter.getValue())) {
+//            organization = new ShelterGovernment(name);
+//            ShelterGovernment sheltergovt = (ShelterGovernment) organization;
+//            sheltergovt.setShelterGovernment(name);
+//            organization.setAddress(address);
+//            organizationList.add(organization);
+//        } else if (type.getValue().equals(Type.Donations.getValue())) {
+//            organization = new Donations(name);
 //            Donations donation = (Donations) organization;
-//            Donations.setName(name);
-            organization.setLocationPoint(locationPoint);
-            organizationList.add(organization);
-        } else if (type.getValue().equals(Type.Medical.getValue())) {
-            organization = new Medical(name);
-//            Medical fireSafety = (Medical) organization;
-            //fireSafety.setFireSafety(name);
-            organization.setLocationPoint(locationPoint);
-            organizationList.add(organization);
-        } 
-
-        return organization;
-    }
+//            organization.setAddress(address);
+//            organizationList.add(organization);
+//        } else if (type.getValue().equals(Type.Medical.getValue())) {
+//            organization = new Medical(name);
+////            Medical fireSafety = (Medical) organization;
+//            //fireSafety.setFireSafety(name);
+//            organization.setAddress(address);
+//            organizationList.add(organization);
+//        } 
+//
+//        return organization;
+//    }
     
 }

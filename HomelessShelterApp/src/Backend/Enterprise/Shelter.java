@@ -4,6 +4,8 @@
  */
 package Backend.Enterprise;
 
+import Backend.Organization.Organization;
+import Backend.Organization.Organization.Type;
 import Backend.Organization.ShelterGovernment;
 import Backend.Organization.ShelterNGO;
 import Backend.Organization.ShelterPrivate;
@@ -51,33 +53,45 @@ public class Shelter extends Enterprise {
         this.privateShelters = privateShelters;
     }
     
-    public List<ShelterGovernment> addShelter(ShelterGovernment m){
-        govShelters.add(m);
-        return govShelters;
+    public Organization addShelter(Type type, String name,String address){
+        
+        Organization organization = null;
+        if (type.getValue().equals(Type.NGOShelter.getValue())) {
+            organization = new ShelterNGO(name);
+            ShelterNGO ngo = (ShelterNGO) organization;
+            ngoShelters.add(ngo);
+            organization.setAddress(address);
+        } else if (type.getValue().equals(Type.PrivateShelter.getValue())) {
+            organization = new ShelterPrivate(name);
+            ShelterPrivate company = (ShelterPrivate) organization;
+            privateShelters.add(company);
+            organization.setAddress(address);
+        } else if (type.getValue().equals(Type.GovernmentShelter.getValue())) {
+            organization = new ShelterGovernment(name);
+            ShelterGovernment sheltergovt = (ShelterGovernment) organization;
+            govShelters.add(sheltergovt);
+            organization.setAddress(address);
+        }
+        this.getOrganizationDirectory().getOrganizationList().add(organization);
+        return organization;
     }
     
-    public List<ShelterNGO> addShelter(ShelterNGO m){
-        ngoShelters.add(m);
-        return ngoShelters;
-    }
-    
-    public List<ShelterPrivate> addShelter(ShelterPrivate m){
-        privateShelters.add(m);
-        return privateShelters;
-    }
     
     public List<ShelterGovernment> removeShelter(ShelterGovernment m){
         govShelters.remove(m);
+        this.getOrganizationDirectory().getOrganizationList().remove(m);
         return govShelters;
     }
     
     public List<ShelterNGO> removeShelter(ShelterNGO m){
         ngoShelters.remove(m);
-        return ngoShelters;
+         this.getOrganizationDirectory().getOrganizationList().remove(m);
+       return ngoShelters;
     }
     
     public List<ShelterPrivate> removeShelter(ShelterPrivate m){
         privateShelters.remove(m);
+        this.getOrganizationDirectory().getOrganizationList().remove(m);
         return privateShelters;
     }
     

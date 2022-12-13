@@ -4,7 +4,10 @@
  */
 package Backend.Enterprise;
 import Backend.Organization.Counselling;
+import Backend.Organization.Donations;
+import Backend.Organization.Meals;
 import Backend.Organization.Medical;
+import Backend.Organization.Organization;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -38,24 +41,32 @@ public class Health extends Enterprise {
         this.hospitals = hospitals;
     }
 
-    public List<Counselling> addRehab(Counselling m){
-        rehabs.add(m);
-        return rehabs;
+    public Organization addHealth(Organization.Type type, String name,String address){        
+        Organization organization = null;
+        if (type.getValue().equals(Organization.Type.Counselling.getValue())) {
+            organization = new Counselling(name);
+            Counselling ngo = (Counselling) organization;
+            rehabs.add(ngo);
+            organization.setAddress(address);
+        } else if (type.getValue().equals(Organization.Type.Medical.getValue())) {
+            organization = new Medical(name);
+            Medical company = (Medical) organization;
+            hospitals.add(company);
+            organization.setAddress(address);
+        } 
+        this.getOrganizationDirectory().getOrganizationList().add(organization);
+        return organization;
     }
     
     public List<Counselling> deleteRehab(Counselling m){
         rehabs.remove(m);
+        this.getOrganizationDirectory().getOrganizationList().remove(m);
         return rehabs;
     }
-    
-    public List<Medical> addHospital(Medical m){
-        hospitals.add(m);
-        return hospitals;
-    }
-    
+
     public List<Medical> deleteHospital(Medical m){
         hospitals.remove(m);
+        this.getOrganizationDirectory().getOrganizationList().remove(m);
         return hospitals;
     }
-   
-}
+} 

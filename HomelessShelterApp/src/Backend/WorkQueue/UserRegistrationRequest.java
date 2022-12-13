@@ -6,7 +6,6 @@
 package Backend.WorkQueue;
 
 import Backend.Enterprise.Enterprise;
-import Backend.Location.Location;
 import Backend.Network.Network;
 import Backend.Organization.Organization;
 
@@ -24,7 +23,7 @@ public class UserRegistrationRequest extends WorkRequest{
     private String userEmailId;
     private String userCity;
     private String userContact;
-    private Location userLocationPoint;
+//    private Location userLocationPoint;
     private String contactCarrierName;
 
     public String getContactCarrierName() {
@@ -115,13 +114,13 @@ public class UserRegistrationRequest extends WorkRequest{
         this.userContact = userContact;
     }
 
-    public Location getUserLocationPoint() {
-        return userLocationPoint;
-    }
-
-    public void setUserLocationPoint(Location userLocationPoint) {
-        this.userLocationPoint = userLocationPoint;
-    }
+//    public Location getUserLocationPoint() {
+//        return userLocationPoint;
+//    }
+//
+//    public void setUserLocationPoint(Location userLocationPoint) {
+//        this.userLocationPoint = userLocationPoint;
+//    }
     
     
 }

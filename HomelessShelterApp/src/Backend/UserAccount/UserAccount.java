@@ -24,6 +24,15 @@ public class UserAccount {
         this.password = password;
         this.role = role;
     }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+    
     
     public String getUsername() {
         return username;
@@ -43,6 +52,14 @@ public class UserAccount {
 
     public WorkQueue getWorkQueue() {
         return workQueue;
+    }
+    
+    public boolean isMatch(String user) {
+        if(this.username == null){
+            return false;
+        }else{
+            return this.getUsername().equals(user);
+        }
     }
 
     @Override

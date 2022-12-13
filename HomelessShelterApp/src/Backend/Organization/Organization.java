@@ -4,7 +4,7 @@
  */
 package Backend.Organization;
 
-import Backend.Location.Location;
+//import Backend.Location.Location;
 import Backend.UserAccount.UserAccountDirectory;
 import Backend.WorkQueue.WorkQueue;
 import java.util.ArrayList;
@@ -17,10 +17,9 @@ public abstract class Organization {
     
     private String name;
     private WorkQueue workQueue;
-    //private UserAccountDirectory userAccountDirectory;
     private int organizationID;
     private static int counter=0;
-    private Location locationPoint;
+//    private Location locationPoint;
     private double nearestLocationPoint;
     private Type type;
     private int phone;
@@ -68,13 +67,13 @@ public abstract class Organization {
         this.type = type;
     }
 
-    public Location getLocationPoint() {
-        return locationPoint;
-    }
-
-    public void setLocationPoint(Location locationPoint) {
-        this.locationPoint = locationPoint;
-    }
+//    public Location getLocationPoint() {
+//        return locationPoint;
+//    }
+//
+//    public void setLocationPoint(Location locationPoint) {
+//        this.locationPoint = locationPoint;
+//    }
     
 //    public UserAccountDirectory getUserAccountDirectory() {
 //        return userAccountDirectory;
@@ -148,27 +147,27 @@ public abstract class Organization {
         return name;
     }
     
-    public double getOrganizationDistanceFromScene(Location point) {
-        double sceneLatitude = point.getLatitude();
-        double sceneLongitude = point.getLongitude();
-        double organizationLatitude = locationPoint.getLatitude();
-        double organizationLongitude = locationPoint.getLongitude();
-        
-        double theta = sceneLongitude - organizationLongitude;
-			double dist = Math.sin(Math.toRadians(sceneLatitude)) * Math.sin(Math.toRadians(organizationLatitude)) + Math.cos(Math.toRadians(sceneLatitude)) * Math.cos(Math.toRadians(organizationLatitude)) * Math.cos(Math.toRadians(theta));
-			dist = Math.acos(dist);
-			dist = Math.toDegrees(dist);
-			dist = dist * 60 * 1.1515;
-        
-        
-        return dist;
-    }    
+//    public double getOrganizationDistanceFromScene(Location point) {
+//        double sceneLatitude = point.getLatitude();
+//        double sceneLongitude = point.getLongitude();
+//        double organizationLatitude = locationPoint.getLatitude();
+//        double organizationLongitude = locationPoint.getLongitude();
+//        
+//        double theta = sceneLongitude - organizationLongitude;
+//			double dist = Math.sin(Math.toRadians(sceneLatitude)) * Math.sin(Math.toRadians(organizationLatitude)) + Math.cos(Math.toRadians(sceneLatitude)) * Math.cos(Math.toRadians(organizationLatitude)) * Math.cos(Math.toRadians(theta));
+//			dist = Math.acos(dist);
+//			dist = Math.toDegrees(dist);
+//			dist = dist * 60 * 1.1515;
+//        
+//        
+//        return dist;
+//    }    
 
-    public double getNearestLocationPoint() {
-        return nearestLocationPoint;
-    }
-
-    public void setNearestLocationPoint(double nearestLocationPoint) {
-        this.nearestLocationPoint = nearestLocationPoint;
-    }
+//    public double getNearestLocationPoint() {
+//        return nearestLocationPoint;
+//    }
+//
+//    public void setNearestLocationPoint(double nearestLocationPoint) {
+//        this.nearestLocationPoint = nearestLocationPoint;
+//    }
 }

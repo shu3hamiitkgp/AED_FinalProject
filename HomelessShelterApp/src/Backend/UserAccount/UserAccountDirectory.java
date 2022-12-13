@@ -22,6 +22,16 @@ public class UserAccountDirectory {
         return userAccountList;
     }
     
+    public UserAccount getUser(String username) {
+        for (UserAccount p : userAccountList) {
+
+            if (p.isMatch(username)) {
+                return p;
+            }
+        }
+        return null; //not found after going through the whole list
+    }
+    
     public UserAccount authenticateUser(String username, String password){
         for (UserAccount ua : userAccountList) {
             System.out.println("---->>>> " + username + " == " + ua.getUsername());

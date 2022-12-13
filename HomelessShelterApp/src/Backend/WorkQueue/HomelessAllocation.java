@@ -5,7 +5,7 @@
 package Backend.WorkQueue;
 
 import Backend.Enterprise.Enterprise;
-import Backend.Location.Location;
+//import Backend.Location.Location;
 import Backend.Network.Network;
 import Backend.Organization.Organization;
 
@@ -24,7 +24,7 @@ public class HomelessAllocation extends WorkRequest {
     private String orgName;
     private String userCity;
     private String userContact;
-    private Location userLocationPoint;
+//    private Location userLocationPoint;
     
 
     
@@ -85,13 +85,13 @@ public class HomelessAllocation extends WorkRequest {
         this.userContact = userContact;
     }
 
-    public Location getUserLocationPoint() {
-        return userLocationPoint;
-    }
-
-    public void setUserLocationPoint(Location userLocationPoint) {
-        this.userLocationPoint = userLocationPoint;
-    }
+//    public Location getUserLocationPoint() {
+//        return userLocationPoint;
+//    }
+//
+//    public void setUserLocationPoint(Location userLocationPoint) {
+//        this.userLocationPoint = userLocationPoint;
+//    }
     
         public String getGender() {
         return gender;

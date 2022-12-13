@@ -10,7 +10,9 @@ import Backend.Organization.Organization;
 //import Backend.Role.Role;
 //import Backend.Role.SystemAdminRole;
 import Backend.UserAccount.UserAccount;
+import Backend.UserAccount.UserAccountDirectory;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -18,8 +20,17 @@ import java.util.ArrayList;
  */
 public class EcoSystem {
     
-    private ArrayList<Network> networkList;
+    private List<Network> networkList;
+    UserAccountDirectory directory;
     String name;
+    
+    private static EcoSystem business;
+    public static EcoSystem getInstance(){
+        if(business==null){
+            business=new EcoSystem();
+        }
+        return business;
+    }
     
     public Network createAndAddNetwork(){
         Network network=new Network("Unnamed");
@@ -30,13 +41,17 @@ public class EcoSystem {
         networkList.add(network);
         return network;
     }
+    public static void setInstance(EcoSystem system) {
+        business = system;
+    }
 
     public EcoSystem(){
         networkList=new ArrayList<Network>();
+        directory = new UserAccountDirectory();
     }
 
 
-    public ArrayList<Network> getNetworkList() {
+    public List<Network> getNetworkList() {
         return networkList;
     }
 
@@ -75,5 +90,21 @@ public class EcoSystem {
 //        }
 //        return true;
 //    }
+
+    public UserAccountDirectory getDirectory() {
+        return directory;
+    }
+
+    public void setDirectory(UserAccountDirectory directory) {
+        this.directory = directory;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     
 }
