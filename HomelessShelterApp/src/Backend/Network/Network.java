@@ -15,7 +15,8 @@ public class Network {
     private String name;
     private EnterpriseDirectory enterpriseDirectory;
     
-    public Network(){
+    public Network(String name){
+        this.name = name;
         enterpriseDirectory=new EnterpriseDirectory();
     }
     public String getName() {
@@ -29,6 +30,11 @@ public class Network {
     public EnterpriseDirectory getEnterpriseDirectory() {
         return enterpriseDirectory;
     }
+
+    public void setEnterpriseDirectory(EnterpriseDirectory enterpriseDirectory) {
+        this.enterpriseDirectory = enterpriseDirectory;
+    }
+    
     
     @Override
     public String toString(){

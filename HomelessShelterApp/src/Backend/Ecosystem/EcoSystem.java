@@ -21,14 +21,8 @@ public class EcoSystem {
     private ArrayList<Network> networkList;
     String name;
     
-//    public static EcoSystem getInstance(){
-//        if(this==null){
-//            this=new EcoSystem();
-//        }
-//        return business;
-//    }
     public Network createAndAddNetwork(){
-        Network network=new Network();
+        Network network=new Network("Unnamed");
         networkList.add(network);
         return network;
     }
@@ -36,23 +30,11 @@ public class EcoSystem {
         networkList.add(network);
         return network;
     }
-//    @Override
-//    public ArrayList<Role> getSupportedRole() {
-//        ArrayList<Role> roleList=new ArrayList<Role>();
-//        roleList.add(new SystemAdminRole());
-//        return roleList;
-//    }
+
     public EcoSystem(){
-        //super(null);
         networkList=new ArrayList<Network>();
-        /*Network network=new Network();
-        network.setName("Boston");
-        networkList.add(network);*/
     }
-    
-//    public static void setInstance(EcoSystem system) {
-//        this = system;
-//    }
+
 
     public ArrayList<Network> getNetworkList() {
         return networkList;
