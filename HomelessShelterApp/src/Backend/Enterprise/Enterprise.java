@@ -6,6 +6,7 @@ package Backend.Enterprise;
 
 import Backend.Organization.Organization;
 import Backend.Organization.OrganizationDirectory;
+import Backend.UserAccount.UserAccount;
 
 /**
  *
