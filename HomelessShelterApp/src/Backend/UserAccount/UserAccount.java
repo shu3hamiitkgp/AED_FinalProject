@@ -15,14 +15,10 @@ public class UserAccount {
     
     private String username;
     private String password;
-    private String role;
     private WorkQueue workQueue;
 
-    public UserAccount(String username, String password, String role) {
+    public UserAccount() {
         workQueue = new WorkQueue();
-        this.username = username;
-        this.password = password;
-        this.role = role;
     }
     
     public String getUsername() {

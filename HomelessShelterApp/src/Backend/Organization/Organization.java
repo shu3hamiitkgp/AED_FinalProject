@@ -17,7 +17,7 @@ public abstract class Organization {
     
     private String name;
     private WorkQueue workQueue;
-    //private UserAccountDirectory userAccountDirectory;
+    private UserAccountDirectory userAccountDirectory;
     private int organizationID;
     private static int counter=0;
     private Location locationPoint;
@@ -55,7 +55,7 @@ public abstract class Organization {
     public Organization(String name) {
         this.name = name;
         workQueue = new WorkQueue();
-        //userAccountDirectory = new UserAccountDirectory();
+        userAccountDirectory = new UserAccountDirectory();
         organizationID = counter;
         ++counter;
     }
@@ -76,9 +76,9 @@ public abstract class Organization {
         this.locationPoint = locationPoint;
     }
     
-//    public UserAccountDirectory getUserAccountDirectory() {
-//        return userAccountDirectory;
-//    }
+    public UserAccountDirectory getUserAccountDirectory() {
+        return userAccountDirectory;
+    }
 
     public int getOrganizationID() {
         return organizationID;

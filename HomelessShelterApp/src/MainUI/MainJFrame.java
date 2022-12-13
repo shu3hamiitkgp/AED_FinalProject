@@ -4,6 +4,15 @@
  */
 package MainUI;
 
+import Backend.DB4OUtil.DB4OUtil;
+import Backend.Ecosystem.EcoSystem;
+import Backend.Enterprise.Enterprise;
+import Backend.Network.Network;
+import Backend.Organization.Organization;
+import Backend.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author shubhamgoyal
@@ -13,8 +22,19 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
+    
+    private EcoSystem system;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    UserAccount userAccount;
+    Enterprise enterprise;
+    Organization organization;
+    Network network;
+    
     public MainJFrame() {
         initComponents();
+        system = dB4OUtil.retrieveSystem();
+        EcoSystem.setInstance(system);
+        
     }
 
     /**
@@ -395,10 +415,25 @@ public class MainJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         btnCreateProfile.setText("Create Profile");
+        btnCreateProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateProfileActionPerformed(evt);
+            }
+        });
 
         btnSysAdmin.setText("Home");
+        btnSysAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSysAdminActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout workJPanelLayout = new javax.swing.GroupLayout(workJPanel);
         workJPanel.setLayout(workJPanelLayout);
@@ -612,7 +647,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jComboBoxNetwork.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBoxEnterprise.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxEnterprise.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Shelter", "Health", "Resource", "Employement", " " }));
 
         btnSub.setText("Submit");
 
@@ -848,7 +883,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnAdd1.setText("Add");
 
-        jComboBoxshelter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxshelter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Private", "NGO ", "Government", " " }));
 
         Address1.setText("Mobile");
 
@@ -957,7 +992,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel29.setText("Type");
 
-        jComboBoxshelter1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxshelter1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Donations", "Meals", " " }));
 
         btnAdd2.setText("Add");
 
@@ -1186,7 +1221,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnAdd4.setText("Add");
 
-        jComboBoxHealth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxHealth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Medical", "Counselling", " " }));
 
         javax.swing.GroupLayout HealthPanelLayout = new javax.swing.GroupLayout(HealthPanel);
         HealthPanel.setLayout(HealthPanelLayout);
@@ -1350,7 +1385,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel43.setText("Type");
 
-        jComboBoxshelter2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxshelter2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NGO", " " }));
 
         btnAdd5.setText("Add");
 
@@ -1516,7 +1551,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         Address15.setText("Address");
 
-        jComboBoxshelter3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxshelter3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Private", " " }));
 
         jLabel48.setText("Type");
 
@@ -1676,7 +1711,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         Address19.setText("Address");
 
-        jComboBoxshelter4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxshelter4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Government", " " }));
 
         jLabel53.setText("Type");
 
@@ -1828,7 +1863,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel12.setText("Status");
 
-        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Accept", "Pending", "WIP", "Reject" }));
 
         btnsubmit.setText("Submit");
         btnsubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -1865,8 +1900,8 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addGap(39, 39, 39)
                         .addComponent(jLabel11)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBoxShelter, 0, 202, Short.MAX_VALUE)))
-                .addContainerGap(96, Short.MAX_VALUE))
+                        .addComponent(jComboBoxShelter, 0, 197, Short.MAX_VALUE)))
+                .addContainerGap(91, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RequestPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnsubmit)
@@ -2404,7 +2439,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         Address29.setText("Mobile");
 
-        jComboBoxHealth1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxHealth1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Medical", " " }));
 
         jLabel68.setText("Type");
 
@@ -2525,7 +2560,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnAdd25.setText("Add");
 
-        jComboBoxHealth2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxHealth2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Counselling", " " }));
 
         jLabel70.setText("Type");
 
@@ -2648,7 +2683,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel14.setText("Status");
 
-        jComboBoxStatus1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxStatus1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Accept", "Pending", "WIP", "Reject", " " }));
 
         jLabel15.setText("Assign Center");
 
@@ -2696,8 +2731,8 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addGap(39, 39, 39)
                         .addComponent(jLabel15)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBoxShelter1, 0, 208, Short.MAX_VALUE)))
-                .addContainerGap(102, Short.MAX_VALUE))
+                        .addComponent(jComboBoxShelter1, 0, 203, Short.MAX_VALUE)))
+                .addContainerGap(97, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RequestsPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnsubmit1)
@@ -2965,35 +3000,43 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel80.setText("Role");
 
-        jComboBoxRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Health Admin", "System Admin", "Shelter Admin", "Resource Admin", "Employement Admin" }));
 
         btnLogin1.setText("Login");
+        btnLogin1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogin1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout LoginPanelLayout = new javax.swing.GroupLayout(LoginPanel);
         LoginPanel.setLayout(LoginPanelLayout);
         LoginPanelLayout.setHorizontalGroup(
             LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LoginPanelLayout.createSequentialGroup()
-                .addGap(240, 240, 240)
                 .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(LoginPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel79)
-                        .addGap(18, 18, 18)
-                        .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnLogin1)
+                        .addGap(205, 205, 205)
+                        .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(LoginPanelLayout.createSequentialGroup()
-                                .addComponent(txtpass)
-                                .addGap(5, 5, 5))))
-                    .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(LoginPanelLayout.createSequentialGroup()
-                            .addComponent(jLabel80)
-                            .addGap(18, 18, 18)
-                            .addComponent(jComboBoxRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(LoginPanelLayout.createSequentialGroup()
-                            .addComponent(jLabel78)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txtuser, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(370, Short.MAX_VALUE))
+                                .addComponent(jLabel80)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBoxRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(LoginPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel78)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtuser, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(LoginPanelLayout.createSequentialGroup()
+                        .addGap(208, 208, 208)
+                        .addComponent(jLabel79)
+                        .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(LoginPanelLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(btnLogin1))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, LoginPanelLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(318, Short.MAX_VALUE))
         );
         LoginPanelLayout.setVerticalGroup(
             LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3171,6 +3214,91 @@ public class MainJFrame extends javax.swing.JFrame {
     private void btnsubmit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmit1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnsubmit1ActionPerformed
+
+    private void btnSysAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSysAdminActionPerformed
+        // TODO add your handling code here:
+        
+        CardLayout card = (CardLayout)defaultPanel.getLayout();
+        card.show(defaultPanel, "homePanel");
+    }//GEN-LAST:event_btnSysAdminActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout)LoginPanel.getLayout();
+        card.show(LoginPanel, "homePanel");
+        
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnCreateProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateProfileActionPerformed
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout)CreatePanel.getLayout();
+        card.show(CreatePanel, "homePanel");
+    }//GEN-LAST:event_btnCreateProfileActionPerformed
+
+    private void btnLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin1ActionPerformed
+        // TODO add your handling code here:
+        String userID= txtuser.getText();
+        String password = txtpass.getText();
+        String role = jComboBoxRole.getSelectedItem().toString();
+        
+        if (userID.equals("")||password.equals("")){
+            JOptionPane.showMessageDialog(this,"Some fields are empty","Error",1);
+        }else{
+            try{
+                if(role.equalsIgnoreCase("System Admin")){
+
+                    if(userID.equals("Admin") && password.equals("Admin")){
+
+                        CardLayout card = (CardLayout)SystemAdmin.getLayout();
+                        card.show(SystemAdmin, "sysamdin");
+
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Password is not correct");
+                    }
+                }else if (role.equals("Health Admin")){
+                    if(userID.equals("health@gmail.com") && password.equals("hadmin$HA123")){
+
+                        CardLayout card = (CardLayout)PanelHealth.getLayout();
+                        card.show(PanelHealth, "health");
+                       
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Password is not correct");
+                    }
+                }else if (role.equals("Employement Admin")){
+                    if(userID.equals("eadmin@gmail.com") && password.equals("eadmin$EA123")){
+
+                        CardLayout card = (CardLayout)EmployementPanel.getLayout();
+                        card.show(EmployementPanel, "employe");
+                       
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Password is not correct");
+                    }
+                }else if (role.equals("Shelter Admin")){
+                    if(userID.equals("sadmin@gmail.com") && password.equals("sadmin$SA123")){
+
+                        CardLayout card = (CardLayout)ShelterPanel.getLayout();
+                        card.show(ShelterPanel, "shelter");
+                       
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Password is not correct");
+                    }
+                }  else if (role.equals("Resource Admin")){
+                    if(userID.equals("radmin@gmail.com") && password.equals("radmin$RA123")){
+
+                        CardLayout card = (CardLayout)MainResourcePanel.getLayout();
+                        card.show(MainResourcePanel, "resource");
+                       
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Password is not correct");
+                    }
+                }  
+               
+                }catch(Exception ex){
+                    System.out.println(""+ex);
+                }
+            }
+        
+    }//GEN-LAST:event_btnLogin1ActionPerformed
 
     /**
      * @param args the command line arguments

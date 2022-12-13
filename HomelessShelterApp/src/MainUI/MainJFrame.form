@@ -77,16 +77,25 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Login"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnCreateProfile">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Create Profile"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateProfileActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnSysAdmin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Home"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSysAdminActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -559,11 +568,12 @@
                             <Component class="javax.swing.JComboBox" name="jComboBoxEnterprise">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
+                                  <StringArray count="5">
+                                    <StringItem index="0" value="Shelter"/>
+                                    <StringItem index="1" value="Health"/>
+                                    <StringItem index="2" value="Resource"/>
+                                    <StringItem index="3" value="Employement"/>
+                                    <StringItem index="4" value=" "/>
                                   </StringArray>
                                 </Property>
                               </Properties>
@@ -906,7 +916,7 @@
                                           <Group type="103" alignment="3" groupAlignment="3" attributes="0">
                                               <Component id="Address1" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="txtMobile" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>                                   
+                                          </Group>
                                       </Group>
                                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                       <Component id="btnAdd1" min="-2" max="-2" attributes="0"/>
@@ -1026,10 +1036,10 @@
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
+                                    <StringItem index="0" value="Private"/>
+                                    <StringItem index="1" value="NGO "/>
+                                    <StringItem index="2" value="Government"/>
+                                    <StringItem index="3" value=" "/>
                                   </StringArray>
                                 </Property>
                               </Properties>
@@ -1209,11 +1219,10 @@
                             <Component class="javax.swing.JComboBox" name="jComboBoxshelter1">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
+                                  <StringArray count="3">
+                                    <StringItem index="0" value="Donations"/>
+                                    <StringItem index="1" value="Meals"/>
+                                    <StringItem index="2" value=" "/>
                                   </StringArray>
                                 </Property>
                               </Properties>
@@ -1631,11 +1640,10 @@
                             <Component class="javax.swing.JComboBox" name="jComboBoxHealth">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
+                                  <StringArray count="3">
+                                    <StringItem index="0" value="Medical"/>
+                                    <StringItem index="1" value="Counselling"/>
+                                    <StringItem index="2" value=" "/>
                                   </StringArray>
                                 </Property>
                               </Properties>
@@ -1990,11 +1998,9 @@
                             <Component class="javax.swing.JComboBox" name="jComboBoxshelter2">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
+                                  <StringArray count="2">
+                                    <StringItem index="0" value="NGO"/>
+                                    <StringItem index="1" value=" "/>
                                   </StringArray>
                                 </Property>
                               </Properties>
@@ -2300,11 +2306,9 @@
                             <Component class="javax.swing.JComboBox" name="jComboBoxshelter3">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
+                                  <StringArray count="2">
+                                    <StringItem index="0" value="Private"/>
+                                    <StringItem index="1" value=" "/>
                                   </StringArray>
                                 </Property>
                               </Properties>
@@ -2591,11 +2595,9 @@
                             <Component class="javax.swing.JComboBox" name="jComboBoxshelter4">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
+                                  <StringArray count="2">
+                                    <StringItem index="0" value="Government"/>
+                                    <StringItem index="1" value=" "/>
                                   </StringArray>
                                 </Property>
                               </Properties>
@@ -2658,10 +2660,10 @@
                                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                                               <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jComboBoxShelter" pref="202" max="32767" attributes="0"/>
+                                              <Component id="jComboBoxShelter" pref="197" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="96" max="32767" attributes="0"/>
+                                      <EmptySpace pref="91" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -2790,10 +2792,10 @@
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
+                                    <StringItem index="0" value="Accept"/>
+                                    <StringItem index="1" value="Pending"/>
+                                    <StringItem index="2" value="WIP"/>
+                                    <StringItem index="3" value="Reject"/>
                                   </StringArray>
                                 </Property>
                               </Properties>
@@ -3867,11 +3869,9 @@
                             <Component class="javax.swing.JComboBox" name="jComboBoxHealth1">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
+                                  <StringArray count="2">
+                                    <StringItem index="0" value="Medical"/>
+                                    <StringItem index="1" value=" "/>
                                   </StringArray>
                                 </Property>
                               </Properties>
@@ -4084,11 +4084,9 @@
                             <Component class="javax.swing.JComboBox" name="jComboBoxHealth2">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
+                                  <StringArray count="2">
+                                    <StringItem index="0" value="Counselling"/>
+                                    <StringItem index="1" value=" "/>
                                   </StringArray>
                                 </Property>
                               </Properties>
@@ -4172,10 +4170,10 @@
                                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                                               <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jComboBoxShelter1" pref="208" max="32767" attributes="0"/>
+                                              <Component id="jComboBoxShelter1" pref="203" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="102" max="32767" attributes="0"/>
+                                      <EmptySpace pref="97" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -4275,11 +4273,12 @@
                             <Component class="javax.swing.JComboBox" name="jComboBoxStatus1">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
+                                  <StringArray count="5">
+                                    <StringItem index="0" value="Accept"/>
+                                    <StringItem index="1" value="Pending"/>
+                                    <StringItem index="2" value="WIP"/>
+                                    <StringItem index="3" value="Reject"/>
+                                    <StringItem index="4" value=" "/>
                                   </StringArray>
                                 </Property>
                               </Properties>
@@ -4753,33 +4752,38 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel79" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="btnLogin1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="txtpass" max="32767" attributes="0"/>
-                                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                          <Component id="jLabel80" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jComboBoxRole" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="jLabel78" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="txtuser" min="-2" pref="156" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel80" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jComboBoxRole" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel78" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtuser" min="-2" pref="70" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="208" max="-2" attributes="0"/>
+                                  <Component id="jLabel79" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                          <Component id="btnLogin1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="txtpass" min="-2" pref="156" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="370" max="32767" attributes="0"/>
+                          <EmptySpace pref="318" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -4829,11 +4833,12 @@
                 <Component class="javax.swing.JComboBox" name="jComboBoxRole">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
+                      <StringArray count="5">
+                        <StringItem index="0" value="Health Admin"/>
+                        <StringItem index="1" value="System Admin"/>
+                        <StringItem index="2" value="Shelter Admin"/>
+                        <StringItem index="3" value="Resource Admin"/>
+                        <StringItem index="4" value="Employement Admin"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -4847,6 +4852,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Login"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogin1ActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Backend.DB4OUtil;
 
@@ -15,26 +15,26 @@ import Backend.Location.Location;
 import Backend.Network.Network;
 import Backend.Organization.Organization;
 import Backend.Organization.OrganizationDirectory;
-import Backend.UserAccount.UserAccount;
+import Backend.Organization.ShelterNGO;
 import Backend.UserAccount.UserAccountDirectory;
 import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
-import com.db4o.ObjectSet;
-import com.db4o.config.EmbeddedConfiguration;
-import com.db4o.ta.TransparentPersistenceSupport;
-
 /**
  *
  * @author Megha Patel
  */
-public class NewMain {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        EcoSystem system = new EcoSystem();
+public class Driver {
+    EcoSystem system;
+    Network network;
+    Shelter shelters;
+    Resources resources;
+    Health health;
+    PartTimeEmployement jobs;
+    OrganizationDirectory organizations;
+    UserAccountDirectory users;
+      
+    
+    public Driver(){
+        system = new EcoSystem();
         Network boston = new Network("Boston");
         system.createNetwork(boston);
         EnterpriseDirectory enterprises = boston.getEnterpriseDirectory();
@@ -108,19 +108,14 @@ public class NewMain {
         enterprises.getEnterpriseList().get(0).getOrganizationDirectory().createOrganization(Organization.Type.Meals, "Shelter9", l9);
         enterprises.getEnterpriseList().get(0).getOrganizationDirectory().createOrganization(Organization.Type.Meals, "Shelter10", l10);
         
-        UserAccount a1 = new UserAccount("Megha", "Patel", "SystemAdmin");
-        UserAccount a2 = new UserAccount("Megha", "Patel", "MealManager");
-        UserAccount a3 = new UserAccount("Megha", "Patel", "ShelterManager");
-        UserAccount a4 = new UserAccount("Megha", "Patel", "Volunteers");
-        UserAccount a5 = new UserAccount("Megha", "Patel", "HealthManager");
-        UserAccount a6 = new UserAccount("Megha", "Patel", "EmploymentManager");
-        UserAccount a7 = new UserAccount("Megha", "Patel", "HomelessPerson");
-        UserAccount a8 = new UserAccount("Megha", "Patel", "ResourceDonator");
-        System.out.print("hello");
-        ObjectContainer db = Db4oEmbedded.openFile("EcoSystem.db4o");
         
-        db.store(system);
-        db.close();
+        
+        
+    }
+    
+    public void run(){
+    
+    
     }
     
 }

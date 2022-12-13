@@ -20,6 +20,14 @@ public class EcoSystem {
     
     private ArrayList<Network> networkList;
     String name;
+    private static EcoSystem business;
+//    private ArrayList<Network> networkList;
+    public static EcoSystem getInstance(){
+        if(business==null){
+            business=new EcoSystem();
+        }
+        return business;
+    }
     
     public Network createAndAddNetwork(){
         Network network=new Network("Unnamed");
@@ -42,6 +50,10 @@ public class EcoSystem {
 
     public void setNetworkList(ArrayList<Network> networkList) {
         this.networkList = networkList;
+    }
+    
+    public static void setInstance(EcoSystem system) {
+        business = system;
     }
         
 //    //business null in above method, so changing it
