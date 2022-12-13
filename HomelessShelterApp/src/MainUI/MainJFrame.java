@@ -83,6 +83,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
+        lblphoto1 = new javax.swing.JLabel();
         SheltersPanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblShelter = new javax.swing.JTable();
@@ -389,6 +390,7 @@ public class MainJFrame extends javax.swing.JFrame {
         txtage1 = new javax.swing.JTextField();
         btnAdd26 = new javax.swing.JButton();
         jLabel87 = new javax.swing.JLabel();
+        lblphoto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -723,6 +725,9 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnAdd.setText("Add");
 
+        lblphoto1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblphoto1.setText("Photo");
+
         javax.swing.GroupLayout HomelessPanelLayout = new javax.swing.GroupLayout(HomelessPanel);
         HomelessPanel.setLayout(HomelessPanelLayout);
         HomelessPanelLayout.setHorizontalGroup(
@@ -765,7 +770,8 @@ public class MainJFrame extends javax.swing.JFrame {
                                     .addGroup(HomelessPanelLayout.createSequentialGroup()
                                         .addComponent(jLabel20)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txtuserid, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addComponent(txtuserid, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblphoto1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(67, 67, 67))
         );
         HomelessPanelLayout.setVerticalGroup(
@@ -793,9 +799,14 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(jButton3)
                     .addComponent(jLabel22)
                     .addComponent(jButton4))
-                .addGap(28, 28, 28)
-                .addComponent(btnAdd)
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addGroup(HomelessPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(HomelessPanelLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(btnAdd))
+                    .addGroup(HomelessPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lblphoto1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         rightPanel.add(HomelessPanel, "card4");
@@ -3027,6 +3038,9 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel87.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
         jLabel87.setText("Create Homeless Profile");
 
+        lblphoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblphoto.setText("Photo");
+
         javax.swing.GroupLayout CreatePanelLayout = new javax.swing.GroupLayout(CreatePanel);
         CreatePanel.setLayout(CreatePanelLayout);
         CreatePanelLayout.setHorizontalGroup(
@@ -3035,6 +3049,10 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(229, 229, 229)
                 .addComponent(jLabel87, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(240, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CreatePanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblphoto, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63))
             .addGroup(CreatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(CreatePanelLayout.createSequentialGroup()
                     .addGap(153, 153, 153)
@@ -3076,7 +3094,9 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(CreatePanelLayout.createSequentialGroup()
                 .addGap(97, 97, 97)
                 .addComponent(jLabel87)
-                .addContainerGap(475, Short.MAX_VALUE))
+                .addGap(152, 152, 152)
+                .addComponent(lblphoto, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(237, Short.MAX_VALUE))
             .addGroup(CreatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(CreatePanelLayout.createSequentialGroup()
                     .addGap(215, 215, 215)
@@ -3461,6 +3481,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JSplitPane jSplitPane5;
     private javax.swing.JSplitPane jSplitPane6;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblphoto;
+    private javax.swing.JLabel lblphoto1;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JPanel leftpanel;
     private javax.swing.JPanel rightPanel;

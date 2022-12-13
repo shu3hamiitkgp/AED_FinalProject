@@ -639,6 +639,7 @@
                                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                                               <Component id="txtuserid" min="-2" pref="135" max="-2" attributes="0"/>
                                                           </Group>
+                                                          <Component id="lblphoto1" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                               </Group>
@@ -676,9 +677,17 @@
                                           <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                      <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="178" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                              <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="lblphoto1" min="-2" pref="86" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace pref="125" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -794,6 +803,12 @@
                             <Component class="javax.swing.JButton" name="btnAdd">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Add"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="lblphoto1">
+                              <Properties>
+                                <Property name="horizontalAlignment" type="int" value="0"/>
+                                <Property name="text" type="java.lang.String" value="Photo"/>
                               </Properties>
                             </Component>
                           </SubComponents>
@@ -4850,6 +4865,11 @@
                           <Component id="jLabel87" min="-2" pref="289" max="-2" attributes="0"/>
                           <EmptySpace pref="240" max="32767" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="lblphoto" min="-2" pref="106" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
@@ -4905,7 +4925,9 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
                           <Component id="jLabel87" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="475" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
+                          <Component id="lblphoto" min="-2" pref="86" max="-2" attributes="0"/>
+                          <EmptySpace pref="237" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -4998,6 +5020,12 @@
                       <Font name="Helvetica Neue" size="24" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Create Homeless Profile"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblphoto">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Photo"/>
                   </Properties>
                 </Component>
               </SubComponents>
