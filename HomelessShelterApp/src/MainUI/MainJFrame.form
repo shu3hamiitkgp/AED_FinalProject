@@ -2751,13 +2751,15 @@
                                               <Component id="jLabel58" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
                                               <Component id="btnAdd7" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                                               <Component id="btnAdd10" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                              <Component id="btnAdd13" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="63" max="32767" attributes="0"/>
+                                      <EmptySpace pref="85" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2768,7 +2770,7 @@
                                       <Component id="jLabel58" min="-2" pref="25" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jScrollPane12" min="-2" pref="161" max="-2" attributes="0"/>
-                                      <EmptySpace pref="119" max="32767" attributes="0"/>
+                                      <EmptySpace pref="126" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel57" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtname7" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2784,6 +2786,7 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="btnAdd7" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="btnAdd10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnAdd13" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
                                   </Group>
@@ -2896,6 +2899,14 @@
                                 </Property>
                               </Properties>
                             </Component>
+                            <Component class="javax.swing.JButton" name="btnAdd13">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Delete"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdd13ActionPerformed"/>
+                              </Events>
+                            </Component>
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JPanel" name="DonationsPanel">
@@ -2919,33 +2930,39 @@
                                               <Component id="jLabel59" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="63" max="32767" attributes="0"/>
+                                      <EmptySpace pref="85" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="btnAdd15" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" attributes="0">
                                               <Component id="jLabel60" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="txtname8" min="-2" pref="135" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                              <Component id="Address24" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="1" attributes="0">
+                                          <Group type="102" attributes="0">
                                               <Component id="Address23" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="txtAddress8" min="-2" pref="135" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="btnAdd15" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                      <Component id="btnAdd16" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="txtAddress8" min="-2" pref="135" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="btnAdd16" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                              <Component id="Address24" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="txtMobile15" min="-2" pref="126" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                              <Component id="btnAdd27" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
@@ -2959,7 +2976,7 @@
                                       <Component id="jLabel59" min="-2" pref="25" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jScrollPane13" min="-2" pref="161" max="-2" attributes="0"/>
-                                      <EmptySpace pref="113" max="32767" attributes="0"/>
+                                      <EmptySpace pref="120" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel60" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtname8" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2975,6 +2992,7 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="btnAdd15" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="btnAdd16" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnAdd27" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
                                   </Group>
@@ -3087,6 +3105,14 @@
                                 </Property>
                               </Properties>
                             </Component>
+                            <Component class="javax.swing.JButton" name="btnAdd27">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Delete"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdd27ActionPerformed"/>
+                              </Events>
+                            </Component>
                           </SubComponents>
                         </Container>
                       </SubComponents>
@@ -3175,12 +3201,14 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jScrollPane14" min="-2" pref="161" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel62" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtname9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                           <Component id="Address27" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtMobile17" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel62" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtname9" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>

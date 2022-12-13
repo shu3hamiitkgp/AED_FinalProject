@@ -351,6 +351,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel58 = new javax.swing.JLabel();
         btnAdd10 = new javax.swing.JButton();
         txtMobile13 = new javax.swing.JFormattedTextField();
+        btnAdd13 = new javax.swing.JButton();
         DonationsPanel = new javax.swing.JPanel();
         jLabel59 = new javax.swing.JLabel();
         jScrollPane13 = new javax.swing.JScrollPane();
@@ -363,6 +364,7 @@ public class MainJFrame extends javax.swing.JFrame {
         btnAdd15 = new javax.swing.JButton();
         btnAdd16 = new javax.swing.JButton();
         txtMobile15 = new javax.swing.JFormattedTextField();
+        btnAdd27 = new javax.swing.JButton();
         EmployementPanel = new javax.swing.JPanel();
         jLabel61 = new javax.swing.JLabel();
         jScrollPane14 = new javax.swing.JScrollPane();
@@ -2071,6 +2073,13 @@ public class MainJFrame extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        btnAdd13.setText("Delete");
+        btnAdd13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdd13ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout MealsPanelLayout = new javax.swing.GroupLayout(MealsPanel);
         MealsPanel.setLayout(MealsPanelLayout);
         MealsPanelLayout.setHorizontalGroup(
@@ -2100,11 +2109,13 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addGap(277, 277, 277)
                         .addComponent(jLabel58))
                     .addGroup(MealsPanelLayout.createSequentialGroup()
-                        .addGap(213, 213, 213)
+                        .addGap(166, 166, 166)
                         .addComponent(btnAdd7)
-                        .addGap(34, 34, 34)
-                        .addComponent(btnAdd10)))
-                .addContainerGap(63, Short.MAX_VALUE))
+                        .addGap(44, 44, 44)
+                        .addComponent(btnAdd10)
+                        .addGap(37, 37, 37)
+                        .addComponent(btnAdd13)))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         MealsPanelLayout.setVerticalGroup(
             MealsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2113,7 +2124,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
                 .addGroup(MealsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel57)
                     .addComponent(txtname7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2126,7 +2137,8 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(77, 77, 77)
                 .addGroup(MealsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd7)
-                    .addComponent(btnAdd10))
+                    .addComponent(btnAdd10)
+                    .addComponent(btnAdd13))
                 .addGap(128, 128, 128))
         );
 
@@ -2200,6 +2212,13 @@ public class MainJFrame extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        btnAdd27.setText("Delete");
+        btnAdd27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdd27ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout DonationsPanelLayout = new javax.swing.GroupLayout(DonationsPanel);
         DonationsPanel.setLayout(DonationsPanelLayout);
         DonationsPanelLayout.setHorizontalGroup(
@@ -2212,28 +2231,32 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addGroup(DonationsPanelLayout.createSequentialGroup()
                         .addGap(277, 277, 277)
                         .addComponent(jLabel59)))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DonationsPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(DonationsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnAdd15)
+                .addGroup(DonationsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(DonationsPanelLayout.createSequentialGroup()
                         .addComponent(jLabel60)
                         .addGap(18, 18, 18)
-                        .addComponent(txtname8, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtname8, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(Address24))
                     .addGroup(DonationsPanelLayout.createSequentialGroup()
                         .addComponent(Address23)
                         .addGap(18, 18, 18)
-                        .addComponent(txtAddress8, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(DonationsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(DonationsPanelLayout.createSequentialGroup()
+                                .addComponent(btnAdd15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnAdd16))
+                            .addComponent(txtAddress8, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(DonationsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DonationsPanelLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(btnAdd16))
+                        .addComponent(txtMobile15, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(DonationsPanelLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(Address24)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtMobile15, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(32, 32, 32)
+                        .addComponent(btnAdd27)))
                 .addGap(142, 142, 142))
         );
         DonationsPanelLayout.setVerticalGroup(
@@ -2243,7 +2266,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                 .addGroup(DonationsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel60)
                     .addComponent(txtname8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2256,7 +2279,8 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(83, 83, 83)
                 .addGroup(DonationsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd15)
-                    .addComponent(btnAdd16))
+                    .addComponent(btnAdd16)
+                    .addComponent(btnAdd27))
                 .addGap(128, 128, 128))
         );
 
@@ -2384,12 +2408,13 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(65, 65, 65)
-                        .addGroup(EmployementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel62)
-                            .addComponent(txtname9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(EmployementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(EmployementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(Address27)
-                                .addComponent(txtMobile17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtMobile17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(EmployementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel62)
+                                .addComponent(txtname9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(EmployementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Address26)
@@ -3503,13 +3528,18 @@ public class MainJFrame extends javax.swing.JFrame {
         
         txtname7.setText(p.getName());
         txtAddress7.setText(p.getAddress());
-        txtMobile13.setText(Integer.toString(p.getPhone()));
+        txtMobile13.setText(p.getPhone());
     }//GEN-LAST:event_tblMealsMouseClicked
 
     private void btnAdd7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd7ActionPerformed
         // TODO add your handling code here:
         Meals m = (Meals)system.getNetworkList().get(0).getEnterpriseDirectory().getResources().addResources(Organization.Type.Meals, txtname7.getText(), txtAddress7.getText());
-        m.setPhone(Integer.parseInt(txtMobile13.getText()));
+        m.setPhone(txtMobile13.getValue().toString());
+        txtname7.setText("");
+        txtAddress7.setText("");
+        txtMobile13.setText("");
+        displayResources(tblMeals, "Meal");
+        JOptionPane.showMessageDialog(this,"Restaurant Added!");
     }//GEN-LAST:event_btnAdd7ActionPerformed
 
     private void btnAdd10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd10ActionPerformed
@@ -3520,7 +3550,12 @@ public class MainJFrame extends javax.swing.JFrame {
         
         p.setName(txtname7.getText());
         p.setAddress(txtAddress7.getText());
-        p.setPhone(Integer.parseInt(txtMobile13.getText()));
+        p.setPhone(txtMobile13.getValue().toString());
+        txtname7.setText("");
+        txtAddress7.setText("");
+        txtMobile13.setText("");
+                JOptionPane.showMessageDialog(this,"Restaurant updated!");
+        displayResources(tblMeals, "Meal");
     }//GEN-LAST:event_btnAdd10ActionPerformed
 
     private void tblDonationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDonationsMouseClicked
@@ -3531,13 +3566,19 @@ public class MainJFrame extends javax.swing.JFrame {
         
         txtname8.setText(p.getName());
         txtAddress8.setText(p.getAddress());
-        txtMobile15.setText(Integer.toString(p.getPhone()));
+        txtMobile15.setText(p.getPhone());
     }//GEN-LAST:event_tblDonationsMouseClicked
 
     private void btnAdd15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd15ActionPerformed
         // TODO add your handling code here:
         Donations m = (Donations)system.getNetworkList().get(0).getEnterpriseDirectory().getResources().addResources(Organization.Type.Donations, txtname8.getText(), txtAddress8.getText());
-        m.setPhone(Integer.parseInt(txtMobile15.getText()));
+        m.setPhone(txtMobile15.getText());
+        txtname8.setText("");
+        txtAddress8.setText("");
+        txtMobile15.setText("");
+                JOptionPane.showMessageDialog(this,"Donation Center Added!");
+
+        displayResources(tblDonations, "Donation");
     }//GEN-LAST:event_btnAdd15ActionPerformed
 
     private void btnAdd16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd16ActionPerformed
@@ -3548,7 +3589,14 @@ public class MainJFrame extends javax.swing.JFrame {
         
         p.setName(txtname8.getText());
         p.setAddress(txtAddress8.getText());
-        p.setPhone(Integer.parseInt(txtMobile15.getText()));
+        p.setPhone(txtMobile15.getText());
+        
+        txtname8.setText("");
+        txtAddress8.setText("");
+        txtMobile15.setText("");
+                JOptionPane.showMessageDialog(this,"Donation Center Updated!");
+
+        displayResources(tblDonations, "Donation");
     }//GEN-LAST:event_btnAdd16ActionPerformed
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
@@ -3672,7 +3720,7 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         ShelterGovernment m = (ShelterGovernment)system.getNetworkList().get(0).getEnterpriseDirectory().getShelters().addShelter(Organization.Type.GovernmentShelter, txtname6.getText(), txtAddress6.getText());
         m.setGender((txtGender3.getText()));
-        m.setPhone(Integer.parseInt(txtMobile12.getText()));        
+        m.setPhone(txtMobile12.getText());        
 //        enterprises.getShelters().addShelter
     }//GEN-LAST:event_btnAdd11ActionPerformed
 
@@ -3681,7 +3729,7 @@ public class MainJFrame extends javax.swing.JFrame {
         
         ShelterNGO m = (ShelterNGO)system.getNetworkList().get(0).getEnterpriseDirectory().getShelters().addShelter(Organization.Type.NGOShelter, txtname4.getText(), txtAddress4.getText());
         m.setGender((txtGender1.getText()));
-        m.setPhone(Integer.parseInt(txtGender4.getText()));   
+        m.setPhone(txtGender4.getText());   
     }//GEN-LAST:event_btnAdd5ActionPerformed
 
     private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
@@ -3692,14 +3740,14 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         ShelterPrivate m = (ShelterPrivate)system.getNetworkList().get(0).getEnterpriseDirectory().getShelters().addShelter(Organization.Type.PrivateShelter, txtname5.getText(), txtAddress5.getText());
         m.setGender((txtGender2.getText()));
-        m.setPhone(Integer.parseInt(txtMobile9.getText())); 
+        m.setPhone(txtMobile9.getText()); 
     }//GEN-LAST:event_btnAdd8ActionPerformed
 
     private void btnAdd17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd17ActionPerformed
         // TODO add your handling code here:
         Jobs m = (Jobs)system.getNetworkList().get(0).getEnterpriseDirectory().getJobs().addJob(Organization.Type.Jobs, txtname9.getText(), txtAddress9.getText());
 //        m.setGender((txtGender2.getText()));
-        m.setPhone(Integer.parseInt(txtMobile17.getText())); 
+        m.setPhone(txtMobile17.getText()); 
     }//GEN-LAST:event_btnAdd17ActionPerformed
 
     private void btnAdd18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd18ActionPerformed
@@ -3711,7 +3759,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
             hospital.setName(txtname9.getText());
             hospital.setAddress(txtAddress9.getText());
-            hospital.setPhone((Integer.toString(txtMobile17.getText())));
+            hospital.setPhone(txtMobile17.getText());
             //            house.setLastUpdatedDate(new Date());
             JOptionPane.showMessageDialog(this, "Successfully Saved");
             txtname9.setText("");
@@ -3736,6 +3784,35 @@ public class MainJFrame extends javax.swing.JFrame {
         txtMobile17.setText((String) model.getValueAt(selectedCommunity, 3));
                 
     }//GEN-LAST:event_btnAdd19ActionPerformed
+
+    private void btnAdd13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd13ActionPerformed
+        // TODO add your handling code here:
+       int selectedRowIndex = tblMeals.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tblMeals.getModel();
+        Meals p = (Meals) model.getValueAt(selectedRowIndex, 0);
+        system.getNetworkList().get(0).getEnterpriseDirectory().getResources().deleteMeal(p);
+        txtname7.setText("");
+        txtAddress7.setText("");
+        txtMobile13.setText("");
+                JOptionPane.showMessageDialog(this,"Restaurant removed!");
+
+        displayResources(tblMeals, "Meal");
+    }//GEN-LAST:event_btnAdd13ActionPerformed
+
+    private void btnAdd27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd27ActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = tblDonations.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tblDonations.getModel();
+        Donations p = (Donations) model.getValueAt(selectedRowIndex, 0);
+        system.getNetworkList().get(0).getEnterpriseDirectory().getResources().deleteDonation(p);
+        txtname8.setText("");
+        txtAddress8.setText("");
+        txtMobile15.setText("");
+                JOptionPane.showMessageDialog(this,"Donation center removed!");
+
+        displayResources(tblDonations, "Donation");
+        
+    }//GEN-LAST:event_btnAdd27ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3828,6 +3905,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnAdd10;
     private javax.swing.JButton btnAdd11;
     private javax.swing.JButton btnAdd12;
+    private javax.swing.JButton btnAdd13;
     private javax.swing.JButton btnAdd15;
     private javax.swing.JButton btnAdd16;
     private javax.swing.JButton btnAdd17;
@@ -3841,6 +3919,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnAdd24;
     private javax.swing.JButton btnAdd25;
     private javax.swing.JButton btnAdd26;
+    private javax.swing.JButton btnAdd27;
     private javax.swing.JButton btnAdd3;
     private javax.swing.JButton btnAdd4;
     private javax.swing.JButton btnAdd5;

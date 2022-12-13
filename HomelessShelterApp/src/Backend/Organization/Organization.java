@@ -22,7 +22,7 @@ public abstract class Organization {
 //    private Location locationPoint;
     private double nearestLocationPoint;
     private Type type;
-    private int phone;
+    private String phone;
     private String website;
     private String address;
 
@@ -116,11 +116,11 @@ public abstract class Organization {
 //        this.roles = roles;
 //    }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
