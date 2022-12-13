@@ -14,18 +14,19 @@ public class ShelterNGO extends Organization {
     
     private String name;
     private String ShelterNGO;
-    private double capacity;
+//    private double phone;
     private double volunteers;
     private String gender;
     private String SpecialCategory;
+    
 
-    public double getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(double capacity) {
-        this.capacity = capacity;
-    }
+//    public double getPhone() {
+//        return phone;
+//    }
+//
+//    public void setPhone(double phone) {
+//        this.phone = phone;
+//    }
 
     public double getVolunteers() {
         return volunteers;

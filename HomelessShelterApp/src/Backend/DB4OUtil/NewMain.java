@@ -83,10 +83,10 @@ public class NewMain {
         enterprises.getResources().addResources(Organization.Type.Meals, "Shelter10", l8);
         
         enterprises.getResources().addResources(Organization.Type.Meals, "Shelter1", l9);
-        enterprises.getJobs().addJob(Organization.Type.Jobs, "Shelter2", l1);
-        enterprises.getJobs().addJob(Organization.Type.Jobs, "Shelter3", l2);
-        enterprises.getJobs().addJob(Organization.Type.Jobs, "Shelter4", l3);
-        enterprises.getJobs().addJob(Organization.Type.Jobs, "Shelter5", l4);
+        enterprises.getJobs().addJob(Organization.Type.Jobs, "Labour", l1);
+        enterprises.getJobs().addJob(Organization.Type.Jobs, "tutor", l2);
+        enterprises.getJobs().addJob(Organization.Type.Jobs, "mechanic", l3);
+        enterprises.getJobs().addJob(Organization.Type.Jobs, "labour", l4);
         
         enterprises.getResources().addResources(Organization.Type.Donations, "Shelter6", l4);
         enterprises.getResources().addResources(Organization.Type.Donations, "Shelter7", l5);
