@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class ShelterNGO extends Organization {
     
     private String name;
-    private String ShelterNGO;
+//    private String ShelterNGO;
 //    private double phone;
     private double volunteers;
     private String gender;
@@ -55,15 +55,23 @@ public class ShelterNGO extends Organization {
     public ShelterNGO(String name) {
         super(name);
         this.name = name;
-        ShelterNGO = name;
+//        ShelterNGO = name;
     }
 
-    public String getShelterNGO() {
-        return ShelterNGO;
+//    public String getShelterNGO() {
+//        return ShelterNGO;
+//    }
+//
+//    public void setShelterNGO(String ShelterNGO) {
+//        this.ShelterNGO = ShelterNGO;
+//    }
+
+    public String getName() {
+        return name;
     }
 
-    public void setShelterNGO(String ShelterNGO) {
-        this.ShelterNGO = ShelterNGO;
+    public void setName(String name) {
+        this.name = name;
     }
     
 
