@@ -318,7 +318,7 @@ public class MainJFrame extends javax.swing.JFrame {
         btnAdd20 = new javax.swing.JButton();
         btnAdd21 = new javax.swing.JButton();
         btnAdd22 = new javax.swing.JButton();
-        CouncellingPanel = new javax.swing.JPanel();
+        CounsellingPanel = new javax.swing.JPanel();
         jLabel69 = new javax.swing.JLabel();
         jScrollPane16 = new javax.swing.JScrollPane();
         tblCouncelling = new javax.swing.JTable();
@@ -2323,7 +2323,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jButton19.setText("Medical");
 
-        jButton20.setText("Councelling");
+        jButton20.setText("Counselling");
 
         jButton21.setText("Requests");
 
@@ -2480,7 +2480,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jPanel2.add(MedicalPanel, "card2");
 
-        jLabel69.setText("Manage Coujncelling Centers");
+        jLabel69.setText("Manage Counselling Centers");
 
         tblCouncelling.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2523,87 +2523,87 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jButton23.setText("Set Location");
 
-        javax.swing.GroupLayout CouncellingPanelLayout = new javax.swing.GroupLayout(CouncellingPanel);
-        CouncellingPanel.setLayout(CouncellingPanelLayout);
-        CouncellingPanelLayout.setHorizontalGroup(
-            CouncellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CouncellingPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout CounsellingPanelLayout = new javax.swing.GroupLayout(CounsellingPanel);
+        CounsellingPanel.setLayout(CounsellingPanelLayout);
+        CounsellingPanelLayout.setHorizontalGroup(
+            CounsellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CounsellingPanelLayout.createSequentialGroup()
                 .addGap(247, 247, 247)
                 .addComponent(jLabel69)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CouncellingPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CounsellingPanelLayout.createSequentialGroup()
                 .addContainerGap(65, Short.MAX_VALUE)
-                .addGroup(CouncellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(CounsellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(CouncellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(CounsellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(btnAdd25)
-                        .addGroup(CouncellingPanelLayout.createSequentialGroup()
-                            .addGroup(CouncellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(CouncellingPanelLayout.createSequentialGroup()
+                        .addGroup(CounsellingPanelLayout.createSequentialGroup()
+                            .addGroup(CounsellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(CounsellingPanelLayout.createSequentialGroup()
                                     .addComponent(jLabel71)
                                     .addGap(18, 18, 18)
                                     .addComponent(txtname11, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(CouncellingPanelLayout.createSequentialGroup()
+                                .addGroup(CounsellingPanelLayout.createSequentialGroup()
                                     .addComponent(jLabel72)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(CouncellingPanelLayout.createSequentialGroup()
+                                .addGroup(CounsellingPanelLayout.createSequentialGroup()
                                     .addComponent(Address31)
                                     .addGap(18, 18, 18)
                                     .addComponent(txtAddress11, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(28, 28, 28)
-                            .addGroup(CouncellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(CounsellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel70)
                                 .addComponent(Address30))
                             .addGap(18, 18, 18)
-                            .addGroup(CouncellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(CounsellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtMobile19, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jComboBoxHealth2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGroup(CouncellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CouncellingPanelLayout.createSequentialGroup()
+                .addGroup(CounsellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CounsellingPanelLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(btnAdd24)
                         .addGap(35, 35, 35))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CouncellingPanelLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CounsellingPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnAdd23)
                         .addGap(51, 51, 51))))
         );
-        CouncellingPanelLayout.setVerticalGroup(
-            CouncellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CouncellingPanelLayout.createSequentialGroup()
+        CounsellingPanelLayout.setVerticalGroup(
+            CounsellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CounsellingPanelLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel69, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(CouncellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(CouncellingPanelLayout.createSequentialGroup()
+                .addGroup(CounsellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(CounsellingPanelLayout.createSequentialGroup()
                         .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
-                        .addGroup(CouncellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(CounsellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel71)
                             .addComponent(txtname11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel70)
                             .addComponent(jComboBoxHealth2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(CouncellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(CounsellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Address31)
                             .addComponent(txtAddress11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Address30)
                             .addComponent(txtMobile19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(CouncellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(CounsellingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel72)
                             .addComponent(jButton23))
                         .addGap(42, 42, 42)
                         .addComponent(btnAdd25))
-                    .addGroup(CouncellingPanelLayout.createSequentialGroup()
+                    .addGroup(CounsellingPanelLayout.createSequentialGroup()
                         .addComponent(btnAdd23)
                         .addGap(143, 143, 143)
                         .addComponent(btnAdd24)))
                 .addContainerGap(174, Short.MAX_VALUE))
         );
 
-        jPanel2.add(CouncellingPanel, "card3");
+        jPanel2.add(CounsellingPanel, "card3");
 
         jLabel73.setText("Manage Health Requests");
 
@@ -2794,7 +2794,7 @@ public class MainJFrame extends javax.swing.JFrame {
         ResourcePanelLayout.setHorizontalGroup(
             ResourcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ResourcePanelLayout.createSequentialGroup()
-                .addContainerGap(121, Short.MAX_VALUE)
+                .addContainerGap(117, Short.MAX_VALUE)
                 .addGroup(ResourcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton29)
                     .addGroup(ResourcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2849,7 +2849,7 @@ public class MainJFrame extends javax.swing.JFrame {
         HealthViewPanelLayout.setHorizontalGroup(
             HealthViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HealthViewPanelLayout.createSequentialGroup()
-                .addContainerGap(101, Short.MAX_VALUE)
+                .addContainerGap(97, Short.MAX_VALUE)
                 .addGroup(HealthViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton28)
                     .addGroup(HealthViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2908,7 +2908,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel74)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ShelterViewPanelLayout.createSequentialGroup()
-                .addContainerGap(110, Short.MAX_VALUE)
+                .addContainerGap(106, Short.MAX_VALUE)
                 .addGroup(ShelterViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton27)
                     .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2934,7 +2934,7 @@ public class MainJFrame extends javax.swing.JFrame {
         PanelHomelessPerson.setLayout(PanelHomelessPersonLayout);
         PanelHomelessPersonLayout.setHorizontalGroup(
             PanelHomelessPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE)
+            .addComponent(jSplitPane6)
         );
         PanelHomelessPersonLayout.setVerticalGroup(
             PanelHomelessPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3060,7 +3060,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel Address8;
     private javax.swing.JLabel Address9;
     private javax.swing.JPanel AdminPanel;
-    private javax.swing.JPanel CouncellingPanel;
+    private javax.swing.JPanel CounsellingPanel;
     private javax.swing.JPanel DonationsPanel;
     private javax.swing.JPanel EmployementPanel;
     private javax.swing.JPanel GovtPanel;

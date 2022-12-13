@@ -3658,7 +3658,7 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton20">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="Councelling"/>
+                            <Property name="text" type="java.lang.String" value="Counselling"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton21">
@@ -3908,7 +3908,7 @@
                             </Component>
                           </SubComponents>
                         </Container>
-                        <Container class="javax.swing.JPanel" name="CouncellingPanel">
+                        <Container class="javax.swing.JPanel" name="CounsellingPanel">
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
                               <CardConstraints cardName="card3"/>
@@ -4020,7 +4020,7 @@
                           <SubComponents>
                             <Component class="javax.swing.JLabel" name="jLabel69">
                               <Properties>
-                                <Property name="text" type="java.lang.String" value="Manage Coujncelling Centers"/>
+                                <Property name="text" type="java.lang.String" value="Manage Counselling Centers"/>
                               </Properties>
                             </Component>
                             <Container class="javax.swing.JScrollPane" name="jScrollPane16">
@@ -4348,7 +4348,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jSplitPane6" alignment="0" pref="758" max="32767" attributes="0"/>
+                      <Component id="jSplitPane6" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -4438,7 +4438,7 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace pref="121" max="32767" attributes="0"/>
+                                      <EmptySpace pref="117" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="jButton29" min="-2" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -4540,7 +4540,7 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace pref="101" max="32767" attributes="0"/>
+                                      <EmptySpace pref="97" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="jButton28" min="-2" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -4647,7 +4647,7 @@
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace pref="110" max="32767" attributes="0"/>
+                                      <EmptySpace pref="106" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="jButton27" min="-2" max="-2" attributes="0"/>
                                           <Component id="jScrollPane18" min="-2" max="-2" attributes="0"/>
