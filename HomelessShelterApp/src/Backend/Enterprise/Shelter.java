@@ -32,6 +32,8 @@ public class Shelter extends Enterprise {
     public List<ShelterGovernment> getGovShelters() {
         return govShelters;
     }
+    
+
 
     public void setGovShelters(List<ShelterGovernment> govShelters) {
         this.govShelters = govShelters;

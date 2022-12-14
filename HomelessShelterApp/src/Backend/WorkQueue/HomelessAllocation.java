@@ -5,6 +5,7 @@
 package Backend.WorkQueue;
 
 import Backend.Enterprise.Enterprise;
+import Backend.Enterprise.Shelter;
 //import Backend.Location.Location;
 import Backend.Network.Network;
 import Backend.Organization.Organization;
@@ -18,12 +19,12 @@ public class HomelessAllocation extends WorkRequest {
     private Network network;
     private Enterprise enterprise;
     private Organization.Type orgType;
+    private Shelter shelter;
+//    private String gender;
     private String name;
-    private String gender;
-    private String userID;
     private String orgName;
-    private String userCity;
-    private String userContact;
+//    private String /userCity;
+//    private String userContact;
 //    private Location userLocationPoint;
     
 
@@ -69,21 +70,21 @@ public class HomelessAllocation extends WorkRequest {
     }
 
     
-    public String getUserCity() {
-        return userCity;
-    }
-
-    public void setUserCity(String userCity) {
-        this.userCity = userCity;
-    }
-
-    public String getUserContact() {
-        return userContact;
-    }
-
-    public void setUserContact(String userContact) {
-        this.userContact = userContact;
-    }
+//    public String getUserCity() {
+//        return userCity;
+//    }
+//
+//    public void setUserCity(String userCity) {
+//        this.userCity = userCity;
+//    }
+//
+//    public String getUserContact() {
+//        return userContact;
+//    }
+//
+//    public void setUserContact(String userContact) {
+//        this.userContact = userContact;
+//    }
 
 //    public Location getUserLocationPoint() {
 //        return userLocationPoint;
@@ -93,21 +94,37 @@ public class HomelessAllocation extends WorkRequest {
 //        this.userLocationPoint = userLocationPoint;
 //    }
     
-        public String getGender() {
-        return gender;
+//        public String getGender() {
+//        return gender;
+//    }
+//
+//    public void setGender(String gender) {
+//        this.gender = gender;
+//    }
+//
+//    public String getUserID() {
+//        return userID;
+//    }
+//
+//    public void setUserID(String userID) {
+//        this.userID = userID;
+//    }
+
+    public Shelter getShelter() {
+        return shelter;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setShelter(Shelter shelter) {
+        this.shelter = shelter;
     }
 
-    public String getUserID() {
-        return userID;
-    }
-
-    public void setUserID(String userID) {
-        this.userID = userID;
-    }
+//    public String getUserName() {
+//        return userName;
+//    }
+//
+//    public void setUserName(String userName) {
+//        this.userName = userName;
+//    }
     
     
 }

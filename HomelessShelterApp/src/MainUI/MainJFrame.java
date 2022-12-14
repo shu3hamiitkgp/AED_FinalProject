@@ -6,7 +6,9 @@ package MainUI;
 
 import Backend.DB4OUtil.DB4OUtil;
 import Backend.Ecosystem.EcoSystem;
+import Backend.Enterprise.Enterprise;
 import Backend.Enterprise.Resources;
+import Backend.Enterprise.Shelter;
 import Backend.Network.Network;
 import Backend.Organization.Counselling;
 import Backend.Organization.Donations;
@@ -19,6 +21,7 @@ import Backend.Organization.ShelterNGO;
 import Backend.Organization.ShelterPrivate;
 import Backend.UserAccount.UserAccount;
 import Backend.UserAccount.UserAccountDirectory;
+import Backend.WorkQueue.HomelessAllocation;
 import java.awt.CardLayout;
 import java.util.Objects;
 import javax.swing.JOptionPane;
@@ -3058,20 +3061,20 @@ public class MainJFrame extends javax.swing.JFrame {
 
         tblResources5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ResourceID", "Name", "Type", "Address", "Mobile"
+                "Name", "Type", "Address", "Mobile"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -3090,10 +3093,6 @@ public class MainJFrame extends javax.swing.JFrame {
         });
         jScrollPane20.setViewportView(tblResources5);
         tblResources5.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        if (tblResources5.getColumnModel().getColumnCount() > 0) {
-            tblResources5.getColumnModel().getColumn(0).setMinWidth(0);
-            tblResources5.getColumnModel().getColumn(0).setMaxWidth(0);
-        }
 
         jButton29.setText("Place Request");
 
@@ -3133,20 +3132,20 @@ public class MainJFrame extends javax.swing.JFrame {
 
         tblResources4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "Company Name", "Type", "Address", "Mobile"
+                "Company Name", "Type", "Address", "Mobile"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -3166,10 +3165,6 @@ public class MainJFrame extends javax.swing.JFrame {
         });
         jScrollPane19.setViewportView(tblResources4);
         tblResources4.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        if (tblResources4.getColumnModel().getColumnCount() > 0) {
-            tblResources4.getColumnModel().getColumn(0).setMinWidth(0);
-            tblResources4.getColumnModel().getColumn(0).setMaxWidth(0);
-        }
 
         jButton28.setText("Place Request");
 
@@ -3243,6 +3238,11 @@ public class MainJFrame extends javax.swing.JFrame {
         tblShelter1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         jButton27.setText("Place Request");
+        jButton27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton27ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ShelterViewPanelLayout = new javax.swing.GroupLayout(ShelterViewPanel);
         ShelterViewPanel.setLayout(ShelterViewPanelLayout);
@@ -4201,6 +4201,22 @@ public class MainJFrame extends javax.swing.JFrame {
     private void txtMobile25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMobile25ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMobile25ActionPerformed
+
+    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+        // TODO add your handling code here:
+        HomelessAllocation shelterreq = new HomelessAllocation();
+        int selectedRowIndex = tblCouncelling.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tblShelter1.getModel();
+        Organization p = (Organization) model.getValueAt(selectedRowIndex, 0);
+            shelterreq.setName(p.getName());
+            shelterreq.setOrgType(p.getType());
+            
+            userAccount.getWorkQueue().getWorkRequestList().add(shelterreq);
+
+            //for (Network net : business.getNetworkList()) {
+            
+//        if(p.getType()==)
+    }//GEN-LAST:event_jButton27ActionPerformed
 
     /**
      * @param args the command line arguments
