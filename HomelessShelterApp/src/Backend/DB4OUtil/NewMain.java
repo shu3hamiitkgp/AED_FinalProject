@@ -69,31 +69,31 @@ public class NewMain {
         enterprises.getShelters().addShelter(Organization.Type.PrivateShelter, "Shelter9", l9);
         enterprises.getShelters().addShelter(Organization.Type.PrivateShelter, "Shelter10", l10);
         
-        enterprises.getHospitals().addHealth(Organization.Type.Counselling, "Shelter1", l1);
-        enterprises.getHospitals().addHealth(Organization.Type.Counselling, "Shelter2", l7);
-        enterprises.getHospitals().addHealth(Organization.Type.Medical, "Shelter3", l1);
-        enterprises.getHospitals().addHealth(Organization.Type.Medical, "Shelter4", l2);
-        enterprises.getHospitals().addHealth(Organization.Type.Medical, "Shelter5", l3);
+        enterprises.getHospitals().addHealth(Organization.Type.Counselling, "Counselling1", l1);
+        enterprises.getHospitals().addHealth(Organization.Type.Counselling, "Counselling2", l7);
+        enterprises.getHospitals().addHealth(Organization.Type.Medical, "Hospital1", l1);
+        enterprises.getHospitals().addHealth(Organization.Type.Medical, "Hospital2", l2);
+        enterprises.getHospitals().addHealth(Organization.Type.Medical, "Hospital3", l3);
         
-        enterprises.getResources().addResources(Organization.Type.Donations, "Shelter6", l4);
-        enterprises.getResources().addResources(Organization.Type.Donations, "Shelter7", l5);
-        enterprises.getResources().addResources(Organization.Type.Meals, "Shelter8", l6);
+        enterprises.getResources().addResources(Organization.Type.Donations, "Donator1", l4);
+        enterprises.getResources().addResources(Organization.Type.Donations, "Donator2", l5);
+        enterprises.getResources().addResources(Organization.Type.Meals, "Restraunt1", l6);
         
-        enterprises.getResources().addResources(Organization.Type.Meals, "Shelter9", l7);
-        enterprises.getResources().addResources(Organization.Type.Meals, "Shelter10", l8);
+        enterprises.getResources().addResources(Organization.Type.Meals, "Restraunt2", l7);
+        enterprises.getResources().addResources(Organization.Type.Meals, "Restraunt3", l8);
         
-        enterprises.getResources().addResources(Organization.Type.Meals, "Shelter1", l9);
+        enterprises.getResources().addResources(Organization.Type.Meals, "Restraunt4", l9);
         enterprises.getJobs().addJob(Organization.Type.Jobs, "Labour", l1);
         enterprises.getJobs().addJob(Organization.Type.Jobs, "tutor", l2);
         enterprises.getJobs().addJob(Organization.Type.Jobs, "mechanic", l3);
         enterprises.getJobs().addJob(Organization.Type.Jobs, "labour", l4);
         
-        enterprises.getResources().addResources(Organization.Type.Donations, "Shelter6", l4);
-        enterprises.getResources().addResources(Organization.Type.Donations, "Shelter7", l5);
-        enterprises.getResources().addResources(Organization.Type.Meals, "Shelter8", l6);
+        enterprises.getResources().addResources(Organization.Type.Donations, "Donator3", l4);
+        enterprises.getResources().addResources(Organization.Type.Donations, "Donator4", l5);
+        enterprises.getResources().addResources(Organization.Type.Meals, "Restraunt4", l6);
         
-        enterprises.getResources().addResources(Organization.Type.Meals, "Shelter9", l12);
-        enterprises.getResources().addResources(Organization.Type.Meals, "Shelter10", l11);
+        enterprises.getResources().addResources(Organization.Type.Meals, "Restraunt5", l12);
+        enterprises.getResources().addResources(Organization.Type.Meals, " Restraunt6", l11);
                
         UserAccountDirectory users = system.getDirectory();
         users.createUserAccount("system", "Patel", "SystemAdmin");

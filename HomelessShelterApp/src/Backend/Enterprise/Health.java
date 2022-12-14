@@ -58,6 +58,9 @@ public class Health extends Enterprise {
         return organization;
     }
     
+    
+    
+    
     public List<Counselling> deleteRehab(Counselling m){
         rehabs.remove(m);
         this.getOrganizationDirectory().getOrganizationList().remove(m);

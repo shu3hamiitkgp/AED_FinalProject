@@ -62,7 +62,11 @@ public abstract class Organization {
     public Type getType() {
         return type;
     }
-
+    
+//    public Type getType(String typename){
+//        return type.typename;
+//    }
+    
     public void setType(Type type) {
         this.type = type;
     }

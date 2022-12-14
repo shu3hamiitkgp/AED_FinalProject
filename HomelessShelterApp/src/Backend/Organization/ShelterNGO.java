@@ -12,13 +12,13 @@ import java.util.ArrayList;
  */
 public class ShelterNGO extends Organization {
     
-    private String name;
+//    private String name;
 //    private String ShelterNGO;
 //    private double phone;
     private double volunteers;
     private String gender;
     private String SpecialCategory;
-    
+
 
 //    public double getPhone() {
 //        return phone;
@@ -54,7 +54,7 @@ public class ShelterNGO extends Organization {
 
     public ShelterNGO(String name) {
         super(name);
-        this.name = name;
+        
 //        ShelterNGO = name;
     }
 
@@ -66,18 +66,5 @@ public class ShelterNGO extends Organization {
 //        this.ShelterNGO = ShelterNGO;
 //    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-
-       @Override
-    public Type getType() {
-        return Organization.Type.NGOShelter;
-    } 
     
 }

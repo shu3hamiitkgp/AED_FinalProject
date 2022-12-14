@@ -12,27 +12,21 @@ import java.util.ArrayList;
  */
 public class ShelterGovernment extends Organization {
     
-    private String name;
-    private String ShelterGovernment;
+//    private String name;
+//    private String ShelterGovernment;
     private double capacity;
     private double volunteers;
-    private String gender;
+//    private String gender;
     private String SpecialCategory;
     
     
     public ShelterGovernment(String name) {
         super(name);
-        this.name = name;
-        ShelterGovernment = name;
+//        this.name = name;
+//        ShelterGovernment = name;
     }
 
-    public String getShelterGovernment() {
-        return ShelterGovernment;
-    }
-
-    public void setShelterGovernment(String ShelterPrivate) {
-        this.ShelterGovernment = ShelterPrivate;
-    }
+    
 
     public double getCapacity() {
         return capacity;
@@ -42,10 +36,7 @@ public class ShelterGovernment extends Organization {
         return volunteers;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
+    
     public String getSpecialCategory() {
         return SpecialCategory;
     }
@@ -58,17 +49,5 @@ public class ShelterGovernment extends Organization {
         this.volunteers = volunteers;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public void setSpecialCategory(String SpecialCategory) {
-        this.SpecialCategory = SpecialCategory;
-    }
-    
-       @Override
-    public Type getType() {
-        return Organization.Type.GovernmentShelter;
-    } 
     
 }
